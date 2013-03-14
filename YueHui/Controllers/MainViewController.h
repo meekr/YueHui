@@ -6,6 +6,10 @@
 //  Copyright (c) 2013 BitRice. All rights reserved.
 //
 
+#import "YHTabBarController.h"
+
 @interface MainViewController : UIViewController
+
+@property (nonatomic, strong) YHTabBarController *tabBarController;
 
 @end
