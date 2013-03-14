@@ -10,12 +10,28 @@
 		C2D75E7916F190FA0008C9E5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D75E7816F190FA0008C9E5 /* UIKit.framework */; };
 		C2D75E7B16F190FA0008C9E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D75E7A16F190FA0008C9E5 /* Foundation.framework */; };
 		C2D75E7D16F190FA0008C9E5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D75E7C16F190FA0008C9E5 /* CoreGraphics.framework */; };
-		C2D75E8316F190FA0008C9E5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2D75E8116F190FA0008C9E5 /* InfoPlist.strings */; };
-		C2D75E8516F190FA0008C9E5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D75E8416F190FA0008C9E5 /* main.m */; };
 		C2D75E8916F190FA0008C9E5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D75E8816F190FA0008C9E5 /* AppDelegate.m */; };
-		C2D75E8B16F190FA0008C9E5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D75E8A16F190FA0008C9E5 /* Default.png */; };
-		C2D75E8D16F190FA0008C9E5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D75E8C16F190FA0008C9E5 /* Default@2x.png */; };
-		C2D75E8F16F190FA0008C9E5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D75E8E16F190FA0008C9E5 /* Default-568h@2x.png */; };
+		C2D75EB116F1A6F40008C9E5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D75EA316F1A6F40008C9E5 /* Default-568h@2x.png */; };
+		C2D75EB216F1A6F40008C9E5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D75EA416F1A6F40008C9E5 /* Default.png */; };
+		C2D75EB316F1A6F40008C9E5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D75EA516F1A6F40008C9E5 /* Default@2x.png */; };
+		C2D75EB416F1A6F40008C9E5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2D75EA616F1A6F40008C9E5 /* InfoPlist.strings */; };
+		C2D75EB516F1A6F40008C9E5 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D75EA816F1A6F40008C9E5 /* Icon.png */; };
+		C2D75EB616F1A6F40008C9E5 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D75EA916F1A6F40008C9E5 /* Icon@2x.png */; };
+		C2D75EB716F1A6F40008C9E5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D75EAA16F1A6F40008C9E5 /* main.m */; };
+		C2D75EBC16F1A79A0008C9E5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D75EBB16F1A79A0008C9E5 /* SystemConfiguration.framework */; };
+		C2D75EBE16F1A7A20008C9E5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D75EBD16F1A7A20008C9E5 /* AudioToolbox.framework */; };
+		C2D75EC016F1A7A90008C9E5 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D75EBF16F1A7A90008C9E5 /* CoreAudio.framework */; };
+		C2D75EC216F1A7B20008C9E5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D75EC116F1A7B20008C9E5 /* QuartzCore.framework */; };
+		C2D75EC416F1A7BE0008C9E5 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D75EC316F1A7BE0008C9E5 /* libc++.dylib */; };
+		C2D75EC616F1A8AC0008C9E5 /* libultrasonicLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D75EC516F1A8AC0008C9E5 /* libultrasonicLib.a */; };
+		C2D75EC916F1B4CC0008C9E5 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D75EC816F1B4CC0008C9E5 /* MainViewController.m */; };
+		C2D75ED316F1B6CC0008C9E5 /* NSString+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D75ECC16F1B6CC0008C9E5 /* NSString+Ex.m */; };
+		C2D75ED416F1B6CC0008C9E5 /* UIColor+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D75ECE16F1B6CC0008C9E5 /* UIColor+Ext.m */; };
+		C2D75ED516F1B6CC0008C9E5 /* UIImage+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D75ED016F1B6CC0008C9E5 /* UIImage+Ext.m */; };
+		C2D75ED616F1B6CC0008C9E5 /* UIView+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D75ED216F1B6CC0008C9E5 /* UIView+Ext.m */; };
+		C2D75ED916F1C2E30008C9E5 /* UINavigationBar+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D75ED816F1C2E30008C9E5 /* UINavigationBar+Ext.m */; };
+		C2D75EDE16F1C97D0008C9E5 /* top-bar-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D75EDC16F1C97D0008C9E5 /* top-bar-bg.png */; };
+		C2D75EDF16F1C97D0008C9E5 /* top-bar-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D75EDD16F1C97D0008C9E5 /* top-bar-bg@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,15 +39,37 @@
 		C2D75E7816F190FA0008C9E5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C2D75E7A16F190FA0008C9E5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C2D75E7C16F190FA0008C9E5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		C2D75E8016F190FA0008C9E5 /* YueHui-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "YueHui-Info.plist"; sourceTree = "<group>"; };
-		C2D75E8216F190FA0008C9E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		C2D75E8416F190FA0008C9E5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C2D75E8616F190FA0008C9E5 /* YueHui-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YueHui-Prefix.pch"; sourceTree = "<group>"; };
 		C2D75E8716F190FA0008C9E5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C2D75E8816F190FA0008C9E5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C2D75E8A16F190FA0008C9E5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		C2D75E8C16F190FA0008C9E5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		C2D75E8E16F190FA0008C9E5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		C2D75EA316F1A6F40008C9E5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		C2D75EA416F1A6F40008C9E5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		C2D75EA516F1A6F40008C9E5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		C2D75EA716F1A6F40008C9E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C2D75EA816F1A6F40008C9E5 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		C2D75EA916F1A6F40008C9E5 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		C2D75EAA16F1A6F40008C9E5 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C2D75EAB16F1A6F40008C9E5 /* YueHui-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "YueHui-Info.plist"; sourceTree = "<group>"; };
+		C2D75EAC16F1A6F40008C9E5 /* YueHui-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YueHui-Prefix.pch"; sourceTree = "<group>"; };
+		C2D75EBB16F1A79A0008C9E5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C2D75EBD16F1A7A20008C9E5 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		C2D75EBF16F1A7A90008C9E5 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		C2D75EC116F1A7B20008C9E5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C2D75EC316F1A7BE0008C9E5 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		C2D75EC516F1A8AC0008C9E5 /* libultrasonicLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libultrasonicLib.a; sourceTree = "<group>"; };
+		C2D75EC716F1B4CC0008C9E5 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		C2D75EC816F1B4CC0008C9E5 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		C2D75ECB16F1B6CC0008C9E5 /* NSString+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Ext.h"; sourceTree = "<group>"; };
+		C2D75ECC16F1B6CC0008C9E5 /* NSString+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Ex.m"; sourceTree = "<group>"; };
+		C2D75ECD16F1B6CC0008C9E5 /* UIColor+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Ext.h"; sourceTree = "<group>"; };
+		C2D75ECE16F1B6CC0008C9E5 /* UIColor+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Ext.m"; sourceTree = "<group>"; };
+		C2D75ECF16F1B6CC0008C9E5 /* UIImage+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Ext.h"; sourceTree = "<group>"; };
+		C2D75ED016F1B6CC0008C9E5 /* UIImage+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Ext.m"; sourceTree = "<group>"; };
+		C2D75ED116F1B6CC0008C9E5 /* UIView+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Ext.h"; sourceTree = "<group>"; };
+		C2D75ED216F1B6CC0008C9E5 /* UIView+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Ext.m"; sourceTree = "<group>"; };
+		C2D75ED716F1C2E30008C9E5 /* UINavigationBar+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Ext.h"; sourceTree = "<group>"; };
+		C2D75ED816F1C2E30008C9E5 /* UINavigationBar+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Ext.m"; sourceTree = "<group>"; };
+		C2D75EDC16F1C97D0008C9E5 /* top-bar-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top-bar-bg.png"; sourceTree = "<group>"; };
+		C2D75EDD16F1C97D0008C9E5 /* top-bar-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top-bar-bg@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,9 +77,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2D75EC416F1A7BE0008C9E5 /* libc++.dylib in Frameworks */,
+				C2D75EC216F1A7B20008C9E5 /* QuartzCore.framework in Frameworks */,
+				C2D75EC016F1A7A90008C9E5 /* CoreAudio.framework in Frameworks */,
+				C2D75EBE16F1A7A20008C9E5 /* AudioToolbox.framework in Frameworks */,
+				C2D75EBC16F1A79A0008C9E5 /* SystemConfiguration.framework in Frameworks */,
 				C2D75E7916F190FA0008C9E5 /* UIKit.framework in Frameworks */,
 				C2D75E7B16F190FA0008C9E5 /* Foundation.framework in Frameworks */,
 				C2D75E7D16F190FA0008C9E5 /* CoreGraphics.framework in Frameworks */,
+				C2D75EC616F1A8AC0008C9E5 /* libultrasonicLib.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +112,12 @@
 		C2D75E7716F190FA0008C9E5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C2D75EC316F1A7BE0008C9E5 /* libc++.dylib */,
+				C2D75EC516F1A8AC0008C9E5 /* libultrasonicLib.a */,
+				C2D75EC116F1A7B20008C9E5 /* QuartzCore.framework */,
+				C2D75EBF16F1A7A90008C9E5 /* CoreAudio.framework */,
+				C2D75EBD16F1A7A20008C9E5 /* AudioToolbox.framework */,
+				C2D75EBB16F1A79A0008C9E5 /* SystemConfiguration.framework */,
 				C2D75E7816F190FA0008C9E5 /* UIKit.framework */,
 				C2D75E7A16F190FA0008C9E5 /* Foundation.framework */,
 				C2D75E7C16F190FA0008C9E5 /* CoreGraphics.framework */,
@@ -80,23 +130,87 @@
 			children = (
 				C2D75E8716F190FA0008C9E5 /* AppDelegate.h */,
 				C2D75E8816F190FA0008C9E5 /* AppDelegate.m */,
-				C2D75E7F16F190FA0008C9E5 /* Supporting Files */,
+				C2D75EA116F1A6F40008C9E5 /* Assets */,
+				C2D75EAD16F1A6F40008C9E5 /* Classes */,
+				C2D75EAE16F1A6F40008C9E5 /* Controllers */,
+				C2D75EAF16F1A6F40008C9E5 /* Models */,
+				C2D75EB016F1A6F40008C9E5 /* Views */,
 			);
 			path = YueHui;
 			sourceTree = "<group>";
 		};
-		C2D75E7F16F190FA0008C9E5 /* Supporting Files */ = {
+		C2D75EA116F1A6F40008C9E5 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				C2D75E8016F190FA0008C9E5 /* YueHui-Info.plist */,
-				C2D75E8116F190FA0008C9E5 /* InfoPlist.strings */,
-				C2D75E8416F190FA0008C9E5 /* main.m */,
-				C2D75E8616F190FA0008C9E5 /* YueHui-Prefix.pch */,
-				C2D75E8A16F190FA0008C9E5 /* Default.png */,
-				C2D75E8C16F190FA0008C9E5 /* Default@2x.png */,
-				C2D75E8E16F190FA0008C9E5 /* Default-568h@2x.png */,
+				C2D75EDC16F1C97D0008C9E5 /* top-bar-bg.png */,
+				C2D75EDD16F1C97D0008C9E5 /* top-bar-bg@2x.png */,
+				C2D75EA216F1A6F40008C9E5 /* Supporting */,
 			);
-			name = "Supporting Files";
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		C2D75EA216F1A6F40008C9E5 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				C2D75EA316F1A6F40008C9E5 /* Default-568h@2x.png */,
+				C2D75EA416F1A6F40008C9E5 /* Default.png */,
+				C2D75EA516F1A6F40008C9E5 /* Default@2x.png */,
+				C2D75EA616F1A6F40008C9E5 /* InfoPlist.strings */,
+				C2D75EA816F1A6F40008C9E5 /* Icon.png */,
+				C2D75EA916F1A6F40008C9E5 /* Icon@2x.png */,
+				C2D75EAA16F1A6F40008C9E5 /* main.m */,
+				C2D75EAB16F1A6F40008C9E5 /* YueHui-Info.plist */,
+				C2D75EAC16F1A6F40008C9E5 /* YueHui-Prefix.pch */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		C2D75EAD16F1A6F40008C9E5 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C2D75ECA16F1B6CC0008C9E5 /* Extentions */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		C2D75EAE16F1A6F40008C9E5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C2D75EC716F1B4CC0008C9E5 /* MainViewController.h */,
+				C2D75EC816F1B4CC0008C9E5 /* MainViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C2D75EAF16F1A6F40008C9E5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C2D75EB016F1A6F40008C9E5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C2D75ECA16F1B6CC0008C9E5 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				C2D75ECB16F1B6CC0008C9E5 /* NSString+Ext.h */,
+				C2D75ECC16F1B6CC0008C9E5 /* NSString+Ex.m */,
+				C2D75ECD16F1B6CC0008C9E5 /* UIColor+Ext.h */,
+				C2D75ECE16F1B6CC0008C9E5 /* UIColor+Ext.m */,
+				C2D75ECF16F1B6CC0008C9E5 /* UIImage+Ext.h */,
+				C2D75ED016F1B6CC0008C9E5 /* UIImage+Ext.m */,
+				C2D75ED716F1C2E30008C9E5 /* UINavigationBar+Ext.h */,
+				C2D75ED816F1C2E30008C9E5 /* UINavigationBar+Ext.m */,
+				C2D75ED116F1B6CC0008C9E5 /* UIView+Ext.h */,
+				C2D75ED216F1B6CC0008C9E5 /* UIView+Ext.m */,
+			);
+			path = Extentions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,10 +264,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2D75E8316F190FA0008C9E5 /* InfoPlist.strings in Resources */,
-				C2D75E8B16F190FA0008C9E5 /* Default.png in Resources */,
-				C2D75E8D16F190FA0008C9E5 /* Default@2x.png in Resources */,
-				C2D75E8F16F190FA0008C9E5 /* Default-568h@2x.png in Resources */,
+				C2D75EB116F1A6F40008C9E5 /* Default-568h@2x.png in Resources */,
+				C2D75EB216F1A6F40008C9E5 /* Default.png in Resources */,
+				C2D75EB316F1A6F40008C9E5 /* Default@2x.png in Resources */,
+				C2D75EB416F1A6F40008C9E5 /* InfoPlist.strings in Resources */,
+				C2D75EB516F1A6F40008C9E5 /* Icon.png in Resources */,
+				C2D75EB616F1A6F40008C9E5 /* Icon@2x.png in Resources */,
+				C2D75EDE16F1C97D0008C9E5 /* top-bar-bg.png in Resources */,
+				C2D75EDF16F1C97D0008C9E5 /* top-bar-bg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,18 +282,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2D75E8516F190FA0008C9E5 /* main.m in Sources */,
 				C2D75E8916F190FA0008C9E5 /* AppDelegate.m in Sources */,
+				C2D75EB716F1A6F40008C9E5 /* main.m in Sources */,
+				C2D75EC916F1B4CC0008C9E5 /* MainViewController.m in Sources */,
+				C2D75ED316F1B6CC0008C9E5 /* NSString+Ex.m in Sources */,
+				C2D75ED416F1B6CC0008C9E5 /* UIColor+Ext.m in Sources */,
+				C2D75ED516F1B6CC0008C9E5 /* UIImage+Ext.m in Sources */,
+				C2D75ED616F1B6CC0008C9E5 /* UIView+Ext.m in Sources */,
+				C2D75ED916F1C2E30008C9E5 /* UINavigationBar+Ext.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C2D75E8116F190FA0008C9E5 /* InfoPlist.strings */ = {
+		C2D75EA616F1A6F40008C9E5 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C2D75E8216F190FA0008C9E5 /* en */,
+				C2D75EA716F1A6F40008C9E5 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -244,10 +368,19 @@
 		C2D75E9316F190FA0008C9E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = armv7;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "YueHui/YueHui-Prefix.pch";
-				INFOPLIST_FILE = "YueHui/YueHui-Info.plist";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/YueHui/Assets/Supporting/YueHui-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/YueHui/Assets/Supporting/YueHui-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/YueHui/Assets\"",
+					"\"$(SRCROOT)\"",
+				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -255,10 +388,19 @@
 		C2D75E9416F190FA0008C9E5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = armv7;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "YueHui/YueHui-Prefix.pch";
-				INFOPLIST_FILE = "YueHui/YueHui-Info.plist";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/YueHui/Assets/Supporting/YueHui-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/YueHui/Assets/Supporting/YueHui-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/YueHui/Assets\"",
+					"\"$(SRCROOT)\"",
+				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -282,6 +424,7 @@
 				C2D75E9416F190FA0008C9E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
