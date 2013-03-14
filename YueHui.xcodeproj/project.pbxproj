@@ -21,6 +21,10 @@
 		C211983716F20DC100E6CE7C /* tab-icon-home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C211983516F20DC100E6CE7C /* tab-icon-home@2x.png */; };
 		C211983A16F213D600E6CE7C /* app-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = C211983816F213D600E6CE7C /* app-bg.png */; };
 		C211983B16F213D600E6CE7C /* app-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C211983916F213D600E6CE7C /* app-bg@2x.png */; };
+		C211984016F219FB00E6CE7C /* radar-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = C211983C16F219FB00E6CE7C /* radar-bg.png */; };
+		C211984116F219FB00E6CE7C /* radar-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C211983D16F219FB00E6CE7C /* radar-bg@2x.png */; };
+		C211984216F219FB00E6CE7C /* shake-phone.png in Resources */ = {isa = PBXBuildFile; fileRef = C211983E16F219FB00E6CE7C /* shake-phone.png */; };
+		C211984316F219FB00E6CE7C /* shake-phone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C211983F16F219FB00E6CE7C /* shake-phone@2x.png */; };
 		C2D75E7916F190FA0008C9E5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D75E7816F190FA0008C9E5 /* UIKit.framework */; };
 		C2D75E7B16F190FA0008C9E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D75E7A16F190FA0008C9E5 /* Foundation.framework */; };
 		C2D75E7D16F190FA0008C9E5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D75E7C16F190FA0008C9E5 /* CoreGraphics.framework */; };
@@ -65,6 +69,10 @@
 		C211983516F20DC100E6CE7C /* tab-icon-home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-icon-home@2x.png"; sourceTree = "<group>"; };
 		C211983816F213D600E6CE7C /* app-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-bg.png"; sourceTree = "<group>"; };
 		C211983916F213D600E6CE7C /* app-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-bg@2x.png"; sourceTree = "<group>"; };
+		C211983C16F219FB00E6CE7C /* radar-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radar-bg.png"; sourceTree = "<group>"; };
+		C211983D16F219FB00E6CE7C /* radar-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "radar-bg@2x.png"; sourceTree = "<group>"; };
+		C211983E16F219FB00E6CE7C /* shake-phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shake-phone.png"; sourceTree = "<group>"; };
+		C211983F16F219FB00E6CE7C /* shake-phone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shake-phone@2x.png"; sourceTree = "<group>"; };
 		C2D75E7516F190FA0008C9E5 /* YueHui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YueHui.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2D75E7816F190FA0008C9E5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C2D75E7A16F190FA0008C9E5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -178,6 +186,10 @@
 				C211982716F1FD2400E6CE7C /* bottom-bar-bg@2x.png */,
 				C211981916F1D3DC00E6CE7C /* icon-share.png */,
 				C211981A16F1D3DC00E6CE7C /* icon-share@2x.png */,
+				C211983C16F219FB00E6CE7C /* radar-bg.png */,
+				C211983D16F219FB00E6CE7C /* radar-bg@2x.png */,
+				C211983E16F219FB00E6CE7C /* shake-phone.png */,
+				C211983F16F219FB00E6CE7C /* shake-phone@2x.png */,
 				C211982A16F2032E00E6CE7C /* tab-icon-coupon.png */,
 				C211982B16F2032E00E6CE7C /* tab-icon-coupon@2x.png */,
 				C211983416F20DC100E6CE7C /* tab-icon-home.png */,
@@ -330,6 +342,10 @@
 				C211983716F20DC100E6CE7C /* tab-icon-home@2x.png in Resources */,
 				C211983A16F213D600E6CE7C /* app-bg.png in Resources */,
 				C211983B16F213D600E6CE7C /* app-bg@2x.png in Resources */,
+				C211984016F219FB00E6CE7C /* radar-bg.png in Resources */,
+				C211984116F219FB00E6CE7C /* radar-bg@2x.png in Resources */,
+				C211984216F219FB00E6CE7C /* shake-phone.png in Resources */,
+				C211984316F219FB00E6CE7C /* shake-phone@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,7 +17,7 @@
     
     UIImageView *aTabBarBackground = [[UIImageView alloc] initWithImage:image];
     aTabBarBackground.frame = self.bounds;
-    [[self.subviews objectAtIndex:0] setHidden:YES];
+//    [[self.subviews objectAtIndex:0] setHidden:YES];
 //    NSLog(@"%@, %d", NSStringFromCGRect(self.frame), self.subviews.count);
 //    for (int i=0; i<self.subviews.count; i++) {
 //        NSLog(@"%@", [self.subviews objectAtIndex:i]);
@@ -27,7 +27,7 @@
     
     UILabel *label = [[UILabel alloc] initWithFrame:self.bounds];
     label.backgroundColor = [UIColor clearColor];
-    label.font = [UIFont boldSystemFontOfSize:18];
+    label.font = [UIFont boldSystemFontOfSize:19];
     label.text = @"约惠商户";
     label.textColor = [UIColor colorWithHex:0xc1f0ff];
     label.textAlignment = UITextAlignmentCenter;
