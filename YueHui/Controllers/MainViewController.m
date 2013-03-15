@@ -50,14 +50,17 @@
     [self.navigationController.navigationBar setTintColor:[UIColor colorWithHex:0xedeae1]];
     [self.navigationController.navigationBar setBackgroundImage:bg];
     [self.navigationController.navigationBar setNeedsDisplay];
-    self.title = @"约惠商户";
     
-    UIImageView *shareImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon-share"]];
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(shareAction)];
-    [shareImageView addGestureRecognizer:tapGesture];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:shareImageView];
+    UIImage *shareImage = [UIImage imageNamed:@"icon-share"];
+    UIButton *shareBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    shareBtn.frame = CGRectMake(0, 0, shareImage.size.width, shareImage.size.height);
+    [shareBtn setImage:shareImage forState:UIControlStateNormal];
+    [shareBtn setImage:[UIImage imageNamed:@"icon-share-selected"] forState:UIControlStateHighlighted];
+    [shareBtn addTarget:self action:@selector(shareAction) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:shareBtn];
     
     self.tabBarController = [[YHTabBarController alloc] init];
+    self.tabBarController.delegate = self;
     UIView *tabView = self.tabBarController.view;
     tabView.frame = CGRectMake(0, CGRectGetHeight(r) - CGRectGetHeight(tabView.bounds) - 44, CGRectGetWidth(tabView.bounds), CGRectGetHeight(tabView.bounds));
     tabView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth;
@@ -106,6 +109,19 @@ static BOOL shaking;
     shaking = NO;
     [control.layer removeAnimationForKey:@"wiggleRotation"];
     [control.layer removeAnimationForKey:@"wiggleTranslationY"];
+}
+
+#pragma mark - YHTabBarControllerDelegate
+- (void)gotoCouponPage {
+    NSLog(@"goto coupon");
+}
+
+- (void)gotoHomePage {
+    NSLog(@"goto homepage");
+}
+
+- (void)gotoShopPage {
+    NSLog(@"goto shop");
 }
 
 @end

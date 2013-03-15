@@ -8,7 +8,7 @@
 
 #import "YHTabBarController.h"
 
-@interface MainViewController : UIViewController
+@interface MainViewController : UIViewController <YHTabBarControllerDelegate>
 
 @property (nonatomic, strong) YHTabBarController *tabBarController;
 
