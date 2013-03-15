@@ -7,9 +7,13 @@
 //
 
 #import "YHTabBarController.h"
+#import "NetWorkReachability.h"
+#import "Receiver.h"
 
-@interface MainViewController : UIViewController <YHTabBarControllerDelegate>
+@interface MainViewController : UIViewController <NetworkReachabilityDelegate, YHTabBarControllerDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, strong) YHTabBarController *tabBarController;
+@property (nonatomic, strong) NSString *uuid;
+@property (nonatomic, strong) NSString *token;
 
 @end
