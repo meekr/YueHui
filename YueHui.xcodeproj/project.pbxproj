@@ -40,6 +40,12 @@
 		C2912BD716F2C9C600F5A50F /* tab-icon-home-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2912BD516F2C9C600F5A50F /* tab-icon-home-selected@2x.png */; };
 		C2C8274C16F4825D00F07ED7 /* CouponCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C8274B16F4825D00F07ED7 /* CouponCollectionViewController.m */; };
 		C2C8274F16F4836C00F07ED7 /* StoreCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C8274E16F4836B00F07ED7 /* StoreCollectionViewController.m */; };
+		C2C8275216F4A10B00F07ED7 /* coupon-collection-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C8275016F4A10B00F07ED7 /* coupon-collection-bg.png */; };
+		C2C8275316F4A10B00F07ED7 /* coupon-collection-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C8275116F4A10B00F07ED7 /* coupon-collection-bg@2x.png */; };
+		C2C8275816F4C97D00F07ED7 /* store-cell-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C8275616F4C97D00F07ED7 /* store-cell-bg.png */; };
+		C2C8275916F4C97D00F07ED7 /* store-cell-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C8275716F4C97D00F07ED7 /* store-cell-bg@2x.png */; };
+		C2C8275C16F4CDD200F07ED7 /* store-cell-flag.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C8275A16F4CDD200F07ED7 /* store-cell-flag.png */; };
+		C2C8275D16F4CDD200F07ED7 /* store-cell-flag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C8275B16F4CDD200F07ED7 /* store-cell-flag@2x.png */; };
 		C2D75E7916F190FA0008C9E5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D75E7816F190FA0008C9E5 /* UIKit.framework */; };
 		C2D75E7B16F190FA0008C9E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D75E7A16F190FA0008C9E5 /* Foundation.framework */; };
 		C2D75E7D16F190FA0008C9E5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D75E7C16F190FA0008C9E5 /* CoreGraphics.framework */; };
@@ -106,6 +112,12 @@
 		C2C8274B16F4825D00F07ED7 /* CouponCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponCollectionViewController.m; sourceTree = "<group>"; };
 		C2C8274D16F4836B00F07ED7 /* StoreCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreCollectionViewController.h; sourceTree = "<group>"; };
 		C2C8274E16F4836B00F07ED7 /* StoreCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreCollectionViewController.m; sourceTree = "<group>"; };
+		C2C8275016F4A10B00F07ED7 /* coupon-collection-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coupon-collection-bg.png"; sourceTree = "<group>"; };
+		C2C8275116F4A10B00F07ED7 /* coupon-collection-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coupon-collection-bg@2x.png"; sourceTree = "<group>"; };
+		C2C8275616F4C97D00F07ED7 /* store-cell-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "store-cell-bg.png"; sourceTree = "<group>"; };
+		C2C8275716F4C97D00F07ED7 /* store-cell-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "store-cell-bg@2x.png"; sourceTree = "<group>"; };
+		C2C8275A16F4CDD200F07ED7 /* store-cell-flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "store-cell-flag.png"; sourceTree = "<group>"; };
+		C2C8275B16F4CDD200F07ED7 /* store-cell-flag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "store-cell-flag@2x.png"; sourceTree = "<group>"; };
 		C2D75E7516F190FA0008C9E5 /* YueHui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YueHui.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2D75E7816F190FA0008C9E5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C2D75E7A16F190FA0008C9E5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -228,6 +240,8 @@
 				C211983916F213D600E6CE7C /* app-bg@2x.png */,
 				C211982616F1FD2400E6CE7C /* bottom-bar-bg.png */,
 				C211982716F1FD2400E6CE7C /* bottom-bar-bg@2x.png */,
+				C2C8275016F4A10B00F07ED7 /* coupon-collection-bg.png */,
+				C2C8275116F4A10B00F07ED7 /* coupon-collection-bg@2x.png */,
 				C211981916F1D3DC00E6CE7C /* icon-share.png */,
 				C211981A16F1D3DC00E6CE7C /* icon-share@2x.png */,
 				C22A3E0C16F2C938005865AD /* icon-share-selected.png */,
@@ -240,6 +254,10 @@
 				C22EBA2B16F31518006ED822 /* radar-scan@2x.png */,
 				C211983E16F219FB00E6CE7C /* shake-phone.png */,
 				C211983F16F219FB00E6CE7C /* shake-phone@2x.png */,
+				C2C8275616F4C97D00F07ED7 /* store-cell-bg.png */,
+				C2C8275716F4C97D00F07ED7 /* store-cell-bg@2x.png */,
+				C2C8275A16F4CDD200F07ED7 /* store-cell-flag.png */,
+				C2C8275B16F4CDD200F07ED7 /* store-cell-flag@2x.png */,
 				C211982A16F2032E00E6CE7C /* tab-icon-coupon.png */,
 				C211982B16F2032E00E6CE7C /* tab-icon-coupon@2x.png */,
 				C22A3E1016F2C940005865AD /* tab-icon-coupon-selected.png */,
@@ -418,6 +436,12 @@
 				C22EBA2916F3145F006ED822 /* radar-point@2x.png in Resources */,
 				C22EBA2C16F31518006ED822 /* radar-scan.png in Resources */,
 				C22EBA2D16F31518006ED822 /* radar-scan@2x.png in Resources */,
+				C2C8275216F4A10B00F07ED7 /* coupon-collection-bg.png in Resources */,
+				C2C8275316F4A10B00F07ED7 /* coupon-collection-bg@2x.png in Resources */,
+				C2C8275816F4C97D00F07ED7 /* store-cell-bg.png in Resources */,
+				C2C8275916F4C97D00F07ED7 /* store-cell-bg@2x.png in Resources */,
+				C2C8275C16F4CDD200F07ED7 /* store-cell-flag.png in Resources */,
+				C2C8275D16F4CDD200F07ED7 /* store-cell-flag@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

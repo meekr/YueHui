@@ -18,4 +18,6 @@
 
 @property (nonatomic, assign) id<YHTabBarControllerDelegate> delegate;
 
+- (void)deselectAllButtonsExcept:(UIButton *)button;
+
 @end

@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 BitRice. All rights reserved.
 //
 
-@interface StoreCollectionViewController : UIViewController
+@interface StoreCollectionViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, strong) UITableView *table;
 
 @end
