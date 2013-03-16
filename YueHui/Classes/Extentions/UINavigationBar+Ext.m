@@ -9,9 +9,11 @@
 #import "UINavigationBar+Ext.h"
 #import "UIColor+Ext.h"
 
+#define kTitleLabelTag 1
+
 @implementation UINavigationBar (Ext)
 
-- (void)setBackgroundImage:(UIImage*)image {
+- (void)setBackgroundImage:(UIImage *)image {
     if (image == NULL)
         return;
     
@@ -26,14 +28,19 @@
 //    [self sendSubviewToBack:aTabBarBackground];
     
     UILabel *label = [[UILabel alloc] initWithFrame:self.bounds];
+    label.tag = kTitleLabelTag;
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont boldSystemFontOfSize:19];
-    label.text = @"约惠商户";
     label.textColor = [UIColor colorWithHex:0xc1f0ff];
     label.textAlignment = UITextAlignmentCenter;
     label.shadowColor = [UIColor darkGrayColor];
     label.shadowOffset = CGSizeMake(0, 1);
     [self addSubview:label];
+}
+
+- (void)setTitle:(NSString *)title {
+    UILabel *label = (UILabel *)[self viewWithTag:kTitleLabelTag];
+    label.text = title;
 }
 
 @end

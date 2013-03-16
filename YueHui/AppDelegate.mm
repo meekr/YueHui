@@ -7,7 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import "MainViewController.h"
+#import "HomeViewController.h"
+#import "YHTabBarController.h"
+#import "UINavigationBar+Ext.h"
 
 @implementation AppDelegate
 
@@ -19,11 +21,45 @@
     [self.window makeKeyAndVisible];
     
     
-    MainViewController *vc = [[MainViewController alloc] init];
-    UINavigationController *controller = [[UINavigationController alloc] initWithRootViewController:vc];
-    self.window.rootViewController = controller;
+    HomeViewController *vc = [[HomeViewController alloc] init];
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
+    UIImage *bg = [[UIImage imageNamed:@"top-bar-bg"] stretchableImageWithLeftCapWidth:0 topCapHeight:2];
+    [self.navigationController.navigationBar setBackgroundImage:bg];
+    self.window.rootViewController = self.navigationController;
+    
+    CGRect r = self.window.bounds;
+    self.tabBarController = [[YHTabBarController alloc] init];
+    self.tabBarController.delegate = self;
+    UIView *tabView = self.tabBarController.view;
+    tabView.frame = CGRectMake(0, CGRectGetHeight(r) - CGRectGetHeight(tabView.bounds), CGRectGetWidth(tabView.bounds), CGRectGetHeight(tabView.bounds));
+    tabView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth;
+    [self.window addSubview:tabView];
+
     
     return YES;
 }
+
+#pragma mark - YHTabBarControllerDelegate
+- (void)gotoCouponPage {
+    if (![self.navigationController.topViewController isKindOfClass:[CouponCollectionViewController class]]) {
+        CouponCollectionViewController *controller = [[CouponCollectionViewController alloc] init];
+        [self.navigationController pushViewController:controller animated:NO];
+    }
+}
+
+- (void)gotoHomePage {
+    if (![self.navigationController.topViewController isKindOfClass:[HomeViewController class]]) {
+        HomeViewController *controller = [[HomeViewController alloc] init];
+        [self.navigationController pushViewController:controller animated:NO];
+    }
+}
+
+- (void)gotoShopPage {
+    if (![self.navigationController.topViewController isKindOfClass:[StoreCollectionViewController class]]) {
+        StoreCollectionViewController *controller = [[StoreCollectionViewController alloc] init];
+        [self.navigationController pushViewController:controller animated:NO];
+    }
+}
+
 
 @end

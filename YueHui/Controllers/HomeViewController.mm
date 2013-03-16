@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 BitRice. All rights reserved.
 //
 
-#import "MainViewController.h"
+#import "HomeViewController.h"
 #import "UIColor+Ext.h"
 #import "UINavigationBar+Ext.h"
 #import <QuartzCore/QuartzCore.h>
@@ -16,7 +16,7 @@
 #define kRadarScanAnimation @"rotationAnimation"
 #define degreesToRadians(x) (M_PI * x / 180.0)
 
-@interface MainViewController ()
+@interface HomeViewController ()
 {
     Receiver* receiver;
     BOOL searching;
@@ -27,7 +27,7 @@
 
 @end
 
-@implementation MainViewController
+@implementation HomeViewController
 
 - (id)init {
     if (self = [super init]) {
@@ -41,6 +41,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.hidesBackButton = YES;
     CGRect r = self.view.bounds;
 
     // app background
@@ -51,32 +52,25 @@
     [self.view addSubview:appBgView];
     
     // radar
-    UIImageView *radarBg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"radar-bg"]];
-    radarBg.center = CGPointMake(160, 150);
-    [self.view addSubview:radarBg];
+    UIImageView *radar = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"radar-bg"]];
+    radar.center = CGPointMake(160, 150);
+    [self.view addSubview:radar];
     
-    radarBg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"radar-scan"]];
-    radarBg.tag = kRadarScanTag;
-    radarBg.center = CGPointMake(160, 136);
-    radarBg.layer.anchorPoint = CGPointMake(.5, .5);
-//    radarBg.transform = CGAffineTransformMakeRotation(degreesToRadians(240));
-    [self.view addSubview:radarBg];
+    radar = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"radar-scan"]];
+    radar.tag = kRadarScanTag;
+    radar.center = CGPointMake(160, 136);
+    radar.layer.anchorPoint = CGPointMake(.5, .5);
+    [self.view addSubview:radar];
     
-    radarBg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"radar-point"]];
-    radarBg.center = CGPointMake(160, 150);
-    [self.view addSubview:radarBg];
+    radar = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"radar-point"]];
+    radar.center = CGPointMake(160, 150);
+    [self.view addSubview:radar];
     
     // shake phone
     UIImageView *shakePhone = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"shake-phone"]];
     shakePhone.tag = kShakePhoneTag;
     shakePhone.center = CGPointMake(160, 300);
     [self.view addSubview:shakePhone];
-    
-    
-    UIImage *bg = [[UIImage imageNamed:@"top-bar-bg"] stretchableImageWithLeftCapWidth:0 topCapHeight:2];
-    [self.navigationController.navigationBar setTintColor:[UIColor colorWithHex:0xedeae1]];
-    [self.navigationController.navigationBar setBackgroundImage:bg];
-    [self.navigationController.navigationBar setNeedsDisplay];
     
     UIImage *shareImage = [UIImage imageNamed:@"icon-share"];
     UIButton *shareBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -85,19 +79,18 @@
     [shareBtn setImage:[UIImage imageNamed:@"icon-share-selected"] forState:UIControlStateHighlighted];
     [shareBtn addTarget:self action:@selector(shareAction) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:shareBtn];
-    
-    self.tabBarController = [[YHTabBarController alloc] init];
-    self.tabBarController.delegate = self;
-    UIView *tabView = self.tabBarController.view;
-    tabView.frame = CGRectMake(0, CGRectGetHeight(r) - CGRectGetHeight(tabView.bounds) - 44, CGRectGetWidth(tabView.bounds), CGRectGetHeight(tabView.bounds));
-    tabView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth;
-    [self.view addSubview:tabView];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    [self.navigationController.navigationBar setTitle:@"约惠商户"];
     [self becomeFirstResponder];
     [self startSearching];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self stopSearching];
 }
 
 - (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event {
@@ -294,19 +287,6 @@
 #pragma mark - NetworkReachabilityDelegate
 - (void)networkReachabilityDidUpdate:(NetworkReachability *)reachability {
     NSLog(@"net reachable: %d", self.netReacher.reachable);
-}
-
-#pragma mark - YHTabBarControllerDelegate
-- (void)gotoCouponPage {
-    NSLog(@"goto coupon");
-}
-
-- (void)gotoHomePage {
-    NSLog(@"goto homepage");
-}
-
-- (void)gotoShopPage {
-    NSLog(@"goto shop");
 }
 
 @end

@@ -8,6 +8,7 @@
 
 @interface UINavigationBar (Ext)
 
-- (void)setBackgroundImage:(UIImage*)image;
+- (void)setBackgroundImage:(UIImage *)image;
+- (void)setTitle:(NSString *)title;
 
 @end
