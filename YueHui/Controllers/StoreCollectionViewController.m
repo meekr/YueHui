@@ -9,9 +9,9 @@
 #import "StoreCollectionViewController.h"
 #import "UINavigationBar+Ext.h"
 #import "UIColor+Ext.h"
+#import "UIImage+Ext.h"
 #import <QuartzCore/QuartzCore.h>
-
-#define kStoreCellFlagTag 1
+#import "YHStoreTableViewCell.h"
 
 @interface StoreCollectionViewController ()
 
@@ -62,27 +62,18 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.textLabel.backgroundColor = [UIColor clearColor];
-        cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:15];
-        cell.textLabel.textColor = [UIColor colorWithHex:0xd4cfc2];
-        cell.textLabel.shadowColor = [UIColor lightGrayColor];
-        cell.textLabel.shadowOffset = CGSizeMake(0, 1);
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        
-        UIImageView *bgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"store-cell-bg"]];
-        cell.backgroundView.clipsToBounds = NO;
-        cell.backgroundView = bgView;
-        
-        UIImageView *flag = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"store-cell-flag"]];
-        flag.layer.shadowColor = [UIColor darkGrayColor].CGColor;
-        flag.layer.shadowOffset = CGSizeMake(8, 8);
-        flag.layer.masksToBounds = NO;
-        [cell.backgroundView addSubview:flag];
+        cell = [[YHStoreTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     cell.textLabel.text = @"商家封面";
+    
+    CGFloat hue = ( arc4random() % 256 / 256.0 );  //  0.0 to 1.0
+    CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from white
+    CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from black
+    UIColor *color = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
+    UIImageView *flag = (UIImageView *)[cell.backgroundView viewWithTag:kStoreCellFlagTag];
+    flag.image = [flag.image imageTintedWithColor:color];
+    
     return cell;
 }
 

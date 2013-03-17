@@ -71,6 +71,7 @@
 		C2D75ED916F1C2E30008C9E5 /* UINavigationBar+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D75ED816F1C2E30008C9E5 /* UINavigationBar+Ext.m */; };
 		C2D75EDE16F1C97D0008C9E5 /* top-bar-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D75EDC16F1C97D0008C9E5 /* top-bar-bg.png */; };
 		C2D75EDF16F1C97D0008C9E5 /* top-bar-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D75EDD16F1C97D0008C9E5 /* top-bar-bg@2x.png */; };
+		C2E0928816F5492800F7C644 /* YHStoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E0928716F5492800F7C644 /* YHStoreTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -153,6 +154,8 @@
 		C2D75ED816F1C2E30008C9E5 /* UINavigationBar+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Ext.m"; sourceTree = "<group>"; };
 		C2D75EDC16F1C97D0008C9E5 /* top-bar-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top-bar-bg.png"; sourceTree = "<group>"; };
 		C2D75EDD16F1C97D0008C9E5 /* top-bar-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top-bar-bg@2x.png"; sourceTree = "<group>"; };
+		C2E0928616F5492800F7C644 /* YHStoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHStoreTableViewCell.h; sourceTree = "<group>"; };
+		C2E0928716F5492800F7C644 /* YHStoreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHStoreTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,7 +231,7 @@
 				C2D75EAD16F1A6F40008C9E5 /* Classes */,
 				C2D75EAE16F1A6F40008C9E5 /* Controllers */,
 				C2D75EAF16F1A6F40008C9E5 /* Models */,
-				C2D75EB016F1A6F40008C9E5 /* Views */,
+				C2E0928516F5492800F7C644 /* Views */,
 			);
 			path = YueHui;
 			sourceTree = "<group>";
@@ -325,13 +328,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		C2D75EB016F1A6F40008C9E5 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		C2D75ECA16F1B6CC0008C9E5 /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
@@ -347,6 +343,15 @@
 				C2D75ED216F1B6CC0008C9E5 /* UIView+Ext.m */,
 			);
 			path = Extentions;
+			sourceTree = "<group>";
+		};
+		C2E0928516F5492800F7C644 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C2E0928616F5492800F7C644 /* YHStoreTableViewCell.h */,
+				C2E0928716F5492800F7C644 /* YHStoreTableViewCell.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -464,6 +469,7 @@
 				C22EBA2216F2F92E006ED822 /* NetWorkReachability.m in Sources */,
 				C2C8274C16F4825D00F07ED7 /* CouponCollectionViewController.m in Sources */,
 				C2C8274F16F4836C00F07ED7 /* StoreCollectionViewController.m in Sources */,
+				C2E0928816F5492800F7C644 /* YHStoreTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
