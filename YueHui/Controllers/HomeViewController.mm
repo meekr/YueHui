@@ -133,8 +133,14 @@
     receiver->start();
 #endif
     
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(timerHandler:) userInfo:nil repeats:YES];
-    [self performSelector:@selector(searchTimeout:) withObject:nil afterDelay:30.0];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.1
+                                                  target:self
+                                                selector:@selector(timerHandler:)
+                                                userInfo:nil
+                                                 repeats:YES];
+    [self performSelector:@selector(searchTimeout:)
+               withObject:nil
+               afterDelay:30.0];
 }
 
 - (void)stopSearching {
@@ -258,7 +264,11 @@
 {
     if (alertView.tag == 3) {
         if (self.netReacher.reachable == NO) {
-            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"网络不可用!" message:@"请检查网络" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"网络不可用!"
+                                                             message:@"请检查网络"
+                                                            delegate:self
+                                                   cancelButtonTitle:@"确定"
+                                                   otherButtonTitles:nil];
             alert.tag = 3;
             [alert show];
         }
