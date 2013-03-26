@@ -26,7 +26,7 @@
     [btn setImage:btnImage forState:UIControlStateNormal];
     [btn setImage:[UIImage imageNamed:@"tab-icon-coupon-selected"] forState:UIControlStateHighlighted];
     [btn setImage:[UIImage imageNamed:@"tab-icon-coupon-selected"] forState:UIControlStateSelected];
-    btn.center = CGPointMake(50, 45);
+    btn.center = CGPointMake(50, 39);
     [btn addTarget:self action:@selector(handleCouponClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
     
@@ -37,7 +37,7 @@
     [btn setImage:btnImage forState:UIControlStateNormal];
     [btn setImage:[UIImage imageNamed:@"tab-icon-shop-selected"] forState:UIControlStateHighlighted];
     [btn setImage:[UIImage imageNamed:@"tab-icon-shop-selected"] forState:UIControlStateSelected];
-    btn.center = CGPointMake(272, 46);
+    btn.center = CGPointMake(272, 40);
     [btn addTarget:self action:@selector(handleShopClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
     
@@ -48,7 +48,7 @@
     [btn setImage:btnImage forState:UIControlStateNormal];
     [btn setImage:[UIImage imageNamed:@"tab-icon-home-selected"] forState:UIControlStateHighlighted];
     [btn setImage:[UIImage imageNamed:@"tab-icon-home-selected"] forState:UIControlStateSelected];
-    btn.center = CGPointMake(160, 40);
+    btn.center = CGPointMake(160, 35);
     [btn addTarget:self action:@selector(handleHomeClick:) forControlEvents:UIControlEventTouchUpInside];
     btn.selected = YES;
     btn.userInteractionEnabled = NO;

@@ -46,12 +46,10 @@ UIImageView *handleImageView;
 
     imageViews = [[NSMutableArray alloc] initWithCapacity:stack];
     
-    CGRect r = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) - (95));
+    CGRect r = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) - (85));
     scrollView=[[UIScrollView alloc] initWithFrame:r];
-    //scrollView.contentSize=CGSizeMake(758,320);
     [self.view addSubview:scrollView];
     scrollView.scrollEnabled = YES;
-    //    scrollView.scrollIndicatorInsets =
     
     for (int i=0; i<stack; i++) {
         UIImage *image = [UIImage imageNamed:[NSString stringWithFormat: @"store_b%d",i]];

@@ -33,29 +33,30 @@
 //        self.backgroundView.clipsToBounds = NO;
         self.backgroundView = bgView;
 //
-        UIImageView *flag = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"store-cell-flag"]];
-//        UIImageView *flag = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"store_1"]];
+//        UIImageView *flag = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"store-cell-flag"]];
+        UIImageView *flag = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"msg-sign-2"]];
         flag.tag = kStoreCellFlagTag;
-        flag.layer.masksToBounds = NO;
-        flag.layer.shadowRadius = .0;
-        flag.layer.shadowColor = [UIColor blackColor].CGColor;
+//        flag.layer.masksToBounds = NO;
+//        flag.layer.shadowRadius = .0;
+//        flag.layer.shadowColor = [UIColor blackColor].CGColor;
         flag.layer.shadowOffset = CGSizeMake(.5, .5);
-        flag.layer.shadowOpacity = .4f;
+//        flag.layer.shadowOpacity = .4f;
         
-        flag.frame=CGRectMake(10, 0.0f, flag.frame.size.width, flag.frame.size.height);
+        flag.frame=CGRectMake(150, -9.0f, flag.frame.size.width, flag.frame.size.height);
         [self.backgroundView addSubview:flag];
 
+    
         //
-        UILabel *tagLabel = [[UILabel alloc] initWithFrame:CGRectMake(150, -5.0f, 200.0, 20)];
-        tagLabel.backgroundColor = [UIColor clearColor];
-        tagLabel.font = [UIFont fontWithName:@"Helvetica" size:12];
-        tagLabel.textColor = [UIColor colorWithHex:0xd4cfc2];
-        tagLabel.shadowColor = [UIColor lightGrayColor];
-        tagLabel.shadowOffset = CGSizeMake(0, .5);
-        tagLabel.text = @"还差3次签到 获得新优惠";
-        [self.contentView addSubview:tagLabel];
+//        UILabel *tagLabel = [[UILabel alloc] initWithFrame:CGRectMake(150, -5.0f, 200.0, 20)];
+//        tagLabel.backgroundColor = [UIColor clearColor];
+//        tagLabel.font = [UIFont fontWithName:@"Helvetica" size:12];
+//        tagLabel.textColor = [UIColor colorWithHex:0xd4cfc2];
+//        tagLabel.shadowColor = [UIColor lightGrayColor];
+//        tagLabel.shadowOffset = CGSizeMake(0, .5);
+//        tagLabel.text = @"还差3次签到 获得新优惠";
+//        [self.contentView addSubview:tagLabel];
         
-        self.contentView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+//        self.contentView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
         
 //        UILabel *mainLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, 220.0, 15.0)];
 //        //mainLabel.tag = @"MAINLABEL_TAG";

@@ -63,7 +63,7 @@
     [self.view addSubview:radar];
     
     radar = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"radar-point"]];
-    radar.center = CGPointMake(160, 150);
+    radar.center = CGPointMake(160, 140);
     [self.view addSubview:radar];
     
     // shake phone
