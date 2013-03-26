@@ -34,7 +34,7 @@
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
     
-    CGRect r = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) - 52);
+    CGRect r = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) - 42);
     self.table = [[UITableView alloc] initWithFrame:r style:UITableViewStyleGrouped];
     self.table.backgroundView = nil;
     self.table.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;

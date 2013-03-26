@@ -492,16 +492,14 @@ int height = 98;
                                  UIImageView* view = [belowViews objectAtIndex:i];
                                  view.layer.zPosition=backZ--;
                              }
-
                              [self resetGestureOrderAndTag];
-                             [UIView animateWithDuration:.3f
+                             [UIView animateWithDuration:.2f
                                                    delay:0
                                                  options:UIViewAnimationOptionCurveEaseOut
                                               animations:^{
                                                   for (int i=0; i<stack; i++) {
                                                       UIImageView* view = [imageViews objectAtIndex:i];
                                                       view.center = CGPointMake(origanPoint.x, origanPoint.y-i*5);
-
                                                   }
                                                   [handleImageView setAlpha:1];
                                               }
@@ -509,10 +507,8 @@ int height = 98;
                                                   isExpanded=NO;
                                               }
                               ];
-                         }
-         ];
-        
-        
+
+                         }];
     }
 }
 
