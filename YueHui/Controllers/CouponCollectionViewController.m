@@ -27,9 +27,11 @@ NSMutableArray* imageViews;
 int backZ=0;
 int frontZ=1;
 int stack=6;
+int imageHeight = 292;
 UIScrollView* scrollView;
 UIImageView *handleImageView;
 
+UIPanGestureRecognizer *pan;
 - (void)loadView {
     [super loadView];
     
@@ -50,7 +52,9 @@ UIImageView *handleImageView;
     scrollView=[[UIScrollView alloc] initWithFrame:r];
     [self.view addSubview:scrollView];
     scrollView.scrollEnabled = YES;
-    
+    scrollView.contentSize = CGSizeMake(r.size.width, imageHeight+(stack-1)*height);
+    scrollView.delegate = self;
+
     for (int i=0; i<stack; i++) {
         UIImage *image = [UIImage imageNamed:[NSString stringWithFormat: @"store_b%d",i]];
         UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
@@ -91,7 +95,7 @@ UIImageView *handleImageView;
     [self resetGestureOrderAndTag];
         
     //
-    UIPanGestureRecognizer *pan =
+    pan =
     [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)] ;
     //[oneFingerSwipeUp setDirection:UISwipeGestureRecognizerDirectionUp];
     [scrollView addGestureRecognizer:pan];
@@ -354,7 +358,7 @@ UIImageView* flyingInImageView;
 
 BOOL isExpanded = NO;
 BOOL isAnimating = NO;
-int height = 68;
+int height = 98;
 - (void)handleDownPan:(UIPanGestureRecognizer *)recognizer {
     if(isAnimating) return;
     
@@ -377,14 +381,17 @@ int height = 68;
     NSLog(@"%f, %f",last.center.y,first.center.y);
     
     int y = first.center.y+translation.y;
-    if(y <9*height
-       && y > origanPoint.y )
+    if(y > origanPoint.y )
     {
         first.center= CGPointMake(first.center.x, y);
         for (int i=1; i<stack; i++) {
             UIImageView* m = (UIImageView*)[imageViews objectAtIndex:i];
             m.center = CGPointMake(m.center.x, m.center.y+translation.y*(stack-i)/stack);
         }
+    }
+    if(isExpanded){
+        UIImageView* m = (UIImageView*)[imageViews objectAtIndex:0];
+        [scrollView scrollRectToVisible:CGRectMake(0, m.center.y-imageHeight/2-20, 10, 10) animated:NO];
     }
     
     [recognizer setTranslation:CGPointMake(0, 0) inView:self.view];
@@ -405,32 +412,30 @@ int height = 68;
                             options:UIViewAnimationOptionCurveEaseOut
                          animations:^{
                              //                             flyingInImageView.center = finalPoint;
-                             if(s>0.7 || velocity.y<0){ //back
+                             if(s>0.7 || velocity.y<0){
                                  for (int i=0; i<stack; i++) {
                                      UIImageView* m = (UIImageView*)[imageViews objectAtIndex:i];
                                      m.center = CGPointMake(m.center.x,
                                                             origanPoint.y-i*5);
                                      [handleImageView setAlpha:1];
                                  }
+                                 [scrollView scrollRectToVisible:CGRectMake(0, 0, 10, 10) animated:YES];
                              }
-                             else{
+                             else{// to expanded
                                  for (int i=0; i<stack; i++) {
                                      UIImageView* m = (UIImageView*)[imageViews objectAtIndex:i];
                                      m.center = CGPointMake(m.center.x,
-                                                            9*height*(stack-i)/stack);
+                                                            imageHeight/2+stack*height*(stack-(i+1))/stack);
+                                     NSLog(@"m.y:%f",m.center.y);
                                  }
                              }
                          }
                          completion:^(BOOL b){
                              if(s>0.7 || velocity.y<0){
-                                 scrollView.contentSize = CGSizeMake(scrollView.contentSize.width,
-                                                                     300);
                                  isExpanded = NO;
                              }
                              else{
-                                 scrollView.contentSize = CGSizeMake(scrollView.contentSize.width,
-                                                                     height*stack);
-                                 isExpanded = YES;
+                                [self setExpandedToTrue];
                              }
                              isAnimating=NO;
                              [self resetGestureOrderAndTag];
@@ -455,7 +460,6 @@ int height = 68;
         for (int i=clickedTag; i<stack; i++) {
             NSLog(@"i:%d", i);
             UIImageView* view = [imageViews objectAtIndex:i];
-            view.layer.zPosition=backZ--;
             [imageViewsTmp addObject:view];
         }
         
@@ -464,7 +468,6 @@ int height = 68;
         for (int i=topTag; i<clickedTag; i++) {
             NSLog(@"i2:%d", i);
             UIImageView* view = [imageViews objectAtIndex:i];
-            view.layer.zPosition=backZ--;
             [imageViewsTmp addObject:view];
             [belowViews addObject:view];
         }
@@ -473,7 +476,9 @@ int height = 68;
         NSLog(@"images count: %d",imageViews.count);
         topImageView = (UIImageView*)[imageViews objectAtIndex:0];
         
-        [UIView animateWithDuration:.1f
+        [scrollView scrollRectToVisible:CGRectMake(0, 0, 10, 10) animated:YES];
+        pan.enabled = YES;
+        [UIView animateWithDuration:.2f
                               delay:0
                             options:UIViewAnimationOptionCurveEaseOut
                          animations:^{
@@ -483,6 +488,11 @@ int height = 68;
                              }
                          }
                          completion:^(BOOL b){
+                             for (int i=0; i<belowViews.count; i++) {
+                                 UIImageView* view = [belowViews objectAtIndex:i];
+                                 view.layer.zPosition=backZ--;
+                             }
+
                              [self resetGestureOrderAndTag];
                              [UIView animateWithDuration:.3f
                                                    delay:0
@@ -515,21 +525,35 @@ int height = 68;
                         options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
                          //                             flyingInImageView.center = finalPoint;
-                             for (int i=0; i<stack; i++) {
-                                 UIImageView* m = (UIImageView*)[imageViews objectAtIndex:i];
-                                 m.center = CGPointMake(m.center.x,
-                                                        9*height*(stack-i)/stack);
-                             }
+                         for (int i=0; i<stack; i++) {
+                             UIImageView* m = (UIImageView*)[imageViews objectAtIndex:i];
+                             m.center = CGPointMake(m.center.x,
+                                                    imageHeight/2+stack*height*(stack-(i+1))/stack);
+                             NSLog(@"m.y:%f",m.center.y);
+                         }
                          [handleImageView setAlpha:0];
                      }
                      completion:^(BOOL b){
-                         isExpanded = YES;
+                         [self setExpandedToTrue];
                          isAnimating=NO;
                          [self resetGestureOrderAndTag];
                      }
 
      ];
 
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView;
+{
+    //    NSLog(@" scrollViewDidScroll");
+//NSLog(@"ContentOffset  x is  %f,yis %f",scrollView.contentOffset.x,scrollView.contentOffset.y);
+    if(scrollView.contentOffset.y >= 257)
+        pan.enabled = YES;
+}
+
+-(void)setExpandedToTrue{
+    isExpanded=YES;
+    pan.enabled = NO;
 }
 
 -(void)resetGestureOrderAndTag {

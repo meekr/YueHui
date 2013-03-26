@@ -6,6 +6,6 @@
 //  Copyright (c) 2013 BitRice. All rights reserved.
 //
 
-@interface CouponCollectionViewController : UIViewController
+@interface CouponCollectionViewController : UIViewController<UIScrollViewDelegate>
 
 @end
