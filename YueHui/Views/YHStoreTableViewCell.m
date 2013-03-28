@@ -30,7 +30,7 @@ int i=0;
         self.textLabel.hidden = YES;
         
 //        UIImageView *bgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"store-cell-bg"]];
-        UIImageView *bgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"store_%d",i++]]];
+        UIImageView *bgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"store_%d",i++%6]]];
 //        self.backgroundView.clipsToBounds = NO;
         self.backgroundView = bgView;
 //

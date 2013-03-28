@@ -20,10 +20,7 @@
 @end
 
 
-@implementation CouponCollectionViewController
-
 NSMutableArray* imageViews;
-
 int backZ=0;
 int frontZ=1;
 int stack=6;
@@ -31,9 +28,18 @@ int imageHeight = 292;
 UIScrollView* scrollView;
 UIImageView *handleImageView;
 
+@implementation CouponCollectionViewController
+
 UIPanGestureRecognizer *pan;
 - (void)loadView {
     [super loadView];
+    
+    // init vars
+    
+    backZ=0;
+    frontZ=1;
+    stack=6;
+    imageHeight = 292;
     
     // app background
     self.view.backgroundColor = [UIColor colorWithHex:0xedeae1];
