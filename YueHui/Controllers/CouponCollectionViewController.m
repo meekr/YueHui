@@ -58,34 +58,35 @@ UIPanGestureRecognizer *pan;
     for (int i=0; i<stack; i++) {
         UIImage *image = [UIImage imageNamed:[NSString stringWithFormat: @"store_b%d",i]];
         UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
-        imageView.center =  CGPointMake(160,200-i*5);
+        imageView.center =  CGPointMake(160,200);
         [scrollView addSubview:imageView];
         
-        imageView.layer.masksToBounds = NO;
-        imageView.layer.shadowRadius = 2.0;
-        imageView.layer.shadowColor = [UIColor blackColor].CGColor;
-        imageView.layer.shadowOffset = CGSizeMake(.5, .5);
-        imageView.layer.shadowOpacity = .7f;
+        imageView.layer.masksToBounds       = NO;
+        imageView.layer.shadowRadius        = 2.0;
+        imageView.layer.shadowColor         = [UIColor blackColor].CGColor;
+        imageView.layer.shadowOffset        = CGSizeMake(.5, .5);
+        imageView.layer.shadowOpacity       = .7f;
         imageView.layer.zPosition = backZ--;
         imageView.layer.borderWidth        = 5;
         imageView.layer.borderColor        = [[UIColor whiteColor] CGColor];
+        imageView.layer.shouldRasterize     =YES;
         imageView.tag = i;
         
         CGFloat radians = M_PI * 8+(i*2) / 360.0;
-        if(arc4random()%5 >3)
+        if(arc4random()%10 >6)
             radians*=-1.0f;
         CGAffineTransform transform = CGAffineTransformMakeRotation(radians);
         
-        [UIView animateWithDuration:0.8
+        [UIView animateWithDuration:0.5
                          animations:^{
                              imageView.transform = transform;
+                             imageView.center =  CGPointMake(160,imageView.center.y-i*5);
                          }];
-        
         
         //
         [imageViews addObject:imageView];
         UITapGestureRecognizer *tap =
-        [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)] ;
+            [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)] ;
         imageView.userInteractionEnabled = YES;
         [imageView addGestureRecognizer:tap];
     }
@@ -95,16 +96,22 @@ UIPanGestureRecognizer *pan;
     [self resetGestureOrderAndTag];
         
     //
-    pan =
-    [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)] ;
+    pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)] ;
     //[oneFingerSwipeUp setDirection:UISwipeGestureRecognizerDirectionUp];
     [scrollView addGestureRecognizer:pan];
     
     
     UIImage *handleImage = [UIImage imageNamed:[NSString stringWithFormat: @"handle"]];
     handleImageView = [[UIImageView alloc]initWithImage:handleImage];
-    handleImageView.center =  CGPointMake(160,20);
+    handleImageView.center =  CGPointMake(160,-20);
+    handleImageView.alpha=0;
     [scrollView addSubview:handleImageView];
+    [UIView animateWithDuration:0.5
+                     animations:^{
+                         handleImageView.center =  CGPointMake(160,20);
+                         handleImageView.alpha = 1;
+                     }];
+    
     
     UITapGestureRecognizer *handleTapG =
         [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapHandle:)];
@@ -361,7 +368,8 @@ BOOL isAnimating = NO;
 int height = 98;
 - (void)handleDownPan:(UIPanGestureRecognizer *)recognizer {
     if(isAnimating) return;
-    
+
+    if(handleImageView.alpha>0){
     [UIView animateWithDuration:0.5
                           delay:0
                         options:UIViewAnimationOptionCurveEaseOut
@@ -369,9 +377,15 @@ int height = 98;
                          [handleImageView setAlpha:0];
                      }
                      completion:nil];
-
+    }
     
     CGPoint translation = [recognizer translationInView:self.view];
+    
+//    if(isExpandedToBottom && translation.y>0) {
+//        pan.enabled = NO;
+//        return;
+//    }
+
     
     //    flyingInImageView.center = CGPointMake(flyingInImageView.center.x + translation.x,
     //                                           flyingInImageView.center.y + 0);
@@ -539,12 +553,15 @@ int height = 98;
 
 }
 
+//BOOL isExpandedToBottom = NO;
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView;
 {
     //    NSLog(@" scrollViewDidScroll");
-//NSLog(@"ContentOffset  x is  %f,yis %f",scrollView.contentOffset.x,scrollView.contentOffset.y);
-    if(scrollView.contentOffset.y >= 257)
+NSLog(@"ContentOffset  x is  %f,yis %f",scrollView.contentOffset.x,scrollView.contentOffset.y);
+    if(scrollView.contentOffset.y >= 407){
         pan.enabled = YES;
+//        isExpandedToBottom=YES;
+    }
 }
 
 -(void)setExpandedToTrue{
