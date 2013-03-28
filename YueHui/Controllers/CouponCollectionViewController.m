@@ -28,6 +28,16 @@ int imageHeight = 292;
 UIScrollView* scrollView;
 UIImageView *handleImageView;
 
+CGPoint lastGestureVelocity;
+CGPoint startGestureVelocity;
+int panDirction;
+CGPoint origanPoint;
+UIImageView* topImageView;
+
+BOOL isExpanded = NO;
+BOOL isAnimating = NO;
+int height = 98;
+
 @implementation CouponCollectionViewController
 
 UIPanGestureRecognizer *pan;
@@ -41,6 +51,10 @@ UIPanGestureRecognizer *pan;
     stack=6;
     imageHeight = 292;
     
+    isExpanded = NO;
+    isAnimating = NO;
+    height = 98;
+
     // app background
     self.view.backgroundColor = [UIColor colorWithHex:0xedeae1];
     UIImage *appBg = [[UIImage imageNamed:@"app-bg"] stretchableImageWithLeftCapWidth:0 topCapHeight:0];
@@ -138,12 +152,6 @@ UIPanGestureRecognizer *pan;
     [self.navigationController.navigationBar setTitle:@"我的优惠券"];
 }
 
-
-CGPoint lastGestureVelocity;
-CGPoint startGestureVelocity;
-int panDirction;
-CGPoint origanPoint;
-UIImageView* topImageView;
 - (void)handlePan:(UIPanGestureRecognizer *)recognizer {
     
     CGPoint velocity2 = [recognizer velocityInView:self.view];
@@ -371,9 +379,6 @@ UIImageView* flyingInImageView;
     }
 }
 
-BOOL isExpanded = NO;
-BOOL isAnimating = NO;
-int height = 98;
 - (void)handleDownPan:(UIPanGestureRecognizer *)recognizer {
     if(isAnimating) return;
 
