@@ -70,6 +70,8 @@ UIPanGestureRecognizer *pan;
         imageView.layer.borderWidth        = 5;
         imageView.layer.borderColor        = [[UIColor whiteColor] CGColor];
         imageView.layer.shouldRasterize     =YES;
+        UIBezierPath *path = [UIBezierPath bezierPathWithRect:imageView.bounds];
+        imageView.layer.shadowPath = path.CGPath;
         imageView.tag = i;
         
         CGFloat radians = M_PI * 8+(i*2) / 360.0;
