@@ -125,10 +125,10 @@ UIPanGestureRecognizer *pan;
     
     UIImage *handleImage = [UIImage imageNamed:[NSString stringWithFormat: @"handle"]];
     handleImageView = [[UIImageView alloc]initWithImage:handleImage];
-    handleImageView.center =  CGPointMake(160,-20);
+    handleImageView.center =  CGPointMake(160,0);
     handleImageView.alpha=0;
     [scrollView addSubview:handleImageView];
-    [UIView animateWithDuration:0.5
+    [UIView animateWithDuration:0.3
                      animations:^{
                          handleImageView.center =  CGPointMake(160,20);
                          handleImageView.alpha = 1;

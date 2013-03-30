@@ -58,12 +58,12 @@
     
     radar = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"radar-scan"]];
     radar.tag = kRadarScanTag;
-    radar.center = CGPointMake(160, 136);
+    radar.center = CGPointMake(160, 148);
     radar.layer.anchorPoint = CGPointMake(.5, .5);
     [self.view addSubview:radar];
     
     radar = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"radar-point"]];
-    radar.center = CGPointMake(160, 140);
+    radar.center = CGPointMake(160, 148);
     [self.view addSubview:radar];
     
     // shake phone
