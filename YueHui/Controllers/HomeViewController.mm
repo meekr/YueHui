@@ -176,7 +176,8 @@
 }
 
 -(void)loginAction{
-    
+    LoginViewController *controller = [[LoginViewController alloc] init];
+    [self.navigationController pushViewController:controller animated:NO];
 }
 
 

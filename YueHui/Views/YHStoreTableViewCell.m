@@ -84,7 +84,7 @@ int i=0;
 {
     [super setSelected:selected animated:animated];
 
-    UIImageView *bgView = (UIImageView *)self.backgroundView;
+//    UIImageView *bgView = (UIImageView *)self.backgroundView;
     if (selected) {
 //        self.textLabel.textColor = [UIColor whiteColor];
 //        bgView.image = [bgView.image imageTintedWithColor:[UIColor colorWithHex:0x499dba]];

@@ -8,6 +8,7 @@
 
 #import "NetWorkReachability.h"
 #import "Receiver.h"
+#import "LoginViewController.h"
 
 @interface HomeViewController : UIViewController <NetworkReachabilityDelegate, UIAlertViewDelegate>
 
