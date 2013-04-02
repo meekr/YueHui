@@ -9,18 +9,17 @@
 //#import "NetWorkReachability.h"
 //#import "Receiver.h"
 
-@interface LoginViewController : UIViewController<UITextFieldDelegate>{
+@interface RegisterViewController : UIViewController<UITextFieldDelegate>{
     
     UITextField* passwordInput;
     UIImageView* tickBoxImageView;
     UIImageView* tickImageView;
     UIImage* tickImage;
     BOOL tickChecked;
-
+    UIScrollView* scrollView;
 }
 //
 //@property (nonatomic, strong) NSString *uuid;
 //@property (nonatomic, strong) NSString *token;
-
 
 @end

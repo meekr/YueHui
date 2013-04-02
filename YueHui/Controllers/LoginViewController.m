@@ -9,6 +9,9 @@
 #import "loginViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIColor+Ext.h"
+#import "UINavigationBar+Ext.h"
+#import <math.h>
+#import "RegisterViewController.h"
 
 #define kShakePhoneTag 1
 #define kRadarScanTag 2
@@ -27,17 +30,18 @@
 
 @implementation LoginViewController
 
-UITextField* passwordInput=nil;
-UIImageView* tickBoxImageView=nil;
-UIImageView* tickImageView=nil;
-UIImage* tickImage=nil;
-BOOL tickChecked=NO;
-
 - (id)init {
     if (self = [super init]) {
         //        self.netReacher = [[NetworkReachability alloc] init];
         //        self.netReacher.delegate = self;
     }
+    
+    passwordInput=nil;
+    tickBoxImageView=nil;
+    tickImageView=nil;
+    tickImage=nil;
+    tickChecked=NO;
+    
     return self;
 }
 
@@ -99,12 +103,21 @@ BOOL tickChecked=NO;
     
     //
     inputImage = [UIImage imageNamed:@"msg-register"];
-    view=[[UIImageView alloc] initWithImage:inputImage ];
-    view.frame=CGRectMake(0, 0, inputImage.size.width,
-                          inputImage.size.height);
-    view.center=CGPointMake(formX+120,formY+30);
-    [self.view addSubview:view];
-    
+//    view=[[UIImageView alloc] initWithImage:inputImage ];
+//    view.frame=CGRectMake(0, 0, inputImage.size.width,
+//                          inputImage.size.height);
+//    view.center=CGPointMake(formX+120,formY+30);
+//    [self.view addSubview:view];
+    UIButton *registerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    registerBtn.frame = CGRectMake(0, 0, inputImage.size.width, inputImage.size.height);
+    registerBtn.center=CGPointMake(formX+120,formY+30);
+    [registerBtn setImage:inputImage forState:UIControlStateNormal];
+    [registerBtn setImage:[UIImage imageNamed:@"msg-register"]
+                 forState:UIControlStateHighlighted];
+    [registerBtn addTarget:self action:@selector(registerAction)
+          forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:registerBtn];
+
     
     //
     inputImage = [UIImage imageNamed:@"msg-user"];
@@ -205,6 +218,12 @@ BOOL tickChecked=NO;
     //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
 }
 
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.navigationController.navigationBar setTitle:@"用户登录"];
+}
+
 #pragma text field
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
     
@@ -271,8 +290,17 @@ BOOL tickChecked=NO;
 }
 -(void)loginAction{
     //    LoginViewController *controller = [[LoginViewController alloc] init];
+
     [self.navigationController popViewControllerAnimated:NO];
     
+}
+
+-(void)registerAction{
+    //    LoginViewController *controller = [[LoginViewController alloc] init];
+//    [self.navigationController popViewControllerAnimated:NO];
+//    [self.navigationController removeFromParentViewController];
+    RegisterViewController *controller = [[RegisterViewController alloc] init];
+    [self.navigationController pushViewController:controller animated:NO];
 }
 
 @end
