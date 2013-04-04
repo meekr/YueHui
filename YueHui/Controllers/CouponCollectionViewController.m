@@ -20,32 +20,13 @@
 @end
 
 
-NSMutableArray* imageViews;
-int backZ=0;
-int frontZ=1;
-int stack=6;
-int imageHeight = 292;
-UIScrollView* scrollView;
-UIImageView *handleImageView;
-
-CGPoint lastGestureVelocity;
-CGPoint startGestureVelocity;
-int panDirction;
-CGPoint origanPoint;
-UIImageView* topImageView;
-
-BOOL isExpanded = NO;
-BOOL isAnimating = NO;
-int height = 98;
-
 @implementation CouponCollectionViewController
 
 UIPanGestureRecognizer *pan;
 - (void)loadView {
     [super loadView];
     
-    // init vars
-    
+    // init vars    
     backZ=0;
     frontZ=1;
     stack=6;

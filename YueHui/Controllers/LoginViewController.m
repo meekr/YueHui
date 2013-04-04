@@ -60,17 +60,8 @@
     appBgView.frame = CGRectMake(0, 0, CGRectGetWidth(r), appBg.size.height);
     [self.view addSubview:appBgView];
     
+    
     //
-    UIImage *backImage = [UIImage imageNamed:@"tab-icon-back"];
-    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    backBtn.frame = CGRectMake(0, 0, backImage.size.width, backImage.size.height);
-    NSLog(@"back w %f",backBtn.frame.size.width);
-    [backBtn setImage:backImage forState:UIControlStateNormal];
-    [backBtn setImage:[UIImage imageNamed:@"tab-icon-back-selected"] forState:UIControlStateHighlighted];
-    [backBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
-    
-    
     float formX=160;
     float formY=50;
     //
@@ -120,7 +111,7 @@
 
     
     //
-    inputImage = [UIImage imageNamed:@"msg-user"];
+    inputImage = [UIImage imageNamed:@"passwords"];
     view=[[UIImageView alloc] initWithImage:inputImage ];
     view.frame=CGRectMake(0, 0, inputImage.size.width,
                           inputImage.size.height);
@@ -179,11 +170,11 @@
     [view addGestureRecognizer:tap];
     
     //
-    inputImage = [UIImage imageNamed:@"msg-user"];
+    inputImage = [UIImage imageNamed:@"remember"];
     view=[[UIImageView alloc] initWithImage:inputImage ];
     view.frame=CGRectMake(0, 0, inputImage.size.width,
                           inputImage.size.height);
-    view.center=CGPointMake(formX-35,formY+155);
+    view.center=CGPointMake(formX-25,formY+155);
     [self.view addSubview:view];
     
     //
@@ -208,20 +199,23 @@
     [loginBtn setImage:[UIImage imageNamed:@"btn-login-selected"] forState:UIControlStateHighlighted];
     [loginBtn addTarget:self action:@selector(loginAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:loginBtn];
-    
-    
-    //    UILabel* userNameLabel = [[UILabel alloc] init];
-    //    userNameLabel.text = @"用户名";
-    //    userNameLabel.center = CGPointMake(100,100);
-    // .backImage =[UIImage imageNamed:@"msg-user"];
-    //    userNameImage.
-    //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
 }
 
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.navigationController.navigationBar setTitle:@"用户登录"];
+    [self becomeFirstResponder];
+    
+    //
+    UIImage *backImage = [UIImage imageNamed:@"tab-icon-back"];
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    backBtn.frame = CGRectMake(0, 0, backImage.size.width, backImage.size.height);
+    NSLog(@"back w %f",backBtn.frame.size.width);
+    [backBtn setImage:backImage forState:UIControlStateNormal];
+    [backBtn setImage:[UIImage imageNamed:@"tab-icon-back-selected"] forState:UIControlStateHighlighted];
+    [backBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
 }
 
 #pragma text field
@@ -299,8 +293,19 @@
     //    LoginViewController *controller = [[LoginViewController alloc] init];
 //    [self.navigationController popViewControllerAnimated:NO];
 //    [self.navigationController removeFromParentViewController];
+//    
+//    [UIView animateWithDuration:0.3
+//                          delay:0 animations:^{
+//        self.view.transform = CATransform3DMakeRotation(M_PI,1.0,0.0,0.0);
+//    } completion:^{
+//        // code to be executed when flip is completed
+//    }];
+
     RegisterViewController *controller = [[RegisterViewController alloc] init];
-    [self.navigationController pushViewController:controller animated:NO];
+//    controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+//    [self presentModalViewController:controller animated:YES];
+//    controller.
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end

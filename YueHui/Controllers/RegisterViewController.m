@@ -54,15 +54,6 @@
     appBgView.frame = CGRectMake(0, 0, CGRectGetWidth(r), appBg.size.height);
     [self.view addSubview:appBgView];
     
-    //
-    UIImage *backImage = [UIImage imageNamed:@"tab-icon-back"];
-    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    backBtn.frame = CGRectMake(0, 0, backImage.size.width, backImage.size.height);
-    NSLog(@"back w %f",backBtn.frame.size.width);
-    [backBtn setImage:backImage forState:UIControlStateNormal];
-    [backBtn setImage:[UIImage imageNamed:@"tab-icon-back-selected"] forState:UIControlStateHighlighted];
-    [backBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
     
     
     scrollView = [[UIScrollView alloc]initWithFrame:appBgView.frame];
@@ -220,7 +211,7 @@
 
     UIButton *regiterBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     regiterBtn.frame = CGRectMake(0, 0, inputImage.size.width, inputImage.size.height);
-    regiterBtn.center=CGPointMake(formX+100,formY+diff*4);
+    regiterBtn.center=CGPointMake(formX+100,formY+diff*4+10);
     [regiterBtn setImage:inputImage forState:UIControlStateNormal];
     [regiterBtn setImage:[UIImage imageNamed:@"btn-right-now-selected"] forState:UIControlStateHighlighted];
     [regiterBtn addTarget:self action:@selector(registerAction) forControlEvents:UIControlEventTouchUpInside];
@@ -335,6 +326,18 @@ BOOL keyboardIsShown;
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.navigationController.navigationBar setTitle:@"注册新用户"];
+    [self becomeFirstResponder];
+    
+    //
+    UIImage *backImage = [UIImage imageNamed:@"tab-icon-back"];
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    backBtn.frame = CGRectMake(0, 0, backImage.size.width, backImage.size.height);
+    NSLog(@"back w %fx ,%f",backBtn.frame.size.width,backBtn.frame.origin.x);
+    [backBtn setImage:backImage forState:UIControlStateNormal];
+    [backBtn setImage:[UIImage imageNamed:@"tab-icon-back-selected"] forState:UIControlStateHighlighted];
+    [backBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
+
 }
 
 -( void)initLabel:(UILabel*)label{
@@ -358,7 +361,7 @@ BOOL keyboardIsShown;
 }
 
 #pragma text field
-UITextField* editingField;
+
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
     //scrollView.frame=CGRectMake(0, 0, scrollView.frame.size.width, scrollView.frame.size.height/2);
     editingField=textField;
@@ -385,7 +388,7 @@ UITextField* editingField;
 
 -(void)backAction{
     //    LoginViewController *controller = [[LoginViewController alloc] init];
-    [self.navigationController popViewControllerAnimated:NO];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)registerAction{

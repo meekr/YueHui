@@ -17,6 +17,7 @@
     UIImage* tickImage;
     BOOL tickChecked;
     UIScrollView* scrollView;
+    UITextField* editingField;
 }
 //
 //@property (nonatomic, strong) NSString *uuid;
