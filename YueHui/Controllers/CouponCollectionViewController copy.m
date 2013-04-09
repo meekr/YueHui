@@ -12,82 +12,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <math.h>
 
-
-/*
- 
- */
-@interface CardPosition: NSObject{
-    
-}
-@property(nonatomic)CGPoint center;
-@property float alpha;
-@property int zOrder;
-@end
-
-@implementation CardPosition
-- (id) init
-{
-	if((self = [super init])) {
-        self.alpha=0;
-        self.zOrder = 0;
-	}
-	
-	return self;
-}
-
-@end
-
-
-//
-@interface Card: NSObject{
-    
-}
-@property(nonatomic)UIImageView* imageView;
-@property CardPosition* position;
-@end
-
-@implementation Card
-- (id) init
-{
-	if((self = [super init])) {
-        self.imageView=nil;
-        self.position = nil;
-	}
-	
-	return self;
-}
-
-@end
-
-
-//
-@interface CouponCollectionViewController (){
-    NSMutableArray* imageViews;
-    NSMutableArray* positions;
-    NSMutableArray* cards;
-    
-    int backZ;
-    int frontZ;
-    int stackCount;
-    int positionCount;
-    int visbleCardCount;
-    int imageHeight;
-    UIScrollView* scrollView;
-    UIImageView *handleImageView;
-    
-    CGPoint lastGestureVelocity;
-    CGPoint startGestureVelocity;
-    int panDirction;
-    CGPoint origanPoint;
-    UIImageView* topImageView;
-    Card* topCard;
-    Card* swapCard;
-    
-    BOOL isExpanded;
-    BOOL isAnimating;
-    int height;
-
-}
+@interface CouponCollectionViewController ()
 - (void)handleLeftPan:(UIPanGestureRecognizer *)recognizer ;
 - (void)handleRightPan:(UIPanGestureRecognizer *)recognizer ;
 - (void)handleDownPan:(UIPanGestureRecognizer *)recognizer ;
@@ -119,6 +44,19 @@ UIPanGestureRecognizer *pan;
     UIImageView *appBgView = [[UIImageView alloc] initWithImage:appBg];
     appBgView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), appBg.size.height);
     [self.view addSubview:appBgView];
+        
+    //    UIImageView *coupons = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"coupon-collection-bg"]];
+    //    coupons.center = CGPointMake(160, 170);
+    //    [self.view addSubview:coupons];
+    
+    
+    
+    
+    
+    
+    
+
+    imageViews = [[NSMutableArray alloc] initWithCapacity:stackCount];
     
     CGRect r = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) - (85));
     scrollView=[[UIScrollView alloc] initWithFrame:r];
@@ -126,66 +64,26 @@ UIPanGestureRecognizer *pan;
     scrollView.scrollEnabled = YES;
     scrollView.contentSize = CGSizeMake(r.size.width, imageHeight+(stackCount-1)*height);
     scrollView.delegate = self;
-    //
-    pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)] ;
-    [scrollView addGestureRecognizer:pan];
-    
-    //
-    positions = [[NSMutableArray alloc] initWithCapacity:positionCount];
-    cards = [[NSMutableArray alloc] initWithCapacity:positionCount];
-    
-    //init positions and cards
-    //0 is top
-    for (int i=0; i<positionCount; i++) {
-        
-        CardPosition* position = [[CardPosition alloc]init];
-        Card* card = [[Card alloc]init];
 
-        if(i<visbleCardCount){
-            position.center=CGPointMake(160,200-i*5);
-            position.alpha=1;
-            position.zOrder=100+positionCount-i;
-            if(i==0){
-                topCard=card;
-            }
-        }
-        else if(i<visbleCardCount-1){//unvisible positions
-            position.center=CGPointMake(160,200-i*5);
-            position.alpha=0;
-            position.zOrder=100-1;
-        }
-        else{//swap position
-            position.center=CGPointMake(-100,200);
-            position.alpha=0;
-            position.zOrder=100+positionCount+1;
-            swapCard = card;
-        }
-        [positions addObject:position];
-
-        //
-        UIImage *image          = [UIImage imageNamed:[NSString stringWithFormat: @"store_b%d",i]];
-        UIImageView *imageView  = [[UIImageView alloc]initWithImage:image];
-        imageView.center        =  CGPointMake(160,200);
-        imageView.alpha         = position.alpha;
+    for (int i=0; i<stackCount; i++) {
+        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat: @"store_b%d",i]];
+        UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
+        imageView.center =  CGPointMake(160,200);
+        [scrollView addSubview:imageView];
         
         imageView.layer.masksToBounds       = NO;
         imageView.layer.shadowRadius        = 2.0;
         imageView.layer.shadowColor         = [UIColor blackColor].CGColor;
         imageView.layer.shadowOffset        = CGSizeMake(.5, .5);
         imageView.layer.shadowOpacity       = .7f;
-        imageView.layer.zPosition           = position.zOrder;
+        imageView.layer.zPosition = backZ--;
         imageView.layer.borderWidth        = 5;
         imageView.layer.borderColor        = [[UIColor whiteColor] CGColor];
         imageView.layer.shouldRasterize     =YES;
         UIBezierPath *path = [UIBezierPath bezierPathWithRect:imageView.bounds];
         imageView.layer.shadowPath = path.CGPath;
         imageView.tag = i;
-        imageView.userInteractionEnabled = YES;
-        UITapGestureRecognizer *tap =
-        [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)] ;
         
-        [imageView addGestureRecognizer:tap];
-
         CGFloat radians = M_PI * 8+(i*2) / 360.0;
         if(arc4random()%10 >6)
             radians*=-1.0f;
@@ -194,22 +92,26 @@ UIPanGestureRecognizer *pan;
         [UIView animateWithDuration:0.5
                          animations:^{
                              imageView.transform = transform;
-                             imageView.center =  position.center;
+                             imageView.center =  CGPointMake(160,imageView.center.y-i*5);
                          }];
-
-        card.position = position;
-        card.imageView=imageView;
-        [cards addObject:card];
-        [scrollView addSubview:imageView];
+        
+        //
+        [imageViews addObject:imageView];
+        UITapGestureRecognizer *tap =
+            [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)] ;
+        imageView.userInteractionEnabled = YES;
+        [imageView addGestureRecognizer:tap];
     }
-
-    
-//    imageViews = [[NSMutableArray alloc] initWithCapacity:stackCount];
-//
-//    topImageView= (UIImageView*)[imageViews objectAtIndex:0];
-//    origanPoint = ((UIImageView*)[imageViews objectAtIndex:0]).center;
+    topImageView= (UIImageView*)[imageViews objectAtIndex:0];
+    origanPoint = ((UIImageView*)[imageViews objectAtIndex:0]).center;
 
     [self resetGestureOrderAndTag];
+        
+    //
+    pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)] ;
+    //[oneFingerSwipeUp setDirection:UISwipeGestureRecognizerDirectionUp];
+    [scrollView addGestureRecognizer:pan];
+    
     
     UIImage *handleImage = [UIImage imageNamed:[NSString stringWithFormat: @"handle"]];
     handleImageView = [[UIImageView alloc]initWithImage:handleImage];
@@ -221,6 +123,7 @@ UIPanGestureRecognizer *pan;
                          handleImageView.center =  CGPointMake(160,20);
                          handleImageView.alpha = 1;
                      }];
+    
     
     UITapGestureRecognizer *handleTapG =
         [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapHandle:)];
@@ -289,30 +192,9 @@ UIPanGestureRecognizer *pan;
     NSLog(@"transloation.x: %f",translation.x);
     NSLog(@"tag:%d",topImageView.tag);
     
-//    topImageView.center = CGPointMake(topImageView.center.x + translation.x,
-//                                      topImageView.center.y + 0);
-    topCard.imageView.center = CGPointMake(topCard.imageView.center.x + translation.x,
-                                           topCard.imageView.center.y + 0);
-
-//    
-//    
-//    
-//    start  from here tomorrow.!!!!!!!!!!!!
-//    
-//    
-//    
-//    
-//    
-//    
-//    
-//    
-//    
-//    
-//    
-//    
-//    
-    
-    NSLog(@"x:%f",    topCard.imageView.center.x);
+    topImageView.center = CGPointMake(topImageView.center.x + translation.x,
+                                      topImageView.center.y + 0);
+    NSLog(@"x:%f",    topImageView.center.x);
     
     if (topImageView.center.x>origanPoint.x) {
         topImageView.center=CGPointMake(origanPoint.x, topImageView.center.y);
@@ -704,3 +586,49 @@ NSLog(@"ContentOffset  x is  %f,yis %f",scrollView.contentOffset.x,scrollView.co
 
 @end
 
+
+/*
+ 
+ */
+@interface CardPosition: NSObject{
+    
+}
+@property(nonatomic)CGPoint center;
+@property BOOL visible;
+@property int zLayer;
+@end
+
+@implementation CardPosition
+- (id) init
+{
+	if((self = [super init])) {
+        self.visible=NO;
+        self.zLayer = 0;
+	}
+	
+	return self;
+}
+
+@end
+
+
+//
+@interface Card: NSObject{
+    
+}
+@property(nonatomic)UIImageView* imageView;
+@property CardPosition* position;
+@end
+
+@implementation Card
+- (id) init
+{
+	if((self = [super init])) {
+        self.imageView=nil;
+        self.position = nil;
+	}
+	
+	return self;
+}
+
+@end
