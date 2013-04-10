@@ -19,6 +19,7 @@
 @interface CardPosition: NSObject{
     
 }
+@property int positionId;
 @property(nonatomic)CGPoint center;
 @property float alpha;
 @property int zOrder;
@@ -84,7 +85,7 @@
     Card* swapCard;
     
     BOOL isExpanded;
-    BOOL isAnimating;
+//    BOOL isAnimating;
     int height;
 
 }
@@ -110,7 +111,7 @@ UIPanGestureRecognizer *pan;
     imageHeight = 292;
     
     isExpanded = NO;
-    isAnimating = NO;
+//    isAnimating = NO;
     height = 98;
 
     // app background
@@ -141,15 +142,13 @@ UIPanGestureRecognizer *pan;
         CardPosition* position = [[CardPosition alloc]init];
         Card* card = [[Card alloc]init];
 
+        position.positionId=i;
         if(i<visbleCardCount){
             position.center=CGPointMake(160,200-i*5);
             position.alpha=1;
             position.zOrder=100+positionCount-i;
-            if(i==0){
-                topCard=card;
-            }
         }
-        else if(i<visbleCardCount-1){//unvisible positions
+        else if(i<positionCount-1){//unvisible positions
             position.center=CGPointMake(160,200-i*5);
             position.alpha=0;
             position.zOrder=100-1;
@@ -159,6 +158,9 @@ UIPanGestureRecognizer *pan;
             position.alpha=0;
             position.zOrder=100+positionCount+1;
             swapCard = card;
+        }
+        if(i==0){
+            topCard=card;
         }
         [positions addObject:position];
 
@@ -282,40 +284,19 @@ UIPanGestureRecognizer *pan;
 //UIImageView* flyingImageView;
 - (void)handleLeftPan:(UIPanGestureRecognizer *)recognizer
 {
-    if(isExpanded) return;
-    if(isAnimating) return;
+//    if(isExpanded) return;
     
     CGPoint translation = [recognizer translationInView:self.view];
     NSLog(@"transloation.x: %f",translation.x);
     NSLog(@"tag:%d",topImageView.tag);
     
-//    topImageView.center = CGPointMake(topImageView.center.x + translation.x,
-//                                      topImageView.center.y + 0);
     topCard.imageView.center = CGPointMake(topCard.imageView.center.x + translation.x,
                                            topCard.imageView.center.y + 0);
-
-//    
-//    
-//    
-//    start  from here tomorrow.!!!!!!!!!!!!
-//    
-//    
-//    
-//    
-//    
-//    
-//    
-//    
-//    
-//    
-//    
-//    
-//    
     
     NSLog(@"x:%f",    topCard.imageView.center.x);
-    
-    if (topImageView.center.x>origanPoint.x) {
-        topImageView.center=CGPointMake(origanPoint.x, topImageView.center.y);
+    CardPosition* topPosition = (CardPosition*)[positions objectAtIndex:0];
+    if (topCard.imageView.center.x>topPosition.center.x) {
+        topCard.imageView.center=CGPointMake(topPosition.center.x, topPosition.center.y);
     }
     
     [recognizer setTranslation:CGPointMake(0, 0) inView:self.view];
@@ -323,172 +304,118 @@ UIPanGestureRecognizer *pan;
     //
     if (recognizer.state == UIGestureRecognizerStateEnded) {
         CGPoint velocity = [recognizer velocityInView:self.view];
-        //
-        //        CGFloat magnitude = sqrtf((velocity.x * velocity.x));// + (velocity.y * velocity.y));
-        //
-        //        CGFloat slideMult = magnitude / 200;
-        //
-        //        NSLog(@"magnitude: %f, slideMult: %f", magnitude, slideMult);
-        
-        //float slideFactor = 0.1 * slideMult; // Increase for more of a slide
         
         float s = 300/fabs(velocity.x);
-        
-        CGPoint finalPoint = origanPoint;
-        if(s<0.7 && velocity.x<0)
-            finalPoint = CGPointMake(-200,
-                                     topImageView.center.y);
-        
-        //finalPoint.x = MIN(MAX(finalPoint.x, 0), self.view.bounds.size.width);
-        //finalPoint.y = MIN(MAX(finalPoint.y, 0), self.view.bounds.size.height);
-        NSLog(@"s: %f, vel x: %f",s,velocity.x);
-        //        if(s>0.7 && velocity.x>=0)
-        //            finalPoint = origanPoint;
-        //if (slideMult>1) { // fast engough
-        //            finalPoint = CGPointMake(recognizer.view.center.x + (velocity.x * slideFactor),
-        //                                             recognizer.view.center.y + (velocity.y * slideFactor));
-        
-        //            finalPoint.x = MIN(MAX(finalPoint.x, 0), self.view.bounds.size.width);
-        //            finalPoint.y = MIN(MAX(finalPoint.y, 0), self.view.bounds.size.height);
-        //finalPoint.x = -200;
-        // }
-        
-        isAnimating=YES;
-        [UIView animateWithDuration:(s>0.7)?0.7:s
-                              delay:0
-                            options:UIViewAnimationOptionCurveEaseOut
-                         animations:^{
-                             topImageView.center = finalPoint;
-                         }
-                         completion:^(BOOL b){
-                             if(finalPoint.x < 0){
-                                 [UIView animateWithDuration:0.2
-                                                       delay:0
-                                                     options:UIViewAnimationOptionCurveEaseOut
-                                                  animations:^{
-                                                      UIImageView* lastImageView = [imageViews objectAtIndex:imageViews.count-1];
-                                                      topImageView.center = CGPointMake(lastImageView.center.x, lastImageView.center.y-5);
-                                                      topImageView.layer.zPosition=backZ--;
-                                                  }
-                                                  completion:^(BOOL b){
-                                                     UIImageView* flyingImageView=topImageView;
-                                                     [imageViews removeObjectAtIndex:0];
-                                                     topImageView=[imageViews objectAtIndex:0];
-//                                                     flyingImageView.hidden=NO;
-//                                                     flyingImageView.layer.zPosition = backZ--;
-                                                     UIImageView* lastImageView = [imageViews objectAtIndex:imageViews.count-1];
-                                                     flyingImageView.center=CGPointMake(lastImageView.center.x,
-                                                                                        lastImageView.center.y - 5);
-                                                     [imageViews addObject:flyingImageView];
-                                                     NSLog(@"lastImageView: %f",lastImageView.center.x);
-                                                     NSLog(@"flyingImageView: %f",flyingImageView.center.x);
+        if(s<0.7 && velocity.x<0){
+            [self moveToNext:s];
+        }
+        else{
+            [self moveToOrigin:s];
+        }        
 
-                                                     
-                                                     for (int i=0; i<stackCount; i++) {
-                                                         UIImageView* m = (UIImageView*)[imageViews objectAtIndex:i];
-                                                         
-                                                         [UIView animateWithDuration:0.3
-                                                                               delay:0
-                                                                             options:UIViewAnimationOptionCurveEaseOut
-                                                                          animations:^{
-                                                                              m.center = CGPointMake(m.center.x, m.center.y+5);
-                                                                          }
-                                                                          completion:nil];
-                                                         
-                                 }
-                                 [self resetGestureOrderAndTag];
-                                                  }];
-                             }
-                             isAnimating=NO;
-                         }];
+//        NSLog(@"s: %f, vel x: %f",s,velocity.x);
+
     }
 }
 
-UIImageView* flyingInImageView;
+
 - (void)handleRightPan:(UIPanGestureRecognizer *)recognizer {
     if(isExpanded) return;
-    if(isAnimating) return;
     
-    
-    if (recognizer.state == UIGestureRecognizerStateBegan) {
-        UIImageView* lastImageView = [imageViews objectAtIndex:imageViews.count-1];
-        flyingInImageView = lastImageView;
-
-        flyingInImageView.center = CGPointMake(-100, origanPoint.y);
-//        flyingInImageView.hidden=NO;
-        flyingInImageView.layer.zPosition = frontZ++;
-
-    }
-    
-    NSLog(@"%f, %f",flyingInImageView.center.x,flyingInImageView.center.y);
+    //    NSLog(@"%f, %f",flyingInImageView.center.x,flyingInImageView.center.y);
     CGPoint translation = [recognizer translationInView:self.view];
     NSLog(@"%f",translation.x);
     
-    
-    flyingInImageView.center = CGPointMake(flyingInImageView.center.x + translation.x,
-                                           flyingInImageView.center.y + 0);
-    if (flyingInImageView.center.x>origanPoint.x) {
-        flyingInImageView.center=CGPointMake(origanPoint.x, flyingInImageView.center.y);
-    }
+    swapCard.imageView.alpha=1;
+        swapCard.imageView.center = CGPointMake(swapCard.imageView.center.x + translation.x,
+                                           swapCard.imageView.center.y + 0);
+
     
     [recognizer setTranslation:CGPointMake(0, 0) inView:self.view];
-    NSLog(@"%f",flyingInImageView.center.x);
     //
     if (recognizer.state == UIGestureRecognizerStateEnded) {
-        
+
         CGPoint velocity = [recognizer velocityInView:self.view];
         
         float s = 300/fabs(velocity.x);
-        
-        CGPoint finalPoint = CGPointMake(-200,
-                                         flyingInImageView.center.y);
-        
-        NSLog(@"s: %f",s);
-        if(s<0.7 && velocity.x>0)
-            finalPoint = origanPoint;
-        
-        isAnimating=YES;
-        [UIView animateWithDuration:(s>0.7)?0.7:s
-                              delay:0
-                            options:UIViewAnimationOptionCurveEaseOut
-                         animations:^{
-                             flyingInImageView.center = finalPoint;
-                         }
-                         completion:^(BOOL b){
-                             if(finalPoint.x > 0){
-                                 [imageViews insertObject:flyingInImageView atIndex:0];
-                                 [imageViews removeObjectAtIndex:imageViews.count-1];
-                                 
-                                 for (int i=1; i<stackCount; i++) {
-                                     UIImageView* m = (UIImageView*)[imageViews objectAtIndex:i];
-                                     
-                                     [UIView animateWithDuration:0.3
-                                                           delay:0
-                                                         options:UIViewAnimationOptionCurveEaseOut
-                                                      animations:^{
-                                                          m.center = CGPointMake(m.center.x, m.center.y-5);
-                                                      }
-                                                      completion:nil];
-                                     
-                                 }
-                                 topImageView=(UIImageView*)[imageViews objectAtIndex:0];
-                             }
-                             else {
-                                 flyingInImageView.layer.zPosition=backZ;
-                                 
-                                 UIImageView* v = (UIImageView*)[imageViews objectAtIndex:imageViews.count-2];
-                                 flyingInImageView.center =CGPointMake(origanPoint.x, v.center.y-5);
-                             }
-                             
-                             isAnimating=NO;
-                             [self resetGestureOrderAndTag];
-                         }];
-        
+        if(s<0.7 && velocity.x>0){
+            [self moveToPrevious:s];
+        }
+        else{
+            [self moveToOrigin:s];
+        }
     }
+    
+    //
+    //
+    //
+    //    start  from here tomorrow.!!!!!!!!!!!!
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //    
+    //    
+    //    
+    //    
+    //    
+    //    
+
+}
+
+
+-(void)moveToNext:(float)animationDuration{
+    for (int i=0; i<cards.count; i++) {
+        Card* card=[cards objectAtIndex:i];
+        int newInx =(card.position.positionId-1);
+        if(newInx<0)newInx = positions.count-1;
+        card.position = [positions objectAtIndex:newInx];
+        
+        if(newInx==0)topCard=card;
+        else if(newInx==positions.count-1)swapCard=card;
+    }
+    [self moveToOrigin:animationDuration];
+
+}
+
+
+-(void)moveToPrevious:(float)animationDuration{
+    for (int i=0; i<cards.count; i++) {
+        Card* card=[cards objectAtIndex:i];
+        int newInx =(card.position.positionId+1)%positions.count;
+        card.position = [positions objectAtIndex:newInx];
+        
+        if(newInx==0)topCard=card;
+        else if(newInx==positions.count-1)swapCard=card;
+    }
+    [self moveToOrigin:animationDuration];
+    
+}
+
+-(void)moveToOrigin:(float)animationDuration{
+    [UIView animateWithDuration:(animationDuration>0.7) ? 0.7 : animationDuration
+                          delay:0
+                        options:UIViewAnimationOptionCurveEaseOut|UIViewAnimationOptionBeginFromCurrentState
+                     animations:^{
+                         for (int i=0; i<cards.count; i++) {
+                             Card* card=[cards objectAtIndex:i];
+                             if(card.position.center.x != card.imageView.center.x
+                                ||card.position.center.y != card.imageView.center.y)
+                             {
+                                 card.imageView.center = card.position.center;
+                                 card.imageView.alpha = card.position.alpha;
+                                 card.imageView.layer.zPosition = card.position.zOrder;
+                             }
+                         }
+                     }
+                     completion:nil];
 }
 
 - (void)handleDownPan:(UIPanGestureRecognizer *)recognizer {
-    if(isAnimating) return;
+//    if(isAnimating) return;
 
     if(handleImageView.alpha>0){
     [UIView animateWithDuration:0.5
@@ -534,48 +461,48 @@ UIImageView* flyingInImageView;
     if (recognizer.state == UIGestureRecognizerStateEnded) {
         CGPoint velocity = [recognizer velocityInView:self.view];
         float s = 300/fabs(velocity.y);
-        CGPoint finalPoint = CGPointMake(-200,
-                                         flyingInImageView.center.y);
-        
-        NSLog(@"s: %f",s);
-        if(s<0.7 && velocity.x>0)
-            finalPoint = origanPoint;
-        
-        isAnimating=YES;
-        [UIView animateWithDuration:(s>0.7)?0.7:s
-                              delay:0
-                            options:UIViewAnimationOptionCurveEaseOut
-                         animations:^{
-                             //                             flyingInImageView.center = finalPoint;
-                             if(s>0.7 || velocity.y<0){
-                                 for (int i=0; i<stackCount; i++) {
-                                     UIImageView* m = (UIImageView*)[imageViews objectAtIndex:i];
-                                     m.center = CGPointMake(m.center.x,
-                                                            origanPoint.y-i*5);
-                                     [handleImageView setAlpha:1];
-                                 }
-                                 [scrollView scrollRectToVisible:CGRectMake(0, 0, 10, 10) animated:YES];
-                             }
-                             else{// to expanded
-                                 for (int i=0; i<stackCount; i++) {
-                                     UIImageView* m = (UIImageView*)[imageViews objectAtIndex:i];
-                                     m.center = CGPointMake(m.center.x,
-                                                            imageHeight/2+stackCount*height*(stackCount-(i+1))/stackCount);
-                                     NSLog(@"m.y:%f",m.center.y);
-                                 }
-                             }
-                         }
-                         completion:^(BOOL b){
-                             if(s>0.7 || velocity.y<0){
-                                 isExpanded = NO;
-                             }
-                             else{
-                                [self setExpandedToTrue];
-                             }
-                             isAnimating=NO;
-                             [self resetGestureOrderAndTag];
-                         }
-         ];
+//        CGPoint finalPoint = CGPointMake(-200,
+//                                         flyingInImageView.center.y);
+//        
+//        NSLog(@"s: %f",s);
+//        if(s<0.7 && velocity.x>0)
+//            finalPoint = origanPoint;
+//        
+////        isAnimating=YES;
+//        [UIView animateWithDuration:(s>0.7)?0.7:s
+//                              delay:0
+//                            options:UIViewAnimationOptionCurveEaseOut
+//                         animations:^{
+//                             //                             flyingInImageView.center = finalPoint;
+//                             if(s>0.7 || velocity.y<0){
+//                                 for (int i=0; i<stackCount; i++) {
+//                                     UIImageView* m = (UIImageView*)[imageViews objectAtIndex:i];
+//                                     m.center = CGPointMake(m.center.x,
+//                                                            origanPoint.y-i*5);
+//                                     [handleImageView setAlpha:1];
+//                                 }
+//                                 [scrollView scrollRectToVisible:CGRectMake(0, 0, 10, 10) animated:YES];
+//                             }
+//                             else{// to expanded
+//                                 for (int i=0; i<stackCount; i++) {
+//                                     UIImageView* m = (UIImageView*)[imageViews objectAtIndex:i];
+//                                     m.center = CGPointMake(m.center.x,
+//                                                            imageHeight/2+stackCount*height*(stackCount-(i+1))/stackCount);
+//                                     NSLog(@"m.y:%f",m.center.y);
+//                                 }
+//                             }
+//                         }
+//                         completion:^(BOOL b){
+//                             if(s>0.7 || velocity.y<0){
+//                                 isExpanded = NO;
+//                             }
+//                             else{
+//                                [self setExpandedToTrue];
+//                             }
+////                             isAnimating=NO;
+//                             [self resetGestureOrderAndTag];
+//                         }
+//         ];
     }
 }
 
@@ -650,7 +577,7 @@ UIImageView* flyingInImageView;
 - (void)handleTapHandle:(UISwipeGestureRecognizer *)recognizer
 {
     NSLog(@"tap handle.");
-    isAnimating=YES;
+//    isAnimating=YES;
     [UIView animateWithDuration:0.5
                           delay:0
                         options:UIViewAnimationOptionCurveEaseOut
@@ -666,7 +593,7 @@ UIImageView* flyingInImageView;
                      }
                      completion:^(BOOL b){
                          [self setExpandedToTrue];
-                         isAnimating=NO;
+//                         isAnimating=NO;
                          [self resetGestureOrderAndTag];
                      }
 
