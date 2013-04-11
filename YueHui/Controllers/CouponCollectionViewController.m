@@ -65,6 +65,7 @@
 @interface CouponCollectionViewController (){
     NSMutableArray* imageViews;
     NSMutableArray* positions;
+    NSMutableArray* expandedPositions;
     NSMutableArray* cards;
     
     int backZ;
@@ -133,6 +134,7 @@ UIPanGestureRecognizer *pan;
     
     //
     positions = [[NSMutableArray alloc] initWithCapacity:positionCount];
+    expandedPositions = [[NSMutableArray alloc] initWithCapacity:positionCount];
     cards = [[NSMutableArray alloc] initWithCapacity:positionCount];
     
     //init positions and cards
@@ -140,6 +142,7 @@ UIPanGestureRecognizer *pan;
     for (int i=0; i<positionCount; i++) {
         
         CardPosition* position = [[CardPosition alloc]init];
+        CardPosition* expandedPosition = [[CardPosition alloc]init];
         Card* card = [[Card alloc]init];
 
         position.positionId=i;
@@ -163,6 +166,15 @@ UIPanGestureRecognizer *pan;
             topCard=card;
         }
         [positions addObject:position];
+
+        expandedPosition.positionId = i;
+        expandedPosition.alpha=1;
+        expandedPosition.zOrder=100+positionCount-i;
+        expandedPosition.center=CGPointMake(160,
+                                             imageHeight/2
+                                             +positionCount*height*(stackCount-(i+1))/stackCount);
+        [expandedPositions addObject:expandedPosition];
+        
 
         //
         UIImage *image          = [UIImage imageNamed:[NSString stringWithFormat: @"store_b%d",i]];
@@ -310,7 +322,7 @@ UIPanGestureRecognizer *pan;
             [self moveToNext:s];
         }
         else{
-            [self moveToOrigin:s];
+            [self moveToCurrentPosition:s];
         }        
 
 //        NSLog(@"s: %f, vel x: %f",s,velocity.x);
@@ -342,7 +354,7 @@ UIPanGestureRecognizer *pan;
             [self moveToPrevious:s];
         }
         else{
-            [self moveToOrigin:s];
+            [self moveToCurrentPosition:s];
         }
     }
     
@@ -377,7 +389,7 @@ UIPanGestureRecognizer *pan;
         if(newInx==0)topCard=card;
         else if(newInx==positions.count-1)swapCard=card;
     }
-    [self moveToOrigin:animationDuration];
+    [self moveToCurrentPosition:animationDuration];
 
 }
 
@@ -391,11 +403,25 @@ UIPanGestureRecognizer *pan;
         if(newInx==0)topCard=card;
         else if(newInx==positions.count-1)swapCard=card;
     }
-    [self moveToOrigin:animationDuration];
+    [self moveToCurrentPosition:animationDuration];
     
 }
 
--(void)moveToOrigin:(float)animationDuration{
+-(void)moveToExpanded:(float)animationDuration{
+    for (int i=0; i<cards.count; i++) {
+        Card* card=[cards objectAtIndex:i];
+//        int newInx =(card.position.positionId+1)%positions.count;
+//        card.position = [positions objectAtIndex:newInx];
+        card.position = [expandedPositions objectAtIndex:card.position.positionId];
+        
+//        if(newInx==0)topCard=card;
+//        else if(newInx==positions.count-1)swapCard=card;
+    }
+    [self moveToCurrentPosition:animationDuration];
+    
+}
+
+-(void)moveToCurrentPosition:(float)animationDuration{
     [UIView animateWithDuration:(animationDuration>0.7) ? 0.7 : animationDuration
                           delay:0
                         options:UIViewAnimationOptionCurveEaseOut|UIViewAnimationOptionBeginFromCurrentState
@@ -438,17 +464,27 @@ UIPanGestureRecognizer *pan;
     //    flyingInImageView.center = CGPointMake(flyingInImageView.center.x + translation.x,
     //                                           flyingInImageView.center.y + 0);
 
-    UIImageView* first = (UIImageView*)[imageViews objectAtIndex:0];
-    UIImageView* last = (UIImageView*)[imageViews objectAtIndex:imageViews.count-1];
-    NSLog(@"%f, %f",last.center.y,first.center.y);
+//    UIImageView* first = (UIImageView*)[imageViews objectAtIndex:0];
+//    UIImageView* last = (UIImageView*)[imageViews objectAtIndex:imageViews.count-1];
+//    NSLog(@"%f, %f",last.center.y,first.center.y);
     
-    int y = first.center.y+translation.y;
-    if(y > origanPoint.y )
+    CardPosition* topPosition = [positions objectAtIndex:0];
+    float y = topCard.imageView.center.y + translation.y;
+    NSLog(@"%f, %f",topPosition.center.y, y);
+
+    if(y > topPosition.center.y)
     {
-        first.center= CGPointMake(first.center.x, y);
-        for (int i=1; i<stackCount; i++) {
-            UIImageView* m = (UIImageView*)[imageViews objectAtIndex:i];
-            m.center = CGPointMake(m.center.x, m.center.y+translation.y*(stackCount-i)/stackCount);
+//        first.center= CGPointMake(first.center.x, y);
+        for (int i=0; i<positionCount; i++) {
+            Card* card = [cards objectAtIndex:i];
+            
+//            UIImageView* m = (UIImageView*)[imageViews objectAtIndex:i];
+//            card.imageView.center = CGPointMake(card.imageView.center.x,
+//                                   card.imageView.center.y
+//                                   +translation.y*(stackCount-i)/stackCount);
+            card.imageView.center = CGPointMake(card.imageView.center.x,
+                                                 card.imageView.center.y
+                                                +translation.y*(visbleCardCount-i)/visbleCardCount);
         }
     }
     if(isExpanded){
@@ -461,6 +497,19 @@ UIPanGestureRecognizer *pan;
     if (recognizer.state == UIGestureRecognizerStateEnded) {
         CGPoint velocity = [recognizer velocityInView:self.view];
         float s = 300/fabs(velocity.y);
+        
+        if(s<0.7 && velocity.y>0){
+            [self moveToExpanded:s];
+            [self setExpandedToTrue];
+        }
+        else{
+            [self moveToCurrentPosition:s];
+        }
+//            finalPoint = origanPoint;
+
+        
+        
+        
 //        CGPoint finalPoint = CGPointMake(-200,
 //                                         flyingInImageView.center.y);
 //        
@@ -577,28 +626,38 @@ UIPanGestureRecognizer *pan;
 - (void)handleTapHandle:(UISwipeGestureRecognizer *)recognizer
 {
     NSLog(@"tap handle.");
-//    isAnimating=YES;
     [UIView animateWithDuration:0.5
                           delay:0
                         options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
-                         //                             flyingInImageView.center = finalPoint;
-                         for (int i=0; i<stackCount; i++) {
-                             UIImageView* m = (UIImageView*)[imageViews objectAtIndex:i];
-                             m.center = CGPointMake(m.center.x,
-                                                    imageHeight/2+stackCount*height*(stackCount-(i+1))/stackCount);
-                             NSLog(@"m.y:%f",m.center.y);
-                         }
                          [handleImageView setAlpha:0];
                      }
-                     completion:^(BOOL b){
-                         [self setExpandedToTrue];
-//                         isAnimating=NO;
-                         [self resetGestureOrderAndTag];
-                     }
+                     completion:nil];
 
-     ];
-
+    [self moveToExpanded:0.3];
+    [self setExpandedToTrue];
+//    isAnimating=YES;
+//    [UIView animateWithDuration:0.5
+//                          delay:0
+//                        options:UIViewAnimationOptionCurveEaseOut
+//                     animations:^{
+//                         //                             flyingInImageView.center = finalPoint;
+//                         for (int i=0; i<stackCount; i++) {
+//                             UIImageView* m = (UIImageView*)[imageViews objectAtIndex:i];
+//                             m.center = CGPointMake(m.center.x,
+//                                                    imageHeight/2+stackCount*height*(stackCount-(i+1))/stackCount);
+//                             NSLog(@"m.y:%f",m.center.y);
+//                         }
+//                         [handleImageView setAlpha:0];
+//                     }
+//                     completion:^(BOOL b){
+//                         [self setExpandedToTrue];
+////                         isAnimating=NO;
+//                         [self resetGestureOrderAndTag];
+//                     }
+//
+//     ];
+//
 }
 
 //BOOL isExpandedToBottom = NO;
