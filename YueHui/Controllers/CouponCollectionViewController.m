@@ -88,8 +88,9 @@
     
     BOOL isExpanded;
 //    BOOL isAnimating;
-    int height;
+    int expandedDivHeight;
 
+    UIPanGestureRecognizer *pan;
 }
 - (void)handleLeftPan:(UIPanGestureRecognizer *)recognizer ;
 - (void)handleRightPan:(UIPanGestureRecognizer *)recognizer ;
@@ -100,7 +101,7 @@
 
 @implementation CouponCollectionViewController
 
-UIPanGestureRecognizer *pan;
+
 - (void)loadView {
     [super loadView];
     
@@ -114,7 +115,7 @@ UIPanGestureRecognizer *pan;
     
     isExpanded = NO;
 //    isAnimating = NO;
-    height = 98;
+    expandedDivHeight = 98;
 
     // app background
     self.view.backgroundColor = [UIColor colorWithHex:0xedeae1];
@@ -127,11 +128,14 @@ UIPanGestureRecognizer *pan;
     scrollView=[[UIScrollView alloc] initWithFrame:r];
     [self.view addSubview:scrollView];
     scrollView.scrollEnabled = YES;
-    scrollView.contentSize = CGSizeMake(r.size.width, imageHeight+(stackCount-1)*height);
+    scrollView.contentSize = CGSizeMake(r.size.width, imageHeight+(positionCount-1)*expandedDivHeight);
     scrollView.delegate = self;
     //
-    pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)] ;
+    pan = [[UIPanGestureRecognizer alloc]
+                                   initWithTarget:self action:@selector(handlePan:)] ;
     [scrollView addGestureRecognizer:pan];
+    UIPinchGestureRecognizer* pinch = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinch:)] ;
+    [scrollView addGestureRecognizer:pinch];
     
     //
     positions = [[NSMutableArray alloc] initWithCapacity:positionCount];
@@ -173,7 +177,7 @@ UIPanGestureRecognizer *pan;
         expandedPosition.zOrder=100+positionCount-i;
         expandedPosition.center=CGPointMake(160,
                                              imageHeight/2
-                                             +positionCount*height*(stackCount-(i+1))/stackCount);
+                                             +positionCount*expandedDivHeight*(stackCount-(i+1))/stackCount);
         [expandedPositions addObject:expandedPosition];
         
 
@@ -293,6 +297,63 @@ UIPanGestureRecognizer *pan;
     }
 }
 
+- (void)handlePinch:(UIPinchGestureRecognizer *)recognizer {
+    CardPosition* topPosition = [positions objectAtIndex:0];
+    switch (recognizer.state) {
+		case UIGestureRecognizerStateBegan:
+		case UIGestureRecognizerStateChanged:
+		{
+            float factor = recognizer.scale - 1;
+            if(isExpanded==NO){
+                break;
+            }
+            
+            if(factor > 0)
+                factor=0;
+            else if(factor <-3){
+                factor=-3;
+            }
+            NSLog(@" %f",factor);
+            //                float y = topCard.imageView.center.y + recognizer.scale*10;
+            //                NSLog(@"%f, %f",topPosition.center.y, y);
+            CardPosition* expandedTopPosition = [expandedPositions objectAtIndex:0];
+            CGPoint target=CGPointMake(topCard.position.center.x,
+                                       scrollView.contentOffset.y
+                                       +scrollView.bounds.size.height/2);
+            NSLog(@"target.y: %f",target.y);
+            for (int i=0; i<positionCount; i++) {
+                Card* card = [cards objectAtIndex:(topCard.cardId+i)%positionCount];
+                card.imageView.center = CGPointMake(card.imageView.center.x,
+                                                    card.position.center.y
+                                                    - (target.y - card.position.center.y)*factor);
+            
+                NSLog(@"%i, imageView: %f, %f",i, card.imageView.center.y,factor);
+                NSLog(@"%f",card.position.center.y-target.y);
+            }
+            
+            break;
+        }
+        case UIGestureRecognizerStateEnded:
+		{
+            if(isExpanded==NO)return;
+            
+            NSLog(@"%f",topPosition.center.y-topCard.imageView.center.y<10);
+            float s = 300/recognizer.velocity;
+            if(recognizer.velocity<0
+               && (s<0.7 || topPosition.center.y-topCard.imageView.center.y<10)){
+                [self moveToContract:0.2 newTopCardId:topCard.cardId];
+            }
+            else{
+                [self moveToExpanded:s];
+            }        
+
+            break;
+        }
+        default:
+            break;
+    }
+}
+
 
 //UIImageView* flyingImageView;
 - (void)handleLeftPan:(UIPanGestureRecognizer *)recognizer
@@ -358,25 +419,6 @@ UIPanGestureRecognizer *pan;
             [self moveToCurrentPosition:s];
         }
     }
-    
-    //
-    //
-    //
-    //    start  from here tomorrow.!!!!!!!!!!!!
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //    
-    //    
-    //    
-    //    
-    //    
-    //    
-
 }
 
 
@@ -414,8 +456,23 @@ UIPanGestureRecognizer *pan;
         card.position = [expandedPositions objectAtIndex:card.position.positionId];
     }
     isExpanded=YES;
+    pan.enabled = NO;
     [self moveToCurrentPosition:animationDuration];
+}
+
+-(void)moveToContract:(float)animationDuration newTopCardId:(int)cardId{
+    for (int i=0; i<cards.count; i++) {
+        Card* card=[cards objectAtIndex:(cardId + i)%positionCount];
+        card.position = [positions objectAtIndex:i];
+        
+        if(i==0)topCard=card;
+        else if(i==positions.count-1)swapCard=card;
+    }
+    isExpanded=NO;
+    [self moveToCurrentPosition:0.3];
+    [scrollView scrollRectToVisible:CGRectMake(0, 0, 10, 10) animated:YES];
     
+    pan.enabled = YES;
 }
 
 -(void)moveToCurrentPosition:(float)animationDuration{
@@ -472,10 +529,10 @@ UIPanGestureRecognizer *pan;
                                                 +translation.y*(visbleCardCount-i)/visbleCardCount);
         }
     }
-    if(isExpanded){
-        UIImageView* m = (UIImageView*)[imageViews objectAtIndex:0];
-        [scrollView scrollRectToVisible:CGRectMake(0, m.center.y-imageHeight/2-20, 10, 10) animated:NO];
-    }
+//    if(isExpanded){
+//        UIImageView* m = (UIImageView*)[imageViews objectAtIndex:0];
+//        [scrollView scrollRectToVisible:CGRectMake(0, m.center.y-imageHeight/2-20, 10, 10) animated:NO];
+//    }
     
     [recognizer setTranslation:CGPointMake(0, 0) inView:self.view];
     
@@ -485,7 +542,6 @@ UIPanGestureRecognizer *pan;
         
         if(s<0.7 && velocity.y>0){
             [self moveToExpanded:s];
-            [self setExpandedToTrue];
         }
         else{
             [self moveToCurrentPosition:s];
@@ -501,22 +557,7 @@ UIPanGestureRecognizer *pan;
     NSLog(@"tap - start location: %f,%f", point.x, point.y);
     NSLog(@"tag: %d", recognizer.view.tag);
     if(isExpanded){
-        int cardId = recognizer.view.tag;
-        NSLog(@"%i, %i",cardId, recognizer.view.tag);
-        
-        for (int i=0; i<cards.count; i++) {
-            Card* card=[cards objectAtIndex:(cardId + i)%positionCount];
-            card.position = [positions objectAtIndex:i];
-            
-            if(i==0)topCard=card;
-            else if(i==positions.count-1)swapCard=card;
-        }
-        isExpanded=NO;
-        [self moveToCurrentPosition:0.3];
-        [scrollView scrollRectToVisible:CGRectMake(0, 0, 10, 10) animated:YES];
-        
-        pan.enabled = YES;
-
+        [self moveToContract:0.3 newTopCardId:recognizer.view.tag];
     }
 }
 
@@ -532,7 +573,6 @@ UIPanGestureRecognizer *pan;
                      completion:nil];
 
     [self moveToExpanded:0.3];
-    [self setExpandedToTrue];
 //    isAnimating=YES;
 //    [UIView animateWithDuration:0.5
 //                          delay:0
@@ -561,17 +601,13 @@ UIPanGestureRecognizer *pan;
 - (void)scrollViewDidScroll:(UIScrollView *)_scrollView;
 {
     //    NSLog(@" scrollViewDidScroll");
-//NSLog(@"ContentOffset  x is  %f,yis %f",scrollView.contentOffset.x,scrollView.contentOffset.y);
+NSLog(@"ContentOffset  x is  %f,yis %f",scrollView.contentOffset.x,scrollView.contentOffset.y);
 //    if(scrollView.contentOffset.y >= 407){
 //        pan.enabled = YES;
 ////        isExpandedToBottom=YES;
 //    }
 }
 
--(void)setExpandedToTrue{
-    isExpanded=YES;
-    pan.enabled = NO;
-}
 
 -(void)resetGestureOrderAndTag {
     for (int i=positionCount-1; i>=0; i--) {
