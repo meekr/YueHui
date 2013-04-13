@@ -58,12 +58,12 @@
     
     radar = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"radar-scan"]];
     radar.tag = kRadarScanTag;
-    radar.center = CGPointMake(160, 136);
+    radar.center = CGPointMake(160, 148);
     radar.layer.anchorPoint = CGPointMake(.5, .5);
     [self.view addSubview:radar];
     
     radar = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"radar-point"]];
-    radar.center = CGPointMake(160, 140);
+    radar.center = CGPointMake(160, 148);
     [self.view addSubview:radar];
     
     // shake phone
@@ -79,6 +79,16 @@
     [shareBtn setImage:[UIImage imageNamed:@"icon-share-selected"] forState:UIControlStateHighlighted];
     [shareBtn addTarget:self action:@selector(shareAction) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:shareBtn];
+    
+    
+    UIImage *userImage = [UIImage imageNamed:@"tab-icon-person"];
+    UIButton *userBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    userBtn.frame = CGRectMake(0, 0, userImage.size.width, userImage.size.height);
+    NSLog(@"user w %f",userBtn.frame.size.width);
+    [userBtn setImage:userImage forState:UIControlStateNormal];
+    [userBtn setImage:[UIImage imageNamed:@"tab-icon-person-selected"] forState:UIControlStateHighlighted];
+    [userBtn addTarget:self action:@selector(loginAction) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:userBtn];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -164,6 +174,12 @@
 
 - (void)shareAction {
 }
+
+-(void)loginAction{
+    LoginViewController *controller = [[LoginViewController alloc] init];
+    [self.navigationController pushViewController:controller animated:NO];
+}
+
 
 - (void)timerHandler:(NSTimer *)timer
 {

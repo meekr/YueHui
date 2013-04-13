@@ -14,6 +14,7 @@
 
 @implementation YHStoreTableViewCell
 
+int i=0;
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -29,7 +30,7 @@
         self.textLabel.hidden = YES;
         
 //        UIImageView *bgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"store-cell-bg"]];
-        UIImageView *bgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"store_1"]];
+        UIImageView *bgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"store_%d",i++%6]]];
 //        self.backgroundView.clipsToBounds = NO;
         self.backgroundView = bgView;
 //
@@ -67,12 +68,14 @@
 //        mainLabel.text=@"asdfasdf";
 //        [self.contentView addSubview:mainLabel];
 
+        self.layer.cornerRadius = 8;
         self.layer.masksToBounds = NO;
         self.layer.shadowRadius = 2.3;
         self.layer.shadowColor = [UIColor blackColor].CGColor;
         self.layer.shadowOffset = CGSizeMake(.5, .5);
-        self.layer.shadowOpacity = .4f;
-
+        self.layer.shadowOpacity = .7f;
+//        self.layer.borderWidth = 2;
+//        self.layer.borderColor =[ [UIColor whiteColor] CGColor];
     }
     return self;
 }
@@ -81,7 +84,7 @@
 {
     [super setSelected:selected animated:animated];
 
-    UIImageView *bgView = (UIImageView *)self.backgroundView;
+//    UIImageView *bgView = (UIImageView *)self.backgroundView;
     if (selected) {
 //        self.textLabel.textColor = [UIColor whiteColor];
 //        bgView.image = [bgView.image imageTintedWithColor:[UIColor colorWithHex:0x499dba]];
