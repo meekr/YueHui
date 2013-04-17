@@ -11,20 +11,11 @@
 #import "UIColor+Ext.h"
 #import <QuartzCore/QuartzCore.h>
 #import <math.h>
-
+#import "Coupon2LViewController.h"
 
 /*
  
  */
-@interface CardPosition: NSObject{
-    
-}
-@property int positionId;
-@property(nonatomic)CGPoint center;
-@property float alpha;
-@property int zOrder;
-@end
-
 @implementation CardPosition
 - (id) init
 {
@@ -38,15 +29,6 @@
 
 @end
 
-
-//
-@interface Card: NSObject{
-    
-}
-@property(nonatomic)int cardId;
-@property(nonatomic)UIImageView* imageView;
-@property CardPosition* position;
-@end
 
 @implementation Card
 - (id) init
@@ -64,30 +46,26 @@
 
 //
 @interface CouponCollectionViewController (){
-    NSMutableArray* imageViews;
+//    NSMutableArray* imageViews;
     NSMutableArray* positions;
     NSMutableArray* expandedPositions;
     NSMutableArray* cards;
     
-    int backZ;
-    int frontZ;
-    int stackCount;
+    int panDirction;
     int positionCount;
     int visbleCardCount;
     int imageHeight;
     UIScrollView* scrollView;
     UIImageView *handleImageView;
     
-    CGPoint lastGestureVelocity;
-    CGPoint startGestureVelocity;
-    int panDirction;
+//    CGPoint lastGestureVelocity;
+//    CGPoint startGestureVelocity;
     CGPoint origanPoint;
     UIImageView* topImageView;
     Card* topCard;
     Card* swapCard;
     
     BOOL isExpanded;
-//    BOOL isAnimating;
     int expandedDivHeight;
 
     UIPanGestureRecognizer *pan;
@@ -106,11 +84,11 @@
     [super loadView];
     
     // init vars    
-    backZ=0;
-    frontZ=1;
-    stackCount=6;
-    positionCount = 6;
-    visbleCardCount = 3;
+//    backZ=0;
+//    frontZ=1;
+//    stackCount=6;
+    positionCount = 15;
+    visbleCardCount = 6;
     imageHeight = 292;
     
     isExpanded = NO;
@@ -177,8 +155,10 @@
         expandedPosition.zOrder=100+positionCount-i;
         expandedPosition.center=CGPointMake(160,
                                              imageHeight/2
-                                             +positionCount*expandedDivHeight*(stackCount-(i+1))/stackCount);
+                                             +positionCount*expandedDivHeight
+                                            *(positionCount-(i+1))/positionCount);
         [expandedPositions addObject:expandedPosition];
+        NSLog(@"expandedPosition: %f", expandedPosition.center.y);
         
 
         //
@@ -205,7 +185,7 @@
         
         [imageView addGestureRecognizer:tap];
 
-        CGFloat radians = M_PI * 8+(i*2) / 360.0;
+        CGFloat radians = M_PI * 8+((arc4random()%5)*2) / 360.0;
         if(arc4random()%10 >6)
             radians*=-1.0f;
         CGAffineTransform transform = CGAffineTransformMakeRotation(radians);
@@ -255,13 +235,14 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self.navigationController.navigationBar setTitle:@"我的优惠券"];
+    [self.navigationController.navigationBar setTitle:@"推荐优惠"];
 }
 
 - (void)handlePan:(UIPanGestureRecognizer *)recognizer {
     
+
     CGPoint velocity2 = [recognizer velocityInView:self.view];
-    //    NSLog(@"pan velocity2: %f,%f", velocity2.x, velocity2.y);
+
     if (recognizer.state == UIGestureRecognizerStateBegan) {
         NSLog(@"pad began");
         
@@ -281,7 +262,6 @@
             NSLog(@"to right");
             panDirction = 1;
         }
-        startGestureVelocity = velocity2;
     }
     
     //    NSLog(@"pan location: %f,%f", translation.x, translation.y);
@@ -316,7 +296,7 @@
             NSLog(@" %f",factor);
             //                float y = topCard.imageView.center.y + recognizer.scale*10;
             //                NSLog(@"%f, %f",topPosition.center.y, y);
-            CardPosition* expandedTopPosition = [expandedPositions objectAtIndex:0];
+//            CardPosition* expandedTopPosition = [expandedPositions objectAtIndex:0];
             CGPoint target=CGPointMake(topCard.position.center.x,
                                        scrollView.contentOffset.y
                                        +scrollView.bounds.size.height/2);
@@ -337,11 +317,11 @@
 		{
             if(isExpanded==NO)return;
             
-            NSLog(@"%f",topPosition.center.y-topCard.imageView.center.y<10);
+            NSLog(@"%d",topPosition.center.y-topCard.imageView.center.y<10);
             float s = 300/recognizer.velocity;
             if(recognizer.velocity<0
                && (s<0.7 || topPosition.center.y-topCard.imageView.center.y<10)){
-                [self moveToContract:0.2 newTopCardId:topCard.cardId];
+                [self moveToContract:0.3 newTopCardId:topCard.cardId];
             }
             else{
                 [self moveToExpanded:s];
@@ -380,11 +360,11 @@
         CGPoint velocity = [recognizer velocityInView:self.view];
         
         float s = 300/fabs(velocity.x);
-        if(s<0.7 && velocity.x<0){
+        if(velocity.x<0 && (s<0.5 || topCard.imageView.center.x<0)){
             [self moveToNext:s];
         }
         else{
-            [self moveToCurrentPosition:s];
+            [self moveToCurrentPosition:s>0.3?0.3:s];
         }        
 
 //        NSLog(@"s: %f, vel x: %f",s,velocity.x);
@@ -412,11 +392,11 @@
         CGPoint velocity = [recognizer velocityInView:self.view];
         
         float s = 300/fabs(velocity.x);
-        if(s<0.7 && velocity.x>0){
+        if( velocity.x>0 && (s<0.5 || swapCard.imageView.center.x>0)){
             [self moveToPrevious:s];
         }
         else{
-            [self moveToCurrentPosition:s];
+            [self moveToCurrentPosition:s > 0.2 ? 0.2 : s];
         }
     }
 }
@@ -457,7 +437,10 @@
     }
     isExpanded=YES;
     pan.enabled = NO;
-    [self moveToCurrentPosition:animationDuration];
+//    positionCount*0.01;
+    [self moveToCurrentPosition:animationDuration+positionCount*0.01];
+//    [scrollView scrollRectToVisible:CGRectMake(0, scrollView.contentSize.height-expandedDivHeight, 10, 10)
+//                           animated:YES];
 }
 
 -(void)moveToContract:(float)animationDuration newTopCardId:(int)cardId{
@@ -469,14 +452,14 @@
         else if(i==positions.count-1)swapCard=card;
     }
     isExpanded=NO;
-    [self moveToCurrentPosition:0.3];
+    [self moveToCurrentPosition:animationDuration];
     [scrollView scrollRectToVisible:CGRectMake(0, 0, 10, 10) animated:YES];
     
     pan.enabled = YES;
 }
 
 -(void)moveToCurrentPosition:(float)animationDuration{
-    [UIView animateWithDuration:(animationDuration>0.7) ? 0.7 : animationDuration
+    [UIView animateWithDuration:(animationDuration>0.5) ? 0.5 : animationDuration
                           delay:0
                         options:UIViewAnimationOptionCurveEaseOut|UIViewAnimationOptionBeginFromCurrentState
                      animations:^{
@@ -501,8 +484,6 @@
 }
 
 - (void)handleDownPan:(UIPanGestureRecognizer *)recognizer {
-//    if(isAnimating) return;
-
     if(handleImageView.alpha>0){
     [UIView animateWithDuration:0.5
                           delay:0
@@ -529,18 +510,14 @@
                                                 +translation.y*(visbleCardCount-i)/visbleCardCount);
         }
     }
-//    if(isExpanded){
-//        UIImageView* m = (UIImageView*)[imageViews objectAtIndex:0];
-//        [scrollView scrollRectToVisible:CGRectMake(0, m.center.y-imageHeight/2-20, 10, 10) animated:NO];
-//    }
-    
+
     [recognizer setTranslation:CGPointMake(0, 0) inView:self.view];
     
     if (recognizer.state == UIGestureRecognizerStateEnded) {
         CGPoint velocity = [recognizer velocityInView:self.view];
         float s = 300/fabs(velocity.y);
         
-        if(s<0.7 && velocity.y>0){
+        if(s<0.5 && velocity.y>0){
             [self moveToExpanded:s];
         }
         else{
@@ -558,6 +535,10 @@
     NSLog(@"tag: %d", recognizer.view.tag);
     if(isExpanded){
         [self moveToContract:0.3 newTopCardId:recognizer.view.tag];
+    }
+    else{
+        Coupon2LViewController *controller = [[Coupon2LViewController alloc] init];
+        [self.navigationController pushViewController:controller animated:YES];
     }
 }
 

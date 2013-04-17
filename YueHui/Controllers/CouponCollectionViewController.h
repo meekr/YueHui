@@ -11,3 +11,26 @@
 }
 
 @end
+
+//====================
+
+@interface CardPosition: NSObject{
+    
+}
+@property int positionId;
+@property(nonatomic)CGPoint center;
+@property float alpha;
+@property int zOrder;
+@end
+
+
+//====================
+
+@interface Card: NSObject{
+    
+}
+@property(nonatomic)int cardId;
+@property(nonatomic)UIImageView* imageView;
+@property CardPosition* position;
+@end
+
