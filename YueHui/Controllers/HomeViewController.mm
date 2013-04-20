@@ -28,6 +28,8 @@
 @end
 
 @implementation HomeViewController
+@synthesize token;
+@synthesize uuid;
 
 - (id)init {
     if (self = [super init]) {
@@ -89,6 +91,8 @@
     [userBtn setImage:[UIImage imageNamed:@"tab-icon-person-selected"] forState:UIControlStateHighlighted];
     [userBtn addTarget:self action:@selector(loginAction) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:userBtn];
+    
+    receiver = NULL;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -189,6 +193,7 @@
     {
         string str = receiver->getData();
         self.token = [NSString stringWithUTF8String:str.c_str()];
+        NSLog(@"token:%s", str.c_str());
         
         if (self.token.length > 0)
         {

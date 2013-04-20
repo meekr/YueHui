@@ -11,8 +11,11 @@
 #import "LoginViewController.h"
 
 @interface HomeViewController : UIViewController <NetworkReachabilityDelegate, UIAlertViewDelegate>
+//
+//@property (nonatomic, strong) NSString *uuid;
+//@property (nonatomic, strong) NSString *token;
 
-@property (nonatomic, strong) NSString *uuid;
-@property (nonatomic, strong) NSString *token;
+@property(nonatomic, copy) NSString* uuid;
+@property(nonatomic, copy) NSString* token;
 
 @end

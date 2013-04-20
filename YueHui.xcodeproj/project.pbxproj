@@ -1133,6 +1133,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = armv7;
+				CLANG_CXX_LIBRARY = "compiler-default";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/YueHui/Assets/Supporting/YueHui-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/YueHui/Assets/Supporting/YueHui-Info.plist";
@@ -1153,6 +1154,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = armv7;
+				CLANG_CXX_LIBRARY = "compiler-default";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/YueHui/Assets/Supporting/YueHui-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/YueHui/Assets/Supporting/YueHui-Info.plist";
