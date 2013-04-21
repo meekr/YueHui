@@ -63,7 +63,7 @@
     //
     UIImage *image = [UIImage imageNamed:@"KFC_small"];
     UIImageView *imageView  = [[UIImageView alloc]initWithImage:image];
-    imageView.center        =  CGPointMake(80,60);
+    imageView.center        =  CGPointMake(70,50);
     imageView.layer.masksToBounds       = NO;
     imageView.layer.shadowRadius        = 2.0;
     imageView.layer.shadowColor         = [UIColor blackColor].CGColor;
@@ -88,8 +88,14 @@
     
     UILabel* label = [[UILabel alloc]init];
     [self initLabel:label];
-    label.text = @"签到成功，您现在的积分是：500";
-    label.center = CGPointMake(200,30);
+    label.text = @"及先生 签到成功";
+    label.center = CGPointMake(180,30);
+    [scrollView addSubview:label];
+    
+    label = [[UILabel alloc]init];
+    [self initLabel:label];
+    label.text = @"您现在的积分是：500";
+    label.center = CGPointMake(196,50);
     [scrollView addSubview:label];
     
 }
