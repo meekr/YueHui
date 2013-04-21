@@ -10,6 +10,7 @@
 #import "UIColor+Ext.h"
 #import "UINavigationBar+Ext.h"
 #import <QuartzCore/QuartzCore.h>
+#import "ShopViewController.h"
 
 #define kShakePhoneTag 1
 #define kRadarScanTag 2
@@ -223,6 +224,8 @@
                 {
                     // TODO: open shop view
                     NSLog(@"open shop view");
+                    ShopViewController *controller = [[ShopViewController alloc] init];
+                    [self.navigationController pushViewController:controller animated:YES];
                 }
             }
         }

@@ -1,0 +1,596 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4FA6DC491724408D002C81AD /* CloudClientTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FA6DC411724408C002C81AD /* CloudClientTests-Info.plist */; };
+		4FA6DC4A1724408D002C81AD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4FA6DC431724408D002C81AD /* InfoPlist.strings */; };
+		4FA6DC4C1724408D002C81AD /* CloudClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA6DC481724408D002C81AD /* CloudClientTests.m */; };
+		4FA6DC76172441A3002C81AD /* CloudClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA6DC4F172441A2002C81AD /* CloudClient.m */; };
+		4FA6DC77172441A3002C81AD /* ErrorResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA6DC52172441A2002C81AD /* ErrorResult.m */; };
+		4FA6DC78172441A3002C81AD /* Result.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA6DC54172441A2002C81AD /* Result.m */; };
+		4FA6DC79172441A3002C81AD /* ShopResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA6DC56172441A2002C81AD /* ShopResult.m */; };
+		4FA6DC7A172441A3002C81AD /* FlipInkCloudClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA6DC58172441A3002C81AD /* FlipInkCloudClient.m */; };
+		4FA6DC7B172441A3002C81AD /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA6DC5C172441A3002C81AD /* ASIAuthenticationDialog.m */; };
+		4FA6DC7C172441A3002C81AD /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA6DC5F172441A3002C81AD /* ASIDataCompressor.m */; };
+		4FA6DC7D172441A3002C81AD /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA6DC61172441A3002C81AD /* ASIDataDecompressor.m */; };
+		4FA6DC7E172441A3002C81AD /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA6DC63172441A3002C81AD /* ASIDownloadCache.m */; };
+		4FA6DC7F172441A3002C81AD /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA6DC65172441A3002C81AD /* ASIFormDataRequest.m */; };
+		4FA6DC80172441A3002C81AD /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA6DC67172441A3002C81AD /* ASIHTTPRequest.m */; };
+		4FA6DC81172441A3002C81AD /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA6DC6B172441A3002C81AD /* ASIInputStream.m */; };
+		4FA6DC82172441A3002C81AD /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA6DC6D172441A3002C81AD /* ASINetworkQueue.m */; };
+		4FA6DC83172441A3002C81AD /* ReachabilityASI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA6DC70172441A3002C81AD /* ReachabilityASI.m */; };
+		4FA6DC84172441A3002C81AD /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 4FA6DC72172441A3002C81AD /* CHANGELOG.md */; };
+		4FA6DC85172441A3002C81AD /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA6DC74172441A3002C81AD /* JSONKit.m */; };
+		4FA6DC86172441A3002C81AD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4FA6DC75172441A3002C81AD /* README.md */; };
+		4FEECECC16EF90D400B887DE /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FEECECB16EF90D400B887DE /* CFNetwork.framework */; };
+		4FEECECE16EF90DD00B887DE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FEECECD16EF90DD00B887DE /* SystemConfiguration.framework */; };
+		4FEECED016EF90E600B887DE /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FEECECF16EF90E600B887DE /* MobileCoreServices.framework */; };
+		4FEECED216EF90EE00B887DE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FEECED116EF90EE00B887DE /* CoreGraphics.framework */; };
+		4FEECED416EF90F600B887DE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FEECED316EF90F600B887DE /* libz.dylib */; };
+		4FEECFB816F0AAB400B887DE /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FEECECB16EF90D400B887DE /* CFNetwork.framework */; };
+		4FEECFB916F0AAC000B887DE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FEECECD16EF90DD00B887DE /* SystemConfiguration.framework */; };
+		4FEECFBA16F0AACC00B887DE /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FEECECF16EF90E600B887DE /* MobileCoreServices.framework */; };
+		4FEECFBB16F0AAD900B887DE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FEECED116EF90EE00B887DE /* CoreGraphics.framework */; };
+		4FEECFBC16F0AAE200B887DE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FEECED316EF90F600B887DE /* libz.dylib */; };
+		4FEFFA6816EF7FEB00374B88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FEFFA6716EF7FEB00374B88 /* Foundation.framework */; };
+		4FEFFA7716EF7FEC00374B88 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FEFFA7616EF7FEC00374B88 /* SenTestingKit.framework */; };
+		4FEFFA7916EF7FEC00374B88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FEFFA7816EF7FEC00374B88 /* UIKit.framework */; };
+		4FEFFA7A16EF7FEC00374B88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FEFFA6716EF7FEB00374B88 /* Foundation.framework */; };
+		4FEFFA7D16EF7FEC00374B88 /* libCloudClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FEFFA6416EF7FEB00374B88 /* libCloudClient.a */; };
+		C2E8E4D316F42A94009B6632 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2E8E4D216F42A94009B6632 /* UIKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4FEFFA7B16EF7FEC00374B88 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4FEFFA5B16EF7FEB00374B88 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4FEFFA6316EF7FEB00374B88;
+			remoteInfo = FlipInkCloudClient;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4FEFFA6216EF7FEB00374B88 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		4FA6DC411724408C002C81AD /* CloudClientTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "CloudClientTests-Info.plist"; path = "CloudClientTests/CloudClientTests-Info.plist"; sourceTree = SOURCE_ROOT; };
+		4FA6DC441724408D002C81AD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
+		4FA6DC471724408D002C81AD /* CloudClientTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudClientTests.h; path = CloudClientTests/CloudClientTests.h; sourceTree = SOURCE_ROOT; };
+		4FA6DC481724408D002C81AD /* CloudClientTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CloudClientTests.m; path = CloudClientTests/CloudClientTests.m; sourceTree = SOURCE_ROOT; };
+		4FA6DC4D172441A1002C81AD /* CloudClient-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CloudClient-Prefix.pch"; path = "CloudClient/CloudClient-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		4FA6DC4E172441A1002C81AD /* CloudClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudClient.h; path = CloudClient/CloudClient.h; sourceTree = SOURCE_ROOT; };
+		4FA6DC4F172441A2002C81AD /* CloudClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CloudClient.m; path = CloudClient/CloudClient.m; sourceTree = SOURCE_ROOT; };
+		4FA6DC51172441A2002C81AD /* ErrorResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorResult.h; sourceTree = "<group>"; };
+		4FA6DC52172441A2002C81AD /* ErrorResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorResult.m; sourceTree = "<group>"; };
+		4FA6DC53172441A2002C81AD /* Result.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Result.h; sourceTree = "<group>"; };
+		4FA6DC54172441A2002C81AD /* Result.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Result.m; sourceTree = "<group>"; };
+		4FA6DC55172441A2002C81AD /* ShopResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopResult.h; sourceTree = "<group>"; };
+		4FA6DC56172441A2002C81AD /* ShopResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopResult.m; sourceTree = "<group>"; };
+		4FA6DC57172441A2002C81AD /* FlipInkCloudClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlipInkCloudClient.h; path = CloudClient/FlipInkCloudClient.h; sourceTree = SOURCE_ROOT; };
+		4FA6DC58172441A3002C81AD /* FlipInkCloudClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlipInkCloudClient.m; path = CloudClient/FlipInkCloudClient.m; sourceTree = SOURCE_ROOT; };
+		4FA6DC5B172441A3002C81AD /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
+		4FA6DC5C172441A3002C81AD /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
+		4FA6DC5D172441A3002C81AD /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
+		4FA6DC5E172441A3002C81AD /* ASIDataCompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDataCompressor.h; sourceTree = "<group>"; };
+		4FA6DC5F172441A3002C81AD /* ASIDataCompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDataCompressor.m; sourceTree = "<group>"; };
+		4FA6DC60172441A3002C81AD /* ASIDataDecompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDataDecompressor.h; sourceTree = "<group>"; };
+		4FA6DC61172441A3002C81AD /* ASIDataDecompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDataDecompressor.m; sourceTree = "<group>"; };
+		4FA6DC62172441A3002C81AD /* ASIDownloadCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDownloadCache.h; sourceTree = "<group>"; };
+		4FA6DC63172441A3002C81AD /* ASIDownloadCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDownloadCache.m; sourceTree = "<group>"; };
+		4FA6DC64172441A3002C81AD /* ASIFormDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIFormDataRequest.h; sourceTree = "<group>"; };
+		4FA6DC65172441A3002C81AD /* ASIFormDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIFormDataRequest.m; sourceTree = "<group>"; };
+		4FA6DC66172441A3002C81AD /* ASIHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequest.h; sourceTree = "<group>"; };
+		4FA6DC67172441A3002C81AD /* ASIHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIHTTPRequest.m; sourceTree = "<group>"; };
+		4FA6DC68172441A3002C81AD /* ASIHTTPRequestConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestConfig.h; sourceTree = "<group>"; };
+		4FA6DC69172441A3002C81AD /* ASIHTTPRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestDelegate.h; sourceTree = "<group>"; };
+		4FA6DC6A172441A3002C81AD /* ASIInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIInputStream.h; sourceTree = "<group>"; };
+		4FA6DC6B172441A3002C81AD /* ASIInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIInputStream.m; sourceTree = "<group>"; };
+		4FA6DC6C172441A3002C81AD /* ASINetworkQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASINetworkQueue.h; sourceTree = "<group>"; };
+		4FA6DC6D172441A3002C81AD /* ASINetworkQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASINetworkQueue.m; sourceTree = "<group>"; };
+		4FA6DC6E172441A3002C81AD /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIProgressDelegate.h; sourceTree = "<group>"; };
+		4FA6DC6F172441A3002C81AD /* ReachabilityASI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReachabilityASI.h; sourceTree = "<group>"; };
+		4FA6DC70172441A3002C81AD /* ReachabilityASI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReachabilityASI.m; sourceTree = "<group>"; };
+		4FA6DC72172441A3002C81AD /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG.md; sourceTree = "<group>"; };
+		4FA6DC73172441A3002C81AD /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		4FA6DC74172441A3002C81AD /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		4FA6DC75172441A3002C81AD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		4FEECECB16EF90D400B887DE /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		4FEECECD16EF90DD00B887DE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		4FEECECF16EF90E600B887DE /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		4FEECED116EF90EE00B887DE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4FEECED316EF90F600B887DE /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		4FEFFA6416EF7FEB00374B88 /* libCloudClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCloudClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FEFFA6716EF7FEB00374B88 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4FEFFA7516EF7FEC00374B88 /* CloudClientTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CloudClientTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FEFFA7616EF7FEC00374B88 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		4FEFFA7816EF7FEC00374B88 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		C2E8E4D216F42A94009B6632 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4FEFFA6116EF7FEB00374B88 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2E8E4D316F42A94009B6632 /* UIKit.framework in Frameworks */,
+				4FEECED416EF90F600B887DE /* libz.dylib in Frameworks */,
+				4FEECED216EF90EE00B887DE /* CoreGraphics.framework in Frameworks */,
+				4FEECED016EF90E600B887DE /* MobileCoreServices.framework in Frameworks */,
+				4FEECECE16EF90DD00B887DE /* SystemConfiguration.framework in Frameworks */,
+				4FEECECC16EF90D400B887DE /* CFNetwork.framework in Frameworks */,
+				4FEFFA6816EF7FEB00374B88 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FEFFA7116EF7FEB00374B88 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FEECFBC16F0AAE200B887DE /* libz.dylib in Frameworks */,
+				4FEECFBB16F0AAD900B887DE /* CoreGraphics.framework in Frameworks */,
+				4FEECFBA16F0AACC00B887DE /* MobileCoreServices.framework in Frameworks */,
+				4FEECFB916F0AAC000B887DE /* SystemConfiguration.framework in Frameworks */,
+				4FEECFB816F0AAB400B887DE /* CFNetwork.framework in Frameworks */,
+				4FEFFA7716EF7FEC00374B88 /* SenTestingKit.framework in Frameworks */,
+				4FEFFA7916EF7FEC00374B88 /* UIKit.framework in Frameworks */,
+				4FEFFA7A16EF7FEC00374B88 /* Foundation.framework in Frameworks */,
+				4FEFFA7D16EF7FEC00374B88 /* libCloudClient.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4FA6DC421724408C002C81AD /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				4FA6DC431724408D002C81AD /* InfoPlist.strings */,
+			);
+			name = en.lproj;
+			path = CloudClientTests/en.lproj;
+			sourceTree = SOURCE_ROOT;
+		};
+		4FA6DC50172441A2002C81AD /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				4FA6DC51172441A2002C81AD /* ErrorResult.h */,
+				4FA6DC52172441A2002C81AD /* ErrorResult.m */,
+				4FA6DC53172441A2002C81AD /* Result.h */,
+				4FA6DC54172441A2002C81AD /* Result.m */,
+				4FA6DC55172441A2002C81AD /* ShopResult.h */,
+				4FA6DC56172441A2002C81AD /* ShopResult.m */,
+			);
+			name = Data;
+			path = CloudClient/Data;
+			sourceTree = SOURCE_ROOT;
+		};
+		4FA6DC59172441A3002C81AD /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				4FA6DC5A172441A3002C81AD /* ASIHTTP */,
+				4FA6DC71172441A3002C81AD /* JSONKit */,
+			);
+			name = Vendors;
+			path = CloudClient/Vendors;
+			sourceTree = SOURCE_ROOT;
+		};
+		4FA6DC5A172441A3002C81AD /* ASIHTTP */ = {
+			isa = PBXGroup;
+			children = (
+				4FA6DC5B172441A3002C81AD /* ASIAuthenticationDialog.h */,
+				4FA6DC5C172441A3002C81AD /* ASIAuthenticationDialog.m */,
+				4FA6DC5D172441A3002C81AD /* ASICacheDelegate.h */,
+				4FA6DC5E172441A3002C81AD /* ASIDataCompressor.h */,
+				4FA6DC5F172441A3002C81AD /* ASIDataCompressor.m */,
+				4FA6DC60172441A3002C81AD /* ASIDataDecompressor.h */,
+				4FA6DC61172441A3002C81AD /* ASIDataDecompressor.m */,
+				4FA6DC62172441A3002C81AD /* ASIDownloadCache.h */,
+				4FA6DC63172441A3002C81AD /* ASIDownloadCache.m */,
+				4FA6DC64172441A3002C81AD /* ASIFormDataRequest.h */,
+				4FA6DC65172441A3002C81AD /* ASIFormDataRequest.m */,
+				4FA6DC66172441A3002C81AD /* ASIHTTPRequest.h */,
+				4FA6DC67172441A3002C81AD /* ASIHTTPRequest.m */,
+				4FA6DC68172441A3002C81AD /* ASIHTTPRequestConfig.h */,
+				4FA6DC69172441A3002C81AD /* ASIHTTPRequestDelegate.h */,
+				4FA6DC6A172441A3002C81AD /* ASIInputStream.h */,
+				4FA6DC6B172441A3002C81AD /* ASIInputStream.m */,
+				4FA6DC6C172441A3002C81AD /* ASINetworkQueue.h */,
+				4FA6DC6D172441A3002C81AD /* ASINetworkQueue.m */,
+				4FA6DC6E172441A3002C81AD /* ASIProgressDelegate.h */,
+				4FA6DC6F172441A3002C81AD /* ReachabilityASI.h */,
+				4FA6DC70172441A3002C81AD /* ReachabilityASI.m */,
+			);
+			path = ASIHTTP;
+			sourceTree = "<group>";
+		};
+		4FA6DC71172441A3002C81AD /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				4FA6DC72172441A3002C81AD /* CHANGELOG.md */,
+				4FA6DC73172441A3002C81AD /* JSONKit.h */,
+				4FA6DC74172441A3002C81AD /* JSONKit.m */,
+				4FA6DC75172441A3002C81AD /* README.md */,
+			);
+			path = JSONKit;
+			sourceTree = "<group>";
+		};
+		4FEFFA5916EF7FEB00374B88 = {
+			isa = PBXGroup;
+			children = (
+				4FEFFA6916EF7FEB00374B88 /* CloudClient */,
+				C2B17FFC16F5B4710099AA87 /* CloudClientTests */,
+				4FEFFA6616EF7FEB00374B88 /* Frameworks */,
+				4FEFFA6516EF7FEB00374B88 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4FEFFA6516EF7FEB00374B88 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4FEFFA6416EF7FEB00374B88 /* libCloudClient.a */,
+				4FEFFA7516EF7FEC00374B88 /* CloudClientTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4FEFFA6616EF7FEB00374B88 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4FEECED316EF90F600B887DE /* libz.dylib */,
+				4FEECED116EF90EE00B887DE /* CoreGraphics.framework */,
+				4FEECECF16EF90E600B887DE /* MobileCoreServices.framework */,
+				4FEECECD16EF90DD00B887DE /* SystemConfiguration.framework */,
+				4FEECECB16EF90D400B887DE /* CFNetwork.framework */,
+				4FEFFA6716EF7FEB00374B88 /* Foundation.framework */,
+				4FEFFA7616EF7FEC00374B88 /* SenTestingKit.framework */,
+				C2E8E4D216F42A94009B6632 /* UIKit.framework */,
+				4FEFFA7816EF7FEC00374B88 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4FEFFA6916EF7FEB00374B88 /* CloudClient */ = {
+			isa = PBXGroup;
+			children = (
+				4FA6DC4E172441A1002C81AD /* CloudClient.h */,
+				4FA6DC4F172441A2002C81AD /* CloudClient.m */,
+				4FA6DC50172441A2002C81AD /* Data */,
+				4FA6DC57172441A2002C81AD /* FlipInkCloudClient.h */,
+				4FA6DC58172441A3002C81AD /* FlipInkCloudClient.m */,
+				4FA6DC59172441A3002C81AD /* Vendors */,
+				4FEFFA6A16EF7FEB00374B88 /* Supporting Files */,
+			);
+			name = CloudClient;
+			path = FlipInkCloudClient;
+			sourceTree = "<group>";
+		};
+		4FEFFA6A16EF7FEB00374B88 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4FA6DC4D172441A1002C81AD /* CloudClient-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C2B17FFC16F5B4710099AA87 /* CloudClientTests */ = {
+			isa = PBXGroup;
+			children = (
+				4FA6DC411724408C002C81AD /* CloudClientTests-Info.plist */,
+				4FA6DC421724408C002C81AD /* en.lproj */,
+				4FA6DC471724408D002C81AD /* CloudClientTests.h */,
+				4FA6DC481724408D002C81AD /* CloudClientTests.m */,
+			);
+			name = CloudClientTests;
+			path = FlipInkCloudClientTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4FEFFA6316EF7FEB00374B88 /* CloudClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4FEFFA8916EF7FEC00374B88 /* Build configuration list for PBXNativeTarget "CloudClient" */;
+			buildPhases = (
+				4FEFFA6016EF7FEB00374B88 /* Sources */,
+				4FEFFA6116EF7FEB00374B88 /* Frameworks */,
+				4FEFFA6216EF7FEB00374B88 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CloudClient;
+			productName = FlipInkCloudClient;
+			productReference = 4FEFFA6416EF7FEB00374B88 /* libCloudClient.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		4FEFFA7416EF7FEB00374B88 /* CloudClientTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4FEFFA8C16EF7FEC00374B88 /* Build configuration list for PBXNativeTarget "CloudClientTests" */;
+			buildPhases = (
+				4FEFFA7016EF7FEB00374B88 /* Sources */,
+				4FEFFA7116EF7FEB00374B88 /* Frameworks */,
+				4FEFFA7216EF7FEB00374B88 /* Resources */,
+				4FEFFA7316EF7FEB00374B88 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4FEFFA7C16EF7FEC00374B88 /* PBXTargetDependency */,
+			);
+			name = CloudClientTests;
+			productName = FlipInkCloudClientTests;
+			productReference = 4FEFFA7516EF7FEC00374B88 /* CloudClientTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4FEFFA5B16EF7FEB00374B88 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = FlipInk;
+			};
+			buildConfigurationList = 4FEFFA5E16EF7FEB00374B88 /* Build configuration list for PBXProject "CloudClient" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4FEFFA5916EF7FEB00374B88;
+			productRefGroup = 4FEFFA6516EF7FEB00374B88 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4FEFFA6316EF7FEB00374B88 /* CloudClient */,
+				4FEFFA7416EF7FEB00374B88 /* CloudClientTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4FEFFA7216EF7FEB00374B88 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FA6DC491724408D002C81AD /* CloudClientTests-Info.plist in Resources */,
+				4FA6DC4A1724408D002C81AD /* InfoPlist.strings in Resources */,
+				4FA6DC84172441A3002C81AD /* CHANGELOG.md in Resources */,
+				4FA6DC86172441A3002C81AD /* README.md in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4FEFFA7316EF7FEB00374B88 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4FEFFA6016EF7FEB00374B88 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FEFFA7016EF7FEB00374B88 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FA6DC4C1724408D002C81AD /* CloudClientTests.m in Sources */,
+				4FA6DC76172441A3002C81AD /* CloudClient.m in Sources */,
+				4FA6DC77172441A3002C81AD /* ErrorResult.m in Sources */,
+				4FA6DC78172441A3002C81AD /* Result.m in Sources */,
+				4FA6DC79172441A3002C81AD /* ShopResult.m in Sources */,
+				4FA6DC7A172441A3002C81AD /* FlipInkCloudClient.m in Sources */,
+				4FA6DC7B172441A3002C81AD /* ASIAuthenticationDialog.m in Sources */,
+				4FA6DC7C172441A3002C81AD /* ASIDataCompressor.m in Sources */,
+				4FA6DC7D172441A3002C81AD /* ASIDataDecompressor.m in Sources */,
+				4FA6DC7E172441A3002C81AD /* ASIDownloadCache.m in Sources */,
+				4FA6DC7F172441A3002C81AD /* ASIFormDataRequest.m in Sources */,
+				4FA6DC80172441A3002C81AD /* ASIHTTPRequest.m in Sources */,
+				4FA6DC81172441A3002C81AD /* ASIInputStream.m in Sources */,
+				4FA6DC82172441A3002C81AD /* ASINetworkQueue.m in Sources */,
+				4FA6DC83172441A3002C81AD /* ReachabilityASI.m in Sources */,
+				4FA6DC85172441A3002C81AD /* JSONKit.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4FEFFA7C16EF7FEC00374B88 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4FEFFA6316EF7FEB00374B88 /* CloudClient */;
+			targetProxy = 4FEFFA7B16EF7FEC00374B88 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4FA6DC431724408D002C81AD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4FA6DC441724408D002C81AD /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4FEFFA8716EF7FEC00374B88 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4FEFFA8816EF7FEC00374B88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4FEFFA8A16EF7FEC00374B88 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				DSTROOT = /tmp/FlipInkCloudClient.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FlipInkCloudClient/CloudClient-Prefix.pch";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = CloudClient;
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "../Submodules/**";
+				VALID_ARCHS = "armv7 armv7s";
+			};
+			name = Debug;
+		};
+		4FEFFA8B16EF7FEC00374B88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				DSTROOT = /tmp/FlipInkCloudClient.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FlipInkCloudClient/CloudClient-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = CloudClient;
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "../Submodules/**";
+				VALID_ARCHS = "armv7 armv7s";
+			};
+			name = Release;
+		};
+		4FEFFA8D16EF7FEC00374B88 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CloudClient/CloudClient-Prefix.pch";
+				INFOPLIST_FILE = "CloudClientTests/CloudClientTests-Info.plist";
+				PRODUCT_NAME = CloudClientTests;
+				USER_HEADER_SEARCH_PATHS = "../Submodules/**";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		4FEFFA8E16EF7FEC00374B88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CloudClient/CloudClient-Prefix.pch";
+				INFOPLIST_FILE = "CloudClientTests/CloudClientTests-Info.plist";
+				PRODUCT_NAME = CloudClientTests;
+				USER_HEADER_SEARCH_PATHS = "../Submodules/**";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4FEFFA5E16EF7FEB00374B88 /* Build configuration list for PBXProject "CloudClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FEFFA8716EF7FEC00374B88 /* Debug */,
+				4FEFFA8816EF7FEC00374B88 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4FEFFA8916EF7FEC00374B88 /* Build configuration list for PBXNativeTarget "CloudClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FEFFA8A16EF7FEC00374B88 /* Debug */,
+				4FEFFA8B16EF7FEC00374B88 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4FEFFA8C16EF7FEC00374B88 /* Build configuration list for PBXNativeTarget "CloudClientTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FEFFA8D16EF7FEC00374B88 /* Debug */,
+				4FEFFA8E16EF7FEC00374B88 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4FEFFA5B16EF7FEB00374B88 /* Project object */;
+}

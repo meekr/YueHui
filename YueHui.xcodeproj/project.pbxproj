@@ -172,6 +172,17 @@
 		4F856E08171A56C20002542A /* store_c5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F856DDE171A56C20002542A /* store_c5@2x.png */; };
 		4F856E16171A6DB00002542A /* Coupon2LViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F856E15171A5DC80002542A /* Coupon2LViewController.m */; };
 		4F97F88116FDC7FC0085763A /* store_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F97F88016FDC7FC0085763A /* store_1.png */; };
+		4FA6DBFC1722B354002C81AD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA6DBFB1722B354002C81AD /* libz.dylib */; };
+		4FA6DBFE1722B35C002C81AD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA6DBFD1722B35C002C81AD /* MobileCoreServices.framework */; };
+		4FA6DC001722B365002C81AD /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA6DBFF1722B365002C81AD /* CFNetwork.framework */; };
+		4FA6DC021722B36E002C81AD /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA6DC011722B36E002C81AD /* SenTestingKit.framework */; };
+		4FA6DC121722B4DC002C81AD /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA6DC111722B4DC002C81AD /* SenTestingKit.framework */; };
+		4FA6DC131722B4DC002C81AD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D75E7816F190FA0008C9E5 /* UIKit.framework */; };
+		4FA6DC141722B4DC002C81AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D75E7A16F190FA0008C9E5 /* Foundation.framework */; };
+		4FA6DC1A1722B4DC002C81AD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4FA6DC181722B4DC002C81AD /* InfoPlist.strings */; };
+		4FA6DC1D1722B4DC002C81AD /* YuehuiTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA6DC1C1722B4DC002C81AD /* YuehuiTest.m */; };
+		4FA6DC90172443A8002C81AD /* ShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA6DBBD1722B0AB002C81AD /* ShopViewController.m */; };
+		4FA6DC9217244892002C81AD /* KFC_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FA6DC9117244892002C81AD /* KFC_small.png */; };
 		C211982516F1FCCE00E6CE7C /* YHTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C211982416F1FCCE00E6CE7C /* YHTabBarController.m */; };
 		C22EBA2216F2F92E006ED822 /* NetWorkReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C22EBA2116F2F92E006ED822 /* NetWorkReachability.m */; };
 		C22EBA2516F3082A006ED822 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C22EBA2416F3082A006ED822 /* libstdc++.6.0.9.dylib */; };
@@ -202,6 +213,23 @@
 		C2D75ED916F1C2E30008C9E5 /* UINavigationBar+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D75ED816F1C2E30008C9E5 /* UINavigationBar+Ext.m */; };
 		C2E0928816F5492800F7C644 /* YHStoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E0928716F5492800F7C644 /* YHStoreTableViewCell.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4FA6DC8C17244233002C81AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4FA6DC8717244232002C81AD /* CloudClient.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4FEFFA6416EF7FEB00374B88;
+			remoteInfo = CloudClient;
+		};
+		4FA6DC8E17244233002C81AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4FA6DC8717244232002C81AD /* CloudClient.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4FEFFA7516EF7FEC00374B88;
+			remoteInfo = CloudClientTests;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		4F59754517020664002EB57C /* store_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = store_0.png; path = demo/store_0.png; sourceTree = "<group>"; };
@@ -382,6 +410,21 @@
 		4F856E14171A5DC80002542A /* Coupon2LViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Coupon2LViewController.h; sourceTree = "<group>"; };
 		4F856E15171A5DC80002542A /* Coupon2LViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Coupon2LViewController.m; sourceTree = "<group>"; };
 		4F97F88016FDC7FC0085763A /* store_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = store_1.png; path = demo/store_1.png; sourceTree = "<group>"; };
+		4FA6DBBC1722B0AB002C81AD /* ShopViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShopViewController.h; sourceTree = "<group>"; };
+		4FA6DBBD1722B0AB002C81AD /* ShopViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShopViewController.m; sourceTree = "<group>"; };
+		4FA6DBFB1722B354002C81AD /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		4FA6DBFD1722B35C002C81AD /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		4FA6DBFF1722B365002C81AD /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		4FA6DC011722B36E002C81AD /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		4FA6DC101722B4DC002C81AD /* YuehuiTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YuehuiTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FA6DC111722B4DC002C81AD /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		4FA6DC171722B4DC002C81AD /* YuehuiTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "YuehuiTest-Info.plist"; sourceTree = "<group>"; };
+		4FA6DC191722B4DC002C81AD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4FA6DC1B1722B4DC002C81AD /* YuehuiTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YuehuiTest.h; sourceTree = "<group>"; };
+		4FA6DC1C1722B4DC002C81AD /* YuehuiTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YuehuiTest.m; sourceTree = "<group>"; };
+		4FA6DC1E1722B4DC002C81AD /* YuehuiTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YuehuiTest-Prefix.pch"; sourceTree = "<group>"; };
+		4FA6DC8717244232002C81AD /* CloudClient.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CloudClient.xcodeproj; path = CloudClient/CloudClient.xcodeproj; sourceTree = "<group>"; };
+		4FA6DC9117244892002C81AD /* KFC_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = KFC_small.png; path = demo/KFC_small.png; sourceTree = "<group>"; };
 		C211982316F1FCCE00E6CE7C /* YHTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHTabBarController.h; sourceTree = "<group>"; };
 		C211982416F1FCCE00E6CE7C /* YHTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHTabBarController.m; sourceTree = "<group>"; };
 		C22EBA2016F2F92E006ED822 /* NetWorkReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkReachability.h; sourceTree = "<group>"; };
@@ -430,10 +473,24 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4FA6DC0C1722B4DC002C81AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FA6DC121722B4DC002C81AD /* SenTestingKit.framework in Frameworks */,
+				4FA6DC131722B4DC002C81AD /* UIKit.framework in Frameworks */,
+				4FA6DC141722B4DC002C81AD /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C2D75E7216F190FA0008C9E5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FA6DC021722B36E002C81AD /* SenTestingKit.framework in Frameworks */,
+				4FA6DC001722B365002C81AD /* CFNetwork.framework in Frameworks */,
+				4FA6DBFE1722B35C002C81AD /* MobileCoreServices.framework in Frameworks */,
+				4FA6DBFC1722B354002C81AD /* libz.dylib in Frameworks */,
 				C22EBA2516F3082A006ED822 /* libstdc++.6.0.9.dylib in Frameworks */,
 				C2D75EC416F1A7BE0008C9E5 /* libc++.dylib in Frameworks */,
 				C2D75EC216F1A7B20008C9E5 /* QuartzCore.framework in Frameworks */,
@@ -587,6 +644,7 @@
 		4F97F87E16FDC7ED0085763A /* dome */ = {
 			isa = PBXGroup;
 			children = (
+				4FA6DC9117244892002C81AD /* KFC_small.png */,
 				4F856DB5171A56C20002542A /* store_b6.png */,
 				4F856DB6171A56C20002542A /* store_b6@2x.png */,
 				4F856DB7171A56C20002542A /* store_b7.png */,
@@ -653,6 +711,35 @@
 			name = dome;
 			sourceTree = "<group>";
 		};
+		4FA6DC151722B4DC002C81AD /* YuehuiTest */ = {
+			isa = PBXGroup;
+			children = (
+				4FA6DC1B1722B4DC002C81AD /* YuehuiTest.h */,
+				4FA6DC1C1722B4DC002C81AD /* YuehuiTest.m */,
+				4FA6DC161722B4DC002C81AD /* Supporting Files */,
+			);
+			path = YuehuiTest;
+			sourceTree = "<group>";
+		};
+		4FA6DC161722B4DC002C81AD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4FA6DC171722B4DC002C81AD /* YuehuiTest-Info.plist */,
+				4FA6DC181722B4DC002C81AD /* InfoPlist.strings */,
+				4FA6DC1E1722B4DC002C81AD /* YuehuiTest-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4FA6DC8817244232002C81AD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4FA6DC8D17244233002C81AD /* libCloudClient.a */,
+				4FA6DC8F17244233002C81AD /* CloudClientTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C22EBA1F16F2F92E006ED822 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
@@ -665,9 +752,15 @@
 		C2D75E6C16F190FA0008C9E5 = {
 			isa = PBXGroup;
 			children = (
+				4FA6DC011722B36E002C81AD /* SenTestingKit.framework */,
+				4FA6DBFF1722B365002C81AD /* CFNetwork.framework */,
+				4FA6DBFD1722B35C002C81AD /* MobileCoreServices.framework */,
+				4FA6DBFB1722B354002C81AD /* libz.dylib */,
 				C2D75E7E16F190FA0008C9E5 /* YueHui */,
+				4FA6DC151722B4DC002C81AD /* YuehuiTest */,
 				C2D75E7716F190FA0008C9E5 /* Frameworks */,
 				C2D75E7616F190FA0008C9E5 /* Products */,
+				4FA6DC8717244232002C81AD /* CloudClient.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -675,6 +768,7 @@
 			isa = PBXGroup;
 			children = (
 				C2D75E7516F190FA0008C9E5 /* YueHui.app */,
+				4FA6DC101722B4DC002C81AD /* YuehuiTest.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -692,6 +786,7 @@
 				C2D75E7816F190FA0008C9E5 /* UIKit.framework */,
 				C2D75E7A16F190FA0008C9E5 /* Foundation.framework */,
 				C2D75E7C16F190FA0008C9E5 /* CoreGraphics.framework */,
+				4FA6DC111722B4DC002C81AD /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -750,6 +845,8 @@
 		C2D75EAE16F1A6F40008C9E5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4FA6DBBC1722B0AB002C81AD /* ShopViewController.h */,
+				4FA6DBBD1722B0AB002C81AD /* ShopViewController.m */,
 				4F856E14171A5DC80002542A /* Coupon2LViewController.h */,
 				4F856E15171A5DC80002542A /* Coupon2LViewController.m */,
 				4F692A0B170B0DE300958753 /* RegisterViewController.h */,
@@ -804,6 +901,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4FA6DC0F1722B4DC002C81AD /* YuehuiTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4FA6DC1F1722B4DC002C81AD /* Build configuration list for PBXNativeTarget "YuehuiTest" */;
+			buildPhases = (
+				4FA6DC0B1722B4DC002C81AD /* Sources */,
+				4FA6DC0C1722B4DC002C81AD /* Frameworks */,
+				4FA6DC0D1722B4DC002C81AD /* Resources */,
+				4FA6DC0E1722B4DC002C81AD /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YuehuiTest;
+			productName = YuehuiTest;
+			productReference = 4FA6DC101722B4DC002C81AD /* YuehuiTest.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		C2D75E7416F190FA0008C9E5 /* YueHui */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C2D75E9216F190FA0008C9E5 /* Build configuration list for PBXNativeTarget "YueHui" */;
@@ -840,14 +955,46 @@
 			mainGroup = C2D75E6C16F190FA0008C9E5;
 			productRefGroup = C2D75E7616F190FA0008C9E5 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 4FA6DC8817244232002C81AD /* Products */;
+					ProjectRef = 4FA6DC8717244232002C81AD /* CloudClient.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				C2D75E7416F190FA0008C9E5 /* YueHui */,
+				4FA6DC0F1722B4DC002C81AD /* YuehuiTest */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		4FA6DC8D17244233002C81AD /* libCloudClient.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCloudClient.a;
+			remoteRef = 4FA6DC8C17244233002C81AD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4FA6DC8F17244233002C81AD /* CloudClientTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CloudClientTests.octest;
+			remoteRef = 4FA6DC8E17244233002C81AD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
+		4FA6DC0D1722B4DC002C81AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FA6DC1A1722B4DC002C81AD /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C2D75E7316F190FA0008C9E5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1020,12 +1167,37 @@
 				4F856E06171A56C20002542A /* store_c4@2x.png in Resources */,
 				4F856E07171A56C20002542A /* store_c5.png in Resources */,
 				4F856E08171A56C20002542A /* store_c5@2x.png in Resources */,
+				4FA6DC9217244892002C81AD /* KFC_small.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4FA6DC0E1722B4DC002C81AD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		4FA6DC0B1722B4DC002C81AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FA6DC1D1722B4DC002C81AD /* YuehuiTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C2D75E7116F190FA0008C9E5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1046,6 +1218,7 @@
 				4F856E16171A6DB00002542A /* Coupon2LViewController.m in Sources */,
 				C2C8274F16F4836C00F07ED7 /* StoreCollectionViewController.m in Sources */,
 				C2E0928816F5492800F7C644 /* YHStoreTableViewCell.m in Sources */,
+				4FA6DC90172443A8002C81AD /* ShopViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1056,6 +1229,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				4F856E0E171A574C0002542A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4FA6DC181722B4DC002C81AD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4FA6DC191722B4DC002C81AD /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1071,6 +1252,36 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4FA6DC201722B4DC002C81AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "YuehuiTest/YuehuiTest-Prefix.pch";
+				INFOPLIST_FILE = "YuehuiTest/YuehuiTest-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		4FA6DC211722B4DC002C81AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "YuehuiTest/YuehuiTest-Prefix.pch";
+				INFOPLIST_FILE = "YuehuiTest/YuehuiTest-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		C2D75E9016F190FA0008C9E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1134,6 +1345,10 @@
 			buildSettings = {
 				ARCHS = armv7;
 				CLANG_CXX_LIBRARY = "compiler-default";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/YueHui/Assets/Supporting/YueHui-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/YueHui/Assets/Supporting/YueHui-Info.plist";
@@ -1144,6 +1359,7 @@
 					"\"$(SRCROOT)\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -1155,6 +1371,10 @@
 			buildSettings = {
 				ARCHS = armv7;
 				CLANG_CXX_LIBRARY = "compiler-default";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/YueHui/Assets/Supporting/YueHui-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/YueHui/Assets/Supporting/YueHui-Info.plist";
@@ -1165,6 +1385,7 @@
 					"\"$(SRCROOT)\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -1174,6 +1395,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4FA6DC1F1722B4DC002C81AD /* Build configuration list for PBXNativeTarget "YuehuiTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FA6DC201722B4DC002C81AD /* Debug */,
+				4FA6DC211722B4DC002C81AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		C2D75E7016F190FA0008C9E5 /* Build configuration list for PBXProject "YueHui" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
