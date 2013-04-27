@@ -72,7 +72,7 @@
 
         position.positionId=i;
         if(i==0){
-            position.center=CGPointMake(160,200);
+            position.center=CGPointMake(160,r.size.height/2-10);
             position.alpha=1;
             position.zOrder=100;
         }

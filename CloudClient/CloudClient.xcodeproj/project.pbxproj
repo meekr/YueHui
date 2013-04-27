@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F84A081172C060E004779D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2E8E4D216F42A94009B6632 /* UIKit.framework */; };
 		4FA6DC491724408D002C81AD /* CloudClientTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FA6DC411724408C002C81AD /* CloudClientTests-Info.plist */; };
 		4FA6DC4A1724408D002C81AD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4FA6DC431724408D002C81AD /* InfoPlist.strings */; };
 		4FA6DC4C1724408D002C81AD /* CloudClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA6DC481724408D002C81AD /* CloudClientTests.m */; };
@@ -39,9 +40,7 @@
 		4FEECFBC16F0AAE200B887DE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FEECED316EF90F600B887DE /* libz.dylib */; };
 		4FEFFA6816EF7FEB00374B88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FEFFA6716EF7FEB00374B88 /* Foundation.framework */; };
 		4FEFFA7716EF7FEC00374B88 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FEFFA7616EF7FEC00374B88 /* SenTestingKit.framework */; };
-		4FEFFA7916EF7FEC00374B88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FEFFA7816EF7FEC00374B88 /* UIKit.framework */; };
 		4FEFFA7A16EF7FEC00374B88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FEFFA6716EF7FEB00374B88 /* Foundation.framework */; };
-		4FEFFA7D16EF7FEC00374B88 /* libCloudClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FEFFA6416EF7FEB00374B88 /* libCloudClient.a */; };
 		C2E8E4D316F42A94009B6632 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2E8E4D216F42A94009B6632 /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -118,7 +117,6 @@
 		4FEFFA6716EF7FEB00374B88 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4FEFFA7516EF7FEC00374B88 /* CloudClientTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CloudClientTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FEFFA7616EF7FEC00374B88 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		4FEFFA7816EF7FEC00374B88 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		C2E8E4D216F42A94009B6632 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -141,15 +139,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F84A081172C060E004779D6 /* UIKit.framework in Frameworks */,
 				4FEECFBC16F0AAE200B887DE /* libz.dylib in Frameworks */,
 				4FEECFBB16F0AAD900B887DE /* CoreGraphics.framework in Frameworks */,
 				4FEECFBA16F0AACC00B887DE /* MobileCoreServices.framework in Frameworks */,
 				4FEECFB916F0AAC000B887DE /* SystemConfiguration.framework in Frameworks */,
 				4FEECFB816F0AAB400B887DE /* CFNetwork.framework in Frameworks */,
 				4FEFFA7716EF7FEC00374B88 /* SenTestingKit.framework in Frameworks */,
-				4FEFFA7916EF7FEC00374B88 /* UIKit.framework in Frameworks */,
 				4FEFFA7A16EF7FEC00374B88 /* Foundation.framework in Frameworks */,
-				4FEFFA7D16EF7FEC00374B88 /* libCloudClient.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,7 +256,6 @@
 				4FEFFA6716EF7FEB00374B88 /* Foundation.framework */,
 				4FEFFA7616EF7FEC00374B88 /* SenTestingKit.framework */,
 				C2E8E4D216F42A94009B6632 /* UIKit.framework */,
-				4FEFFA7816EF7FEC00374B88 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -501,12 +497,12 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				DSTROOT = /tmp/FlipInkCloudClient.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FlipInkCloudClient/CloudClient-Prefix.pch";
+				GCC_PREFIX_HEADER = "CloudClient/CloudClient-Prefix.pch";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = CloudClient;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "../Submodules/**";
+				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Debug;
@@ -517,11 +513,11 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				DSTROOT = /tmp/FlipInkCloudClient.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FlipInkCloudClient/CloudClient-Prefix.pch";
+				GCC_PREFIX_HEADER = "CloudClient/CloudClient-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = CloudClient;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "../Submodules/**";
+				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Release;

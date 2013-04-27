@@ -22,7 +22,7 @@ static NSString* CloudAppAddress;
     //HOST = @"http://localhost/~perry/";
     //http://192.168.1.101:4500/Service/
     if (CloudAppAddress==nil) {
-        CloudAppAddress= @"http://192.168.1.105:89/s/index.php";
+        CloudAppAddress= @"http://192.168.1.100:89/s/index.php";
         
     }
 }
@@ -30,6 +30,10 @@ static NSString* CloudAppAddress;
 #pragma mark - client methods
 
 +(ShopResult*)getShop: (NSString*) shopId{
+    
+    
+    
+    
     if (shopId==nil ) {
         ShopResult* r = [[ShopResult alloc] init];
         r.error = [[ErrorResult alloc]init];
@@ -51,8 +55,9 @@ static NSString* CloudAppAddress;
 + (NSDictionary*)callServerMethodByGet: (NSString*) queryString
                              paramList: (NSMutableArray*) paramList{
     NSString* response = [CloudClient callServerMethodByGetForRawContent:queryString paramList:paramList];
-    
-    return [response objectFromJSONString];
+   
+    NSDictionary* dir = [response objectFromJSONString];
+    return dir;
 }
 
 + (NSString*)callServerMethodByGetForRawContent: (NSString*) queryString

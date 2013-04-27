@@ -1402,6 +1402,7 @@
 				4FA6DC211722B4DC002C81AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C2D75E7016F190FA0008C9E5 /* Build configuration list for PBXProject "YueHui" */ = {
 			isa = XCConfigurationList;
