@@ -45,18 +45,18 @@
     }
     NSArray* shops =    ((NSArray*)[receivedObjects objectForKey:@"data"]);
     if (shops.count>0){
-        
+        NSDictionary* shopDic = [shops objectAtIndex:0];
         shopList = [[NSMutableArray alloc]init];
         Shop* shop = [[Shop alloc]init];
-        shop.shop_id = (NSString*)[receivedObjects objectForKey:@"shop_id"];
-        shop.name = (NSString*)[receivedObjects objectForKey:@"name"];
-        shop.logo = (NSString*)[receivedObjects objectForKey:@"logo"];
-        shop.abstract = (NSString*)[receivedObjects objectForKey:@"abstract"];
-        shop.tel = (NSString*)[receivedObjects objectForKey:@"tel"];
-        shop.address = (NSString*)[receivedObjects objectForKey:@"address"];
-        shop.status = (NSString*)[receivedObjects objectForKey:@"status"];
-        shop.enable = (NSString*)[receivedObjects objectForKey:@"enable"];
-        shop.sign_points = (NSString*)[receivedObjects objectForKey:@"sign_points"];
+        shop.shop_id = (NSString*)[shopDic objectForKey:@"shop_id"];
+        shop.name = (NSString*)[shopDic objectForKey:@"name"];
+        shop.logo = (NSString*)[shopDic objectForKey:@"logo"];
+        shop.abstract = (NSString*)[shopDic objectForKey:@"abstract"];
+        shop.tel = (NSString*)[shopDic objectForKey:@"tel"];
+        shop.address = (NSString*)[shopDic objectForKey:@"address"];
+        shop.status = (NSString*)[shopDic objectForKey:@"status"];
+        shop.enable = (NSString*)[shopDic objectForKey:@"enable"];
+        shop.sign_points = (NSString*)[shopDic objectForKey:@"sign_points"];
         [shopList addObject:shop];
     }
     return 0;

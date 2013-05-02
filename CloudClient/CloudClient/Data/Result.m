@@ -24,7 +24,7 @@
 
 - (int) parseDic :(NSDictionary *) receivedObjects {
     NSObject* o = (NSString *) [receivedObjects objectForKey:@"error"];
-    if(o!=nil) {
+    if([o isEqual:[NSNull null]] == NO) {
         self.error = [[ErrorResult alloc] init];
         self.error.code = [((NSDictionary*)o) objectForKey:@"code"];
         self.error.message = [((NSDictionary*)o) objectForKey:@"message"];
