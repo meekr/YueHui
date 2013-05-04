@@ -6,17 +6,6 @@
 //
 //
 
-#import "Result.h"
-
-@interface ShopResult : Result
-
-@property (nonatomic,retain) NSMutableArray*  shopList;
-
-//- (int) parseDic :(NSDictionary *) receivedObjects;
-
-@end
-
-
 @interface Shop : NSObject
 
 @property (nonatomic,retain) NSString*  shop_id;
@@ -29,6 +18,6 @@
 @property (nonatomic,retain) NSString*  enable;
 @property (nonatomic,retain) NSString*  sign_points ;
 
-//- (int) parseDic :(NSDictionary *) receivedObjects;
+- (int) parseDic :(NSDictionary *) receivedObjects;
 
 @end

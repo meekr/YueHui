@@ -5,10 +5,12 @@
 //  Created by Ji Jim on 10/20/12.
 //
 //
-
+#import "ASIHTTPRequest.h"
+#import "ASIFormDataRequest.h"
 #import "CloudClient.h"
 //#import "JSONKit.h"
 #import "SBJson.h"
+
 
 
 static NSString* CloudAppAddress;
@@ -103,20 +105,21 @@ static NSString* CloudAppAddress;
 }
 
 
-+(ShopResult*)costomerCheckin: (NSString*) uuid token:(NSString*) token{
++(CheckinResult*)customerCheckin: (NSString*) uuid token:(NSString*) token{
     if (uuid==nil || token==nil) {
-        ShopResult* r = [[ShopResult alloc] init];
+        CheckinResult* r = [[CheckinResult alloc] init];
         r.error = [[ErrorResult alloc]init];
         r.error.message=@"param cannot be NULL";
         return r;
     }
     
     NSMutableArray* params = [[NSMutableArray alloc]init];
-    [params addObject:@"1"];
+    [params addObject:token];
+    [params addObject:uuid];
     
-    NSDictionary* responseDic = [CloudClient callServerMethodByGet:@"/Get/ShopByShopId"
+    NSDictionary* responseDic = [CloudClient callServerMethodByGet:@"/Service/CustomerCheckin"
                                                          paramList:params];
-    ShopResult* r = [[ShopResult alloc] init];
+    CheckinResult* r = [[CheckinResult alloc] init];
     [r parseDic:responseDic];
     return r;
 }

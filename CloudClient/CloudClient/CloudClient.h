@@ -7,9 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ASIHTTPRequest.h"
-#import "ASIFormDataRequest.h"
 #import "ShopResult.h"
+#import "CheckinResult.h"
 
 @interface CloudClient : NSObject
 
@@ -24,5 +23,6 @@
 //+(NSString*)getObjValue: (NSString*) objId sessionId:(NSString*)sessionId;
 
 +(ShopResult*)getShop: (NSString*) shopId;
++(CheckinResult*)customerCheckin: (NSString*) uuid token:(NSString*) token;
 
 @end

@@ -20,13 +20,19 @@
 		4F866651172F91090064C0D7 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F866645172F91090064C0D7 /* SBJsonUTF8Stream.m */; };
 		4F866652172F91090064C0D7 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F866647172F91090064C0D7 /* SBJsonWriter.m */; };
 		4F866655172F91DC0064C0D7 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F866654172F91DC0064C0D7 /* NSObject+SBJson.m */; };
+		4F974E771734DC6000D5C72A /* CheckinResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F974E6C1734DC6000D5C72A /* CheckinResult.m */; };
+		4F974E781734DC6000D5C72A /* ErrorResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F974E6E1734DC6000D5C72A /* ErrorResult.m */; };
+		4F974E791734DC6000D5C72A /* Result.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F974E701734DC6000D5C72A /* Result.m */; };
+		4F974E7A1734DC6000D5C72A /* ShopResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F974E721734DC6000D5C72A /* ShopResult.m */; };
+		4F974E7B1734DC6000D5C72A /* Customer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F974E741734DC6000D5C72A /* Customer.m */; };
+		4F974E7C1734DC6000D5C72A /* Shop.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F974E761734DC6000D5C72A /* Shop.m */; };
+		4F974E7D1734E35D00D5C72A /* Customer.m in Resources */ = {isa = PBXBuildFile; fileRef = 4F974E741734DC6000D5C72A /* Customer.m */; };
+		4F974E801734E3EB00D5C72A /* CustomerCoupon.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F974E7F1734E3EB00D5C72A /* CustomerCoupon.m */; };
+		4F974E811734E3EB00D5C72A /* CustomerCoupon.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F974E7F1734E3EB00D5C72A /* CustomerCoupon.m */; };
 		4FA6DC491724408D002C81AD /* CloudClientTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FA6DC411724408C002C81AD /* CloudClientTests-Info.plist */; };
 		4FA6DC4A1724408D002C81AD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4FA6DC431724408D002C81AD /* InfoPlist.strings */; };
 		4FA6DC4C1724408D002C81AD /* CloudClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA6DC481724408D002C81AD /* CloudClientTests.m */; };
 		4FA6DC76172441A3002C81AD /* CloudClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA6DC4F172441A2002C81AD /* CloudClient.m */; };
-		4FA6DC77172441A3002C81AD /* ErrorResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA6DC52172441A2002C81AD /* ErrorResult.m */; };
-		4FA6DC78172441A3002C81AD /* Result.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA6DC54172441A2002C81AD /* Result.m */; };
-		4FA6DC79172441A3002C81AD /* ShopResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA6DC56172441A2002C81AD /* ShopResult.m */; };
 		4FA6DC7B172441A3002C81AD /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA6DC5C172441A3002C81AD /* ASIAuthenticationDialog.m */; };
 		4FA6DC7C172441A3002C81AD /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA6DC5F172441A3002C81AD /* ASIDataCompressor.m */; };
 		4FA6DC7D172441A3002C81AD /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA6DC61172441A3002C81AD /* ASIDataDecompressor.m */; };
@@ -103,6 +109,20 @@
 		4F866647172F91090064C0D7 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		4F866653172F91DC0064C0D7 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
 		4F866654172F91DC0064C0D7 /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
+		4F974E6B1734DC6000D5C72A /* CheckinResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckinResult.h; sourceTree = "<group>"; };
+		4F974E6C1734DC6000D5C72A /* CheckinResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckinResult.m; sourceTree = "<group>"; };
+		4F974E6D1734DC6000D5C72A /* ErrorResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorResult.h; sourceTree = "<group>"; };
+		4F974E6E1734DC6000D5C72A /* ErrorResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorResult.m; sourceTree = "<group>"; };
+		4F974E6F1734DC6000D5C72A /* Result.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Result.h; sourceTree = "<group>"; };
+		4F974E701734DC6000D5C72A /* Result.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Result.m; sourceTree = "<group>"; };
+		4F974E711734DC6000D5C72A /* ShopResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopResult.h; sourceTree = "<group>"; };
+		4F974E721734DC6000D5C72A /* ShopResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopResult.m; sourceTree = "<group>"; };
+		4F974E731734DC6000D5C72A /* Customer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Customer.h; sourceTree = "<group>"; };
+		4F974E741734DC6000D5C72A /* Customer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Customer.m; sourceTree = "<group>"; };
+		4F974E751734DC6000D5C72A /* Shop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shop.h; sourceTree = "<group>"; };
+		4F974E761734DC6000D5C72A /* Shop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shop.m; sourceTree = "<group>"; };
+		4F974E7E1734E3EB00D5C72A /* CustomerCoupon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerCoupon.h; sourceTree = "<group>"; };
+		4F974E7F1734E3EB00D5C72A /* CustomerCoupon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerCoupon.m; sourceTree = "<group>"; };
 		4FA6DC411724408C002C81AD /* CloudClientTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "CloudClientTests-Info.plist"; path = "CloudClientTests/CloudClientTests-Info.plist"; sourceTree = SOURCE_ROOT; };
 		4FA6DC441724408D002C81AD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
 		4FA6DC471724408D002C81AD /* CloudClientTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudClientTests.h; path = CloudClientTests/CloudClientTests.h; sourceTree = SOURCE_ROOT; };
@@ -110,12 +130,6 @@
 		4FA6DC4D172441A1002C81AD /* CloudClient-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CloudClient-Prefix.pch"; path = "CloudClient/CloudClient-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		4FA6DC4E172441A1002C81AD /* CloudClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudClient.h; path = CloudClient/CloudClient.h; sourceTree = SOURCE_ROOT; };
 		4FA6DC4F172441A2002C81AD /* CloudClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CloudClient.m; path = CloudClient/CloudClient.m; sourceTree = SOURCE_ROOT; };
-		4FA6DC51172441A2002C81AD /* ErrorResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorResult.h; sourceTree = "<group>"; };
-		4FA6DC52172441A2002C81AD /* ErrorResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorResult.m; sourceTree = "<group>"; };
-		4FA6DC53172441A2002C81AD /* Result.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Result.h; sourceTree = "<group>"; };
-		4FA6DC54172441A2002C81AD /* Result.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Result.m; sourceTree = "<group>"; };
-		4FA6DC55172441A2002C81AD /* ShopResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopResult.h; sourceTree = "<group>"; };
-		4FA6DC56172441A2002C81AD /* ShopResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopResult.m; sourceTree = "<group>"; };
 		4FA6DC5B172441A3002C81AD /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
 		4FA6DC5C172441A3002C81AD /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
 		4FA6DC5D172441A3002C81AD /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
@@ -219,6 +233,21 @@
 			path = SBJson;
 			sourceTree = "<group>";
 		};
+		4F974E6A1734DC6000D5C72A /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				4F974E6B1734DC6000D5C72A /* CheckinResult.h */,
+				4F974E6C1734DC6000D5C72A /* CheckinResult.m */,
+				4F974E6D1734DC6000D5C72A /* ErrorResult.h */,
+				4F974E6E1734DC6000D5C72A /* ErrorResult.m */,
+				4F974E6F1734DC6000D5C72A /* Result.h */,
+				4F974E701734DC6000D5C72A /* Result.m */,
+				4F974E711734DC6000D5C72A /* ShopResult.h */,
+				4F974E721734DC6000D5C72A /* ShopResult.m */,
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
 		4FA6DC421724408C002C81AD /* en.lproj */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,12 +260,13 @@
 		4FA6DC50172441A2002C81AD /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				4FA6DC51172441A2002C81AD /* ErrorResult.h */,
-				4FA6DC52172441A2002C81AD /* ErrorResult.m */,
-				4FA6DC53172441A2002C81AD /* Result.h */,
-				4FA6DC54172441A2002C81AD /* Result.m */,
-				4FA6DC55172441A2002C81AD /* ShopResult.h */,
-				4FA6DC56172441A2002C81AD /* ShopResult.m */,
+				4F974E6A1734DC6000D5C72A /* Result */,
+				4F974E731734DC6000D5C72A /* Customer.h */,
+				4F974E741734DC6000D5C72A /* Customer.m */,
+				4F974E751734DC6000D5C72A /* Shop.h */,
+				4F974E761734DC6000D5C72A /* Shop.m */,
+				4F974E7E1734E3EB00D5C72A /* CustomerCoupon.h */,
+				4F974E7F1734E3EB00D5C72A /* CustomerCoupon.m */,
 			);
 			name = Data;
 			path = CloudClient/Data;
@@ -434,6 +464,7 @@
 				4FA6DC491724408D002C81AD /* CloudClientTests-Info.plist in Resources */,
 				4FA6DC4A1724408D002C81AD /* InfoPlist.strings in Resources */,
 				4FA6DC84172441A3002C81AD /* CHANGELOG.md in Resources */,
+				4F974E7D1734E35D00D5C72A /* Customer.m in Resources */,
 				4FA6DC86172441A3002C81AD /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,6 +492,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F974E801734E3EB00D5C72A /* CustomerCoupon.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,9 +502,6 @@
 			files = (
 				4FA6DC4C1724408D002C81AD /* CloudClientTests.m in Sources */,
 				4FA6DC76172441A3002C81AD /* CloudClient.m in Sources */,
-				4FA6DC77172441A3002C81AD /* ErrorResult.m in Sources */,
-				4FA6DC78172441A3002C81AD /* Result.m in Sources */,
-				4FA6DC79172441A3002C81AD /* ShopResult.m in Sources */,
 				4FA6DC7B172441A3002C81AD /* ASIAuthenticationDialog.m in Sources */,
 				4FA6DC7C172441A3002C81AD /* ASIDataCompressor.m in Sources */,
 				4FA6DC7D172441A3002C81AD /* ASIDataDecompressor.m in Sources */,
@@ -495,6 +524,13 @@
 				4F866651172F91090064C0D7 /* SBJsonUTF8Stream.m in Sources */,
 				4F866652172F91090064C0D7 /* SBJsonWriter.m in Sources */,
 				4F866655172F91DC0064C0D7 /* NSObject+SBJson.m in Sources */,
+				4F974E771734DC6000D5C72A /* CheckinResult.m in Sources */,
+				4F974E781734DC6000D5C72A /* ErrorResult.m in Sources */,
+				4F974E791734DC6000D5C72A /* Result.m in Sources */,
+				4F974E7A1734DC6000D5C72A /* ShopResult.m in Sources */,
+				4F974E7B1734DC6000D5C72A /* Customer.m in Sources */,
+				4F974E7C1734DC6000D5C72A /* Shop.m in Sources */,
+				4F974E811734E3EB00D5C72A /* CustomerCoupon.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

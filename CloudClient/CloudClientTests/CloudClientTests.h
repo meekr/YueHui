@@ -9,7 +9,7 @@
 #import <SenTestingKit/SenTestingKit.h>
 
 #import "CloudClient.h"
-#import "ShopResult.h"
+
 
 
 @interface CloudClientTests : SenTestCase
