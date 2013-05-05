@@ -171,6 +171,7 @@
 		4F856E07171A56C20002542A /* store_c5.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F856DDD171A56C20002542A /* store_c5.png */; };
 		4F856E08171A56C20002542A /* store_c5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F856DDE171A56C20002542A /* store_c5@2x.png */; };
 		4F856E16171A6DB00002542A /* Coupon2LViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F856E15171A5DC80002542A /* Coupon2LViewController.m */; };
+		4F974EAA1736BFA500D5C72A /* libCloudClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA6DC8D17244233002C81AD /* libCloudClient.a */; };
 		4F97F88116FDC7FC0085763A /* store_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F97F88016FDC7FC0085763A /* store_1.png */; };
 		4FA6DBFC1722B354002C81AD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA6DBFB1722B354002C81AD /* libz.dylib */; };
 		4FA6DBFE1722B35C002C81AD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA6DBFD1722B35C002C81AD /* MobileCoreServices.framework */; };
@@ -215,6 +216,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4F974EAB1736C5B600D5C72A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4FA6DC8717244232002C81AD /* CloudClient.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4FEFFA6316EF7FEB00374B88;
+			remoteInfo = CloudClient;
+		};
 		4FA6DC8C17244233002C81AD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4FA6DC8717244232002C81AD /* CloudClient.xcodeproj */;
@@ -487,6 +495,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F974EAA1736BFA500D5C72A /* libCloudClient.a in Frameworks */,
 				4FA6DC021722B36E002C81AD /* SenTestingKit.framework in Frameworks */,
 				4FA6DC001722B365002C81AD /* CFNetwork.framework in Frameworks */,
 				4FA6DBFE1722B35C002C81AD /* MobileCoreServices.framework in Frameworks */,
@@ -752,10 +761,6 @@
 		C2D75E6C16F190FA0008C9E5 = {
 			isa = PBXGroup;
 			children = (
-				4FA6DC011722B36E002C81AD /* SenTestingKit.framework */,
-				4FA6DBFF1722B365002C81AD /* CFNetwork.framework */,
-				4FA6DBFD1722B35C002C81AD /* MobileCoreServices.framework */,
-				4FA6DBFB1722B354002C81AD /* libz.dylib */,
 				C2D75E7E16F190FA0008C9E5 /* YueHui */,
 				4FA6DC151722B4DC002C81AD /* YuehuiTest */,
 				C2D75E7716F190FA0008C9E5 /* Frameworks */,
@@ -776,6 +781,10 @@
 		C2D75E7716F190FA0008C9E5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4FA6DC011722B36E002C81AD /* SenTestingKit.framework */,
+				4FA6DBFF1722B365002C81AD /* CFNetwork.framework */,
+				4FA6DBFD1722B35C002C81AD /* MobileCoreServices.framework */,
+				4FA6DBFB1722B354002C81AD /* libz.dylib */,
 				C2D75EC316F1A7BE0008C9E5 /* libc++.dylib */,
 				C22EBA2416F3082A006ED822 /* libstdc++.6.0.9.dylib */,
 				C2D75EC516F1A8AC0008C9E5 /* libultrasonicLib.a */,
@@ -930,6 +939,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				4F974EAC1736C5B600D5C72A /* PBXTargetDependency */,
 			);
 			name = YueHui;
 			productName = YueHui;
@@ -1224,6 +1234,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		4F974EAC1736C5B600D5C72A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CloudClient;
+			targetProxy = 4F974EAB1736C5B600D5C72A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		4F856E0D171A574C0002542A /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
@@ -1362,6 +1380,7 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "CloudClient/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1388,6 +1407,7 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "CloudClient/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -12,6 +12,8 @@
 #import "UINavigationBar+Ext.h"
 #import "ShopViewController.h"
 
+#import "CloudClient.h"
+
 @interface ShopViewController ()
 {
     //    BOOL searching;
@@ -130,6 +132,11 @@ BOOL keyboardIsShown;
     [backBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
     
+    //
+    NSString* uuid = @"1001";
+    CheckinResult* r = [CloudClient customerCheckin: uuid
+                                              token:@"110"];
+    NSLog(@"customerCheckin: %@", r);
 }
 
 -( void)initLabel:(UILabel*)label{
@@ -159,6 +166,34 @@ BOOL keyboardIsShown;
 
 -(void)registerAction{
     [self.navigationController popViewControllerAnimated:NO];
+}
+
+
+#pragma mark - private methods
+NSString* gen_uuid()
+{
+    CFUUIDRef uuid_ref = CFUUIDCreate(NULL);
+    CFStringRef uuid_string_ref= CFUUIDCreateString(NULL, uuid_ref);
+    CFRelease(uuid_ref);
+    NSString *uuid = [NSString stringWithString:(NSString*)CFBridgingRelease(uuid_string_ref)];
+    CFRelease(uuid_string_ref);
+    
+    NSString *pattern = @"-";
+    NSError *error = nil;
+    NSRegularExpression *regex = [NSRegularExpression
+                                  regularExpressionWithPattern:pattern
+                                  options:NSRegularExpressionCaseInsensitive error:&error];
+    if(error != nil){
+        NSLog(@"ERror: %@",error);
+    } else{
+        uuid = [regex stringByReplacingMatchesInString:uuid
+                                               options:0
+                                                 range:NSMakeRange(0, [uuid length])
+                                          withTemplate:@""];
+        
+    }
+    
+    return uuid;
 }
 
 @end

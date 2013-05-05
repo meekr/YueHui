@@ -12,6 +12,8 @@
 #import <QuartzCore/QuartzCore.h>
 #import "ShopViewController.h"
 
+
+
 #define kShakePhoneTag 1
 #define kRadarScanTag 2
 #define kRadarScanAnimation @"rotationAnimation"
@@ -194,7 +196,7 @@
     {
         string str = receiver->getData();
         self.token = [NSString stringWithUTF8String:str.c_str()];
-        NSLog(@"token:%s", str.c_str());
+//        NSLog(@"token:%s", str.c_str());
         
         if (self.token.length > 0)
         {

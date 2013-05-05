@@ -12,12 +12,15 @@
 @synthesize shop;
 @synthesize customer;
 @synthesize customerCoupons;
+@synthesize promotions;
 
 - (id)init
 {
     self = [super init];
     if (self) {
         // Initialization code here.
+        customerCoupons = [[NSMutableArray alloc] init];
+        promotions = [[NSMutableArray alloc] init];
     }
     
     return self;
@@ -31,14 +34,26 @@
     
     NSDictionary* data = (NSDictionary*)[receivedObjects objectForKey:@"data"];
     if(data!=nil){
-        self.shop = [[[Shop alloc] init] parseDic:[data objectForKey:@"shop"]];
-        self.customer = [[[Customer alloc] init] parseDic:[data objectForKey:@"customer"]];
+        self.shop = [[Shop alloc] init];
+        [self.shop parseDic:[data objectForKey:@"shop"]];
+        self.customer = [[Customer alloc] init];
+        [self.customer  parseDic:[data objectForKey:@"customer"]];
         
         NSArray* coupons = [data objectForKey:@"customerCoupons"];
         if(coupons!=nil){
             for (int i=0; i<coupons.count; i++) {
-                [customerCoupons addObject:[[[CustomerCoupon alloc] init]
-                                            parseDic:[coupons objectAtIndex:i]]];
+                CustomerCoupon* c = [[CustomerCoupon alloc] init];
+                [c parseDic:[coupons objectAtIndex:i]];
+                [customerCoupons addObject:c];
+            }
+        }
+        
+        NSArray* promotionJsons = [data objectForKey:@"promotions"];
+        if(promotionJsons!=nil){
+            for (int i=0; i<promotionJsons.count; i++) {
+                Promotion* p = [[Promotion alloc] init];
+                [p parseDic:[promotionJsons objectAtIndex:i]];
+                [promotions addObject:p];
             }
         }
     }
